@@ -7,6 +7,10 @@ import { Team } from "../components/Team";
 import { Testimonials } from "../components/Testimonials";
 import { Pricing } from "../components/Pricing";
 import { FAQ } from "../components/FAQ";
+import Globe3DDemo from "../components/3d-globe-demo";
+import ImagesBadgeDemo from "../components/images-badge-demo";
+import BackgroundBeamsWithCollisionDemo from "../components/background-beams-with-collision-demo";
+import MacbookScrollDemo from "../components/macbook-scroll-demo";
 import { FinalCTA } from "../components/FinalCTA";
 import { motion } from "motion/react";
 
@@ -14,7 +18,34 @@ export function Home() {
   return (
     <>
       <Hero />
+      <MacbookScrollDemo />
       <TrustStats />
+      <ImagesBadgeDemo />
+      <section className="py-24 bg-black overflow-hidden relative">
+        <div className="max-w-7xl mx-auto px-6 mb-12 text-center relative z-10">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            className="text-white/40 font-black uppercase tracking-[0.2em] text-[10px] mb-4"
+          >
+            Worldwide Impact
+          </motion.div>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-4xl md:text-6xl font-heading font-black tracking-tighter text-white"
+          >
+            We deploy solutions <br />
+            <span className="text-white/40">to every corner of the globe.</span>
+          </motion.h2>
+        </div>
+        <div className="relative h-[600px] w-full flex items-center justify-center">
+          {/* Subtle glow behind globe */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent-blue/10 rounded-full blur-[120px] pointer-events-none" />
+          <Globe3DDemo />
+        </div>
+      </section>
+      <BackgroundBeamsWithCollisionDemo />
       <PortfolioSection />
       <Services />
       <DashboardUI />

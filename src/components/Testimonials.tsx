@@ -1,136 +1,170 @@
-import { motion, useAnimationFrame, useMotionValue, useTransform } from "motion/react";
-import { Quote, Star } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
 import { useRef, useState } from "react";
+import { cn } from "../lib/utils";
 
 const testimonials = [
   {
-    name: "Alex Thompson",
-    role: "CEO at Nexus",
-    content: "QYNT turned our vision into a digital masterpiece. Their attention to detail is simply unmatched in the industry.",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex"
+    id: "manu",
+    name: "Manu Arora",
+    role: "Tech Innovator & Entrepreneur",
+    content: "What a fantastic AI Proactiv AI is, I just love it. It has completely transformed the way I approach problems and develop solutions.",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Manu"
   },
   {
-    name: "Sarah Chen",
-    role: "Design Lead at Flow",
-    content: "Working with QYNT was the best decision for our rebranding. They don't just design; they craft experiences.",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah"
+    id: "tyler",
+    name: "Tyler Durden",
+    role: "Creative Director & Business Owner",
+    content: "I made a soap with the help of AI, it was so easy to use. I'm so glad this happened because it revolutionized my entire business model and production process.",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Tyler"
   },
   {
-    name: "James Miller",
-    role: "Founder of Zenith",
-    content: "A world-class agency. They delivered a site that feels expensive and functions flawlessly.",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=James"
+    id: "alice",
+    name: "Alice Johnson",
+    role: "Senior Software Engineer",
+    content: "This AI has transformed the way I work! It's like having a brilliant assistant who knows exactly what I need before I even ask.",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Alice"
   },
   {
-    name: "Aria Rodriguez",
-    role: "Product Lead at Orbit",
-    content: "They don't just build websites; they build experiences that convert. Our engagement metrics doubled post-launch.",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Aria"
+    id: "bob",
+    name: "Bob Smith",
+    role: "Industry Analyst",
+    content: "Absolutely revolutionary, a game-changer for our industry. It has streamlined our processes and enhanced our productivity dramatically.",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Bob"
   },
   {
-    name: "David Park",
-    role: "Marketing Director at NEXA",
-    content: "Digital excellence at its finest. The motion design and transitions in our new platform are absolutely buttery smooth.",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=David"
+    id: "eva",
+    name: "Eva Green",
+    role: "Operations Director",
+    content: "The efficiency it brings is unmatched. It's a vital tool that has helped us cut costs and improve our end product significantly.",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Eva"
+  },
+  {
+    id: "henry",
+    name: "Henry Ford",
+    role: "Operations Analyst",
+    content: "It has saved us countless hours. Highly recommended for anyone looking to enhance their efficiency and productivity.",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Henry"
+  },
+  {
+    id: "ivy",
+    name: "Ivy Wilson",
+    role: "Business Consultant",
+    content: "A must-have tool for any professional. It's revolutionized the way we approach problem-solving and decision-making.",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Ivy"
   }
 ];
 
-function TestimonialCard({ item }: { item: typeof testimonials[0], key?: any }) {
-  return (
-    <div className="w-[450px] flex-shrink-0 px-4">
-      <motion.div 
-        whileHover={{ y: -10, scale: 1.02 }}
-        className="h-full bg-white/50 backdrop-blur-xl rounded-[40px] p-10 border border-black/5 shadow-sm hover:shadow-xl hover:bg-white transition-all duration-500 group"
-      >
-        <div className="flex justify-between items-start mb-8">
-          <div className="flex gap-1 group-hover:scale-105 transition-transform duration-500">
-            {[1, 2, 3, 4, 5].map((i) => (
-              <Star key={i} className="w-4 h-4 fill-accent-blue text-accent-blue" />
-            ))}
-          </div>
-          <Quote className="w-10 h-10 text-accent-blue/10 group-hover:text-accent-blue/20 transition-colors duration-500" />
-        </div>
-        
-        <p className="text-xl font-medium leading-relaxed mb-10 text-foreground/80 italic">
-          “{item.content}”
-        </p>
-        
-        <div className="flex items-center gap-4">
-          <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-accent-blue/20 p-1 group-hover:border-accent-blue transition-colors duration-500">
-            <img src={item.avatar} alt={item.name} className="w-full h-full rounded-full bg-secondary-bg" referrerPolicy="no-referrer" />
-          </div>
-          <div>
-            <h4 className="font-heading font-bold text-lg">{item.name}</h4>
-            <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">{item.role}</p>
-          </div>
-        </div>
-      </motion.div>
-    </div>
-  );
-}
-
-function MarqueeRow({ items, direction = 1, speed = 1 }: { items: typeof testimonials, direction?: 1 | -1, speed?: number }) {
-  const baseX = useMotionValue(0);
-  const [isHovered, setIsHovered] = useState(false);
-
-  useAnimationFrame((t, delta) => {
-    if (isHovered) return;
-    const moveBy = direction * speed * (delta / 25);
-    baseX.set(baseX.get() + moveBy);
-    
-    if (direction === -1 && baseX.get() <= -33.33) baseX.set(0);
-    if (direction === 1 && baseX.get() >= 0) baseX.set(-33.33);
-  });
-
-  const x = useTransform(baseX, (v) => `${v}%`);
-
-  return (
-    <div 
-      className="flex overflow-hidden py-10"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <motion.div 
-        style={{ x }}
-        className="flex"
-      >
-        {[...items, ...items, ...items].map((item, i) => (
-          <TestimonialCard key={i} item={item} />
-        ))}
-      </motion.div>
-    </div>
-  );
-}
+const backgroundTestimonials = [
+  ...testimonials,
+  {
+    id: "david",
+    name: "David Wright",
+    role: "Research Scientist",
+    content: "It's like having a superpower! This AI tool has given us the ability to do things we never thought were possible in our field.",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=David"
+  },
+  {
+    id: "grace",
+    name: "Grace Hall",
+    role: "Marketing Specialist",
+    content: "It's incredibly intuitive and easy to use. Even those without technical expertise can leverage its power to improve their workflows.",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Grace"
+  },
+  {
+    id: "jack",
+    name: "Jack Brown",
+    role: "Performance Manager",
+    content: "The results are always impressive. This AI has helped us to not only meet but exceed our performance targets.",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Jack"
+  }
+];
 
 export function Testimonials() {
+  const [activeId, setActiveId] = useState("tyler");
+  const activeTestimonial = testimonials.find(t => t.id === activeId) || testimonials[1];
+
   return (
-    <section className="py-40 bg-white relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 mb-20 text-center">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          className="text-accent-blue font-bold uppercase tracking-[0.2em] text-[10px] mb-4"
-        >
-          Voices of Success
-        </motion.div>
-        <motion.h2 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          className="text-5xl md:text-8xl font-heading font-extrabold tracking-tighter leading-[0.9]"
-        >
-          Don&apos;t take <br />
-          <span className="text-muted-foreground text-gradient">our word for it.</span>
-        </motion.h2>
+    <section className="relative min-h-screen bg-[#030303] overflow-hidden py-32 flex items-center justify-center">
+      {/* Background Grid of Cards */}
+      <div className="absolute inset-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-8 opacity-15 pointer-events-none">
+        {backgroundTestimonials.map((t, i) => (
+          <div 
+            key={t.id + i}
+            className="p-8 rounded-3xl border border-white/10 bg-white/[0.01] flex flex-col justify-between h-[300px]"
+          >
+            <p className="text-white/70 text-sm leading-relaxed font-medium">
+              {t.content}
+            </p>
+            <div className="flex items-center gap-4 mt-6">
+              <img src={t.avatar} alt={t.name} className="w-12 h-12 rounded-full bg-white/5 grayscale opacity-50" referrerPolicy="no-referrer" />
+              <div>
+                <h4 className="text-white/80 text-sm font-bold">{t.name}</h4>
+                <p className="text-white/30 text-[10px] uppercase tracking-[0.2em]">{t.role}</p>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
 
-      <div className="relative">
-        <MarqueeRow items={testimonials} direction={-1} speed={0.4} />
-        <MarqueeRow items={[...testimonials].reverse()} direction={1} speed={0.3} />
-        
-        {/* Fade gradients */}
-        <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 w-40 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+      {/* Radial Spotlight Overlay - Stronger Dimming */}
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,transparent_0%,#030303_65%)] z-10" />
+
+      {/* Central Spotlight Section */}
+      <div className="relative z-20 w-full max-w-5xl px-6 text-center">
+        <div className="mb-14 relative flex flex-col items-center">
+          {/* Glowing Background for Spotlight - More layered for "Soft Light" effect */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/[0.07] rounded-full blur-[120px] opacity-60" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-white/[0.05] rounded-full blur-[80px]" />
+          
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeId}
+              initial={{ opacity: 0, filter: "blur(10px)" }}
+              animate={{ opacity: 1, filter: "blur(0px)" }}
+              exit={{ opacity: 0, filter: "blur(10px)" }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              className="relative z-10 flex flex-col items-center"
+            >
+              <div className="w-24 h-24 rounded-full overflow-hidden mb-12 shadow-[0_0_50px_rgba(255,255,255,0.2)]">
+                <img 
+                  src={activeTestimonial.avatar} 
+                  alt={activeTestimonial.name} 
+                  className="w-full h-full rounded-full object-cover"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+
+              <h2 className="text-2xl md:text-5xl font-heading font-black text-white tracking-tighter leading-[1.1] max-w-4xl mb-16">
+                {activeTestimonial.content}
+              </h2>
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Selection Chips Group */}
+          <div className="bg-white/[0.03] border border-white/10 p-1.5 rounded-full backdrop-blur-2xl inline-flex gap-1.5">
+            {testimonials.slice(0, 3).map((t) => (
+              <button
+                key={t.id}
+                onClick={() => setActiveId(t.id)}
+                className={cn(
+                  "px-6 py-2.5 rounded-full text-xs font-black uppercase tracking-widest transition-all duration-500",
+                  activeId === t.id 
+                    ? "bg-white text-black shadow-[0_0_30px_rgba(255,255,255,0.3)]" 
+                    : "text-white/40 hover:text-white/80 hover:bg-white/5"
+                )}
+              >
+                {t.name}
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
+      
+      {/* Edge vignette gradients */}
+      <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#030303] to-transparent pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#030303] to-transparent pointer-events-none" />
     </section>
   );
 }
+
+
