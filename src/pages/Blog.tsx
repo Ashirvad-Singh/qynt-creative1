@@ -189,11 +189,13 @@ export function Blog() {
         <div className="mt-40 text-center">
           <h3 className="text-3xl font-heading font-black tracking-tighter mb-4">More articles coming soon</h3>
           <p className="text-muted-foreground font-medium mb-8">We work on more exciting content to help you grow your business.</p>
-          <Link to="/contact">
-            <Button className="bg-[#1a1a1a] rounded-xl h-14 px-8 font-bold flex items-center gap-2 hover:bg-black transition-all group">
-              Subscribe to Newsletter <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-            </Button>
-          </Link>
+          <Button 
+            render={<Link to="/contact" />}
+            nativeButton={false}
+            className="bg-[#1a1a1a] rounded-xl h-14 px-8 font-bold flex items-center gap-2 hover:bg-black transition-all group"
+          >
+            Subscribe to Newsletter <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+          </Button>
         </div>
       </div>
       

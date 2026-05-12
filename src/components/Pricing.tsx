@@ -96,14 +96,14 @@ export function Pricing() {
               </div>
 
               <div className="pt-2">
-                <Link to="/contact">
-                  <Button 
-                    variant={plan.featured ? "secondary" : "default"} 
-                    className={`w-full rounded-2xl h-16 text-lg font-bold transition-transform active:scale-95 ${plan.featured ? "bg-white text-primary hover:bg-white/90" : "bg-black"}`}
-                  >
-                    Select Plan
-                  </Button>
-                </Link>
+                <Button 
+                  render={<Link to="/contact" />}
+                  nativeButton={false}
+                  variant={plan.featured ? "secondary" : "default"} 
+                  className={`w-full rounded-2xl h-16 text-lg font-bold transition-transform active:scale-95 ${plan.featured ? "bg-white text-primary hover:bg-white/90" : "bg-black"}`}
+                >
+                  Select Plan
+                </Button>
                 <p className="mt-6 text-center text-[10px] uppercase tracking-widest opacity-40 font-bold">
                   {plan.tagline}
                 </p>

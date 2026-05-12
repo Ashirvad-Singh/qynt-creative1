@@ -1,10 +1,11 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { Logo } from "./Logo";
-import { Button } from "./ui/button";
+import { Button, buttonVariants } from "./ui/button";
 import { ArrowRight, Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import { Magnetic } from "./Magnetic";
 import { Link, useLocation } from "react-router-dom";
+import { cn } from "../lib/utils";
 
 export function Navbar() {
   const { scrollY } = useScroll();
@@ -60,12 +61,15 @@ export function Navbar() {
             </motion.div>
           ))}
           <Magnetic>
-            <Link to="/contact">
-              <Button size="sm" className="rounded-full px-6 group bg-black hover:bg-black/80">
-                Start a project
-                <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </Button>
-            </Link>
+            <Button 
+              nativeButton={false}
+              size="sm" 
+              className="rounded-full px-6 group bg-black hover:bg-black/80"
+              render={<Link to="/contact" />}
+            >
+              Start a project
+              <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </Button>
           </Magnetic>
         </div>
 
@@ -73,12 +77,13 @@ export function Navbar() {
         <div className="md:hidden">
           <Sheet>
             <SheetTrigger
-              render={
-                <Button variant="ghost" size="icon">
-                  <Menu className="w-6 h-6" />
-                </Button>
-              }
-            />
+              className={cn(
+                buttonVariants({ variant: "ghost", size: "icon" }),
+                "relative z-50"
+              )}
+            >
+              <Menu className="w-6 h-6" />
+            </SheetTrigger>
             <SheetContent>
               <div className="flex flex-col gap-6 mt-12">
                 {navLinks.map((link) => (
@@ -90,12 +95,14 @@ export function Navbar() {
                     {link.name}
                   </Link>
                 ))}
-                <Link to="/contact">
-                  <Button className="w-full mt-4 rounded-full py-8 text-xl font-bold bg-black group">
-                    Start a project
-                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1" />
-                  </Button>
-                </Link>
+                <Button 
+                  nativeButton={false}
+                  className="w-full mt-4 rounded-full py-8 text-xl font-bold bg-black group"
+                  render={<Link to="/contact" />}
+                >
+                  Start a project
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1" />
+                </Button>
               </div>
             </SheetContent>
           </Sheet>

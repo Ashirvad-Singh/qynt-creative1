@@ -44,12 +44,14 @@ export function FinalCTA() {
                 </p>
               </div>
 
-              <Link to="/contact">
-                <Button className="bg-transparent border-none text-white hover:text-white/80 p-0 text-xl font-black flex items-center gap-2 group/btn">
-                  Check Budget Calculator
-                  <ArrowUpRight className="w-6 h-6 transition-transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1" />
-                </Button>
-              </Link>
+              <Button 
+                render={<Link to="/contact" />}
+                nativeButton={false}
+                className="bg-transparent border-none text-white hover:text-white/80 p-0 text-xl font-black flex items-center gap-2 group/btn"
+              >
+                Check Budget Calculator
+                <ArrowUpRight className="w-6 h-6 transition-transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1" />
+              </Button>
             </div>
           </motion.div>
 

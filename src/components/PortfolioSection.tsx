@@ -1,7 +1,7 @@
-import { motion } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
 import { PortfolioCard } from "./PortfolioCard";
 import { Skeleton } from "./Skeleton";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const projects = [
   {
@@ -56,65 +56,85 @@ const projects = [
 
 export function PortfolioSection() {
   const [isReady, setIsReady] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsReady(true), 1800);
     return () => clearTimeout(timer);
   }, []);
 
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  });
+
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-66%"]);
+
   return (
-    <section id="portfolio" className="py-40 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-10">
-          <div className="max-w-2xl">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              className="text-accent-blue font-bold uppercase tracking-widest text-xs mb-4"
-            >
-              Selected Showcase
-            </motion.div>
-            <motion.h2 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              className="text-5xl md:text-7xl font-heading font-extrabold tracking-tighter"
-            >
-              We craft things that <br />
-              <span className="text-muted-foreground">people actually use.</span>
-            </motion.h2>
-          </div>
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            className="pb-2"
-          >
-            <div className="flex gap-4">
-              <div className="w-12 h-12 rounded-full border border-border flex items-center justify-center cursor-none hover:bg-foreground hover:text-white transition-colors">
-                <span className="sr-only">Previous</span>
-                <span>←</span>
-              </div>
-              <div className="w-12 h-12 rounded-full border border-border flex items-center justify-center cursor-none hover:bg-foreground hover:text-white transition-colors">
-                <span className="sr-only">Next</span>
-                <span>→</span>
-              </div>
+    <section id="portfolio" ref={containerRef} className="relative h-[250vh] bg-white">
+      <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 w-full mb-12">
+          <div className="flex flex-col md:flex-row justify-between items-end gap-10">
+            <div className="max-w-2xl">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                className="text-accent-blue font-bold uppercase tracking-widest text-xs mb-4"
+              >
+                Selected Showcase
+              </motion.div>
+              <motion.h2 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                className="text-5xl md:text-7xl font-heading font-extrabold tracking-tighter"
+              >
+                We craft things that <br />
+                <span className="text-muted-foreground">people actually use.</span>
+              </motion.h2>
             </div>
-          </motion.div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              className="pb-2 hidden md:block"
+            >
+              <div className="flex gap-4">
+                <div className="w-12 h-12 rounded-full border border-border flex items-center justify-center cursor-none hover:bg-foreground hover:text-white transition-colors">
+                  <span className="sr-only">Previous</span>
+                  <span>←</span>
+                </div>
+                <div className="w-12 h-12 rounded-full border border-border flex items-center justify-center cursor-none hover:bg-foreground hover:text-white transition-colors">
+                  <span className="sr-only">Next</span>
+                  <span>→</span>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
-          {isReady ? (
-            projects.map((project) => (
-              <PortfolioCard key={project.id} project={project} />
-            ))
-          ) : (
-            [1, 2, 3, 4].map((i) => (
-              <div key={i} className="aspect-[4/5] rounded-[40px] overflow-hidden">
-                <Skeleton className="w-full h-full" />
-              </div>
-            ))
-          )}
+        <div className="px-6 md:px-[calc((100vw-80rem)/2)] lg:px-[calc((100vw-80rem)/2)]">
+          <motion.div 
+            style={{ x }} 
+            className="flex gap-12 md:gap-20"
+          >
+            {isReady ? (
+              projects.map((project) => (
+                <div key={project.id} className="w-[85vw] md:w-[450px] shrink-0">
+                  <PortfolioCard project={project} />
+                </div>
+              ))
+            ) : (
+              [1, 2, 3, 4].map((i) => (
+                <div key={i} className="w-[85vw] md:w-[450px] shrink-0 aspect-[4/5] rounded-[40px] overflow-hidden">
+                  <Skeleton className="w-full h-full" />
+                </div>
+              ))
+            )}
+            {/* Extended padding for horizontal scroll end */}
+            <div className="w-[1px] shrink-0 h-1 md:w-[20vw]" />
+          </motion.div>
         </div>
       </div>
     </section>
   );
 }
+
