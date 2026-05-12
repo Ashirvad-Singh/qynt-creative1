@@ -9,9 +9,11 @@ export function PremiumBackground() {
   const mouseYSpring = useSpring(mouseY, { damping: 50, stiffness: 400 });
 
   const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 500], [0, 200]);
-  const y2 = useTransform(scrollY, [0, 500], [0, -150]);
-  const rotateSlower = useTransform(scrollY, [0, 1000], [0, 45]);
+  const y1 = useTransform(scrollY, [0, 1000], [0, 300]);
+  const y2 = useTransform(scrollY, [0, 1000], [0, -250]);
+  const y3 = useTransform(scrollY, [0, 1000], [0, 150]);
+  const rotateSlower = useTransform(scrollY, [0, 1000], [0, 60]);
+  const gridY = useTransform(scrollY, [0, 1000], [0, 50]);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -39,20 +41,22 @@ export function PremiumBackground() {
       />
 
       {/* Grid Pattern */}
-      <div 
+      <motion.div 
         className="absolute inset-0 opacity-[0.05] z-0" 
         style={{ 
           backgroundImage: `linear-gradient(to right, #000 1px, transparent 1px), linear-gradient(to bottom, #000 1px, transparent 1px)`,
-          backgroundSize: '60px 60px'
+          backgroundSize: '60px 60px',
+          y: gridY
         }}
       />
       
       {/* Sub-grid pattern */}
-      <div 
-        className="absolute inset-0 opacity-[0.02] z-0" 
+      <motion.div 
+        className="absolute inset-0 opacity-[0.02] z-0 px-10" 
         style={{ 
           backgroundImage: `linear-gradient(to right, #000 1px, transparent 1px), linear-gradient(to bottom, #000 1px, transparent 1px)`,
-          backgroundSize: '20px 20px'
+          backgroundSize: '20px 20px',
+          y: useTransform(scrollY, [0, 1000], [0, 80])
         }}
       />
 
@@ -81,13 +85,14 @@ export function PremiumBackground() {
         <motion.div
           key={i}
           className="absolute w-1 h-1 bg-black/[0.08] rounded-full"
+          style={{
+            x: Math.random() * 100 + "%",
+            y: useTransform(scrollY, [0, 2000], [Math.random() * 100 + "%", (Math.random() * 100 + 50) + "%"]),
+          }}
           initial={{ 
-            x: Math.random() * 100 + "%", 
-            y: Math.random() * 100 + "%",
             opacity: Math.random() * 0.5
           }}
           animate={{
-            y: ["-10%", "110%"],
             opacity: [0, 0.5, 0]
           }}
           transition={{

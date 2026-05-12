@@ -72,11 +72,13 @@ export function Navbar() {
         {/* Mobile Nav */}
         <div className="md:hidden">
           <Sheet>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
-                <Menu className="w-6 h-6" />
-              </Button>
-            </SheetTrigger>
+            <SheetTrigger
+              render={
+                <Button variant="ghost" size="icon">
+                  <Menu className="w-6 h-6" />
+                </Button>
+              }
+            />
             <SheetContent>
               <div className="flex flex-col gap-6 mt-12">
                 {navLinks.map((link) => (

@@ -1,19 +1,93 @@
-import { motion } from "motion/react";
+import { motion, useScroll, useTransform, useSpring } from "motion/react";
 import { Button } from "./ui/button";
 import { FloatingCard } from "./FloatingCard";
-import { ArrowUpRight, Play, Sparkles, TrendingUp, Users } from "lucide-react";
+import { ArrowUpRight, Play, Sparkles, TrendingUp, Users, Award, Zap, ShieldCheck } from "lucide-react";
 import { Magnetic } from "./Magnetic";
 import { Skeleton } from "./Skeleton";
-import { useState, useEffect } from "react";
-
+import { useState, useEffect, useRef } from "react";
 import { PremiumBackground } from "./PremiumBackground";
 
 export function Hero() {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"]
+  });
+
+  const y1 = useTransform(scrollYProgress, [0, 1], [0, -150]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [0, -250]);
+  const y3 = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  const y4 = useTransform(scrollYProgress, [0, 1], [0, -200]);
+
   return (
-    <section id="hero" className="relative min-h-screen pt-48 pb-20 overflow-hidden flex flex-col items-center">
+    <section 
+      id="hero" 
+      ref={containerRef}
+      className="relative min-h-screen pt-48 pb-20 overflow-hidden flex flex-col items-center"
+    >
       <PremiumBackground />
 
-      <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
+      {/* Floating Parallax Elements */}
+      <div className="absolute inset-0 pointer-events-none hidden lg:block">
+        <motion.div 
+          style={{ y: y1 }}
+          className="absolute top-[20%] left-[10%] z-20"
+        >
+          <div className="bg-white/40 backdrop-blur-xl p-6 rounded-[32px] border border-black/5 shadow-2xl flex items-center gap-4">
+             <div className="w-12 h-12 rounded-2xl bg-accent-green/20 flex items-center justify-center text-accent-green">
+                <TrendingUp className="w-6 h-6" />
+             </div>
+             <div>
+                <p className="text-[10px] font-black uppercase tracking-widest text-[#1a1a1a]/40">Performance</p>
+                <p className="text-xl font-black tracking-tighter">+45% ROI</p>
+             </div>
+          </div>
+        </motion.div>
+
+        <motion.div 
+          style={{ y: y2 }}
+          className="absolute top-[60%] right-[8%] z-20"
+        >
+          <div className="bg-white/40 backdrop-blur-xl p-6 rounded-[32px] border border-black/5 shadow-2xl flex items-center gap-4">
+             <div className="w-12 h-12 rounded-2xl bg-black flex items-center justify-center text-white">
+                <Users className="w-6 h-6" />
+             </div>
+             <div>
+                <p className="text-[10px] font-black uppercase tracking-widest text-[#1a1a1a]/40">Global Scale</p>
+                <p className="text-xl font-black tracking-tighter">1.2M+ Reach</p>
+             </div>
+          </div>
+        </motion.div>
+
+        <motion.div 
+          style={{ y: y4 }}
+          className="absolute top-[15%] right-[15%] z-20"
+        >
+          <div className="bg-white/40 backdrop-blur-xl p-5 rounded-[28px] border border-black/5 shadow-2xl flex items-center gap-3">
+             <div className="w-10 h-10 rounded-xl bg-[#f9f9f9] flex items-center justify-center text-[#1a1a1a]">
+                <Award className="w-5 h-5" />
+             </div>
+             <p className="text-sm font-black tracking-tighter">Top-Rated Studio</p>
+          </div>
+        </motion.div>
+
+        <motion.div 
+          style={{ y: y3 }}
+          className="absolute bottom-[20%] left-[15%] z-20"
+        >
+          <div className="bg-white/40 backdrop-blur-xl p-5 rounded-[28px] border border-black/5 shadow-2xl flex items-center gap-3">
+             <div className="w-10 h-10 rounded-xl bg-[#00D26A]/10 text-accent-green flex items-center justify-center">
+                <ShieldCheck className="w-5 h-5" />
+             </div>
+             <p className="text-sm font-black tracking-tighter">Certified Security</p>
+          </div>
+        </motion.div>
+      </div>
+
+      <motion.div 
+        style={{ y: useTransform(scrollYProgress, [0, 1], [0, -50]) }}
+        className="max-w-7xl mx-auto px-6 text-center relative z-10"
+      >
         {/* Main Heading */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -86,7 +160,7 @@ export function Hero() {
             <p className="text-xs uppercase tracking-widest font-bold text-muted-foreground mt-2">Google <br /> Rating</p>
           </div>
         </motion.div>
-      </div>
+      </motion.div>
 
       {/* Partner Logo Ticker (Simplified for design) */}
       <div className="mt-32 w-full max-w-7xl px-6 opacity-30 grayscale overflow-hidden">
