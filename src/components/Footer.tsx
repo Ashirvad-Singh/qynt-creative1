@@ -11,7 +11,7 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-20 mb-20">
           <div className="md:col-span-2 space-y-8">
-            <Logo className="scale-125 origin-left" />
+            <Logo className="scale-100 md:scale-110 origin-left" />
             <p className="text-xl text-muted-foreground leading-relaxed max-w-sm">
               We design and build the digital future for visionary brands. Let's create something world-class together.
             </p>

@@ -81,9 +81,19 @@
     @apply border-border outline-ring/50;
     }
   body {
-    @apply bg-background text-foreground selection:bg-black selection:text-white leading-relaxed;
+    @apply bg-background text-foreground selection:bg-black selection:text-white leading-relaxed overflow-x-hidden;
     font-feature-settings: "ss01", "ss02", "cv01", "cv02";
     }
+}
+
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+#root {
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 .glass {
