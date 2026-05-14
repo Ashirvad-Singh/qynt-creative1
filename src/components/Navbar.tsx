@@ -1,5 +1,4 @@
 import { motion, useScroll, useTransform } from "motion/react";
-import { Logo } from "./Logo";
 import { Button, buttonVariants } from "./ui/button";
 import { ArrowRight, Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
@@ -43,8 +42,12 @@ export function Navbar() {
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        <Link to="/">
-          <Logo />
+        <Link to="/" className="flex items-center flex-shrink-0">
+          <img 
+            src="/logo.png" 
+            alt="Qynt Creatives & Co." 
+            className="h-10 sm:h-12 md:h-16 w-auto object-contain"
+          />
         </Link>
 
         {/* Desktop Nav */}
@@ -83,25 +86,25 @@ export function Navbar() {
             >
               <Menu className="w-6 h-6" />
             </SheetTrigger>
-            <SheetContent side="right" className="w-[280px] sm:w-[320px] p-0 border-none bg-white/95 backdrop-blur-xl shadow-2xl">
+            <SheetContent side="right" className="w-[260px] sm:w-[300px] p-0 border-none bg-white/95 backdrop-blur-xl shadow-2xl">
               {/* Background Decorative Text */}
               <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.015] flex flex-col justify-center items-center">
-                <span className="text-[80px] font-black leading-none -rotate-12 translate-x-1/4">QYNT</span>
-                <span className="text-[80px] font-black leading-none -rotate-12 -translate-x-1/4">CREATIVES</span>
+                <span className="text-[60px] font-black leading-none -rotate-12 translate-x-1/4 uppercase">QYNT</span>
+                <span className="text-[60px] font-black leading-none -rotate-12 -translate-x-1/4 uppercase">STUDIO</span>
               </div>
 
-              <div className="flex flex-col h-full pt-14 pb-8 px-5 relative z-10">
-                <div className="flex flex-col gap-0.5">
+              <div className="flex flex-col h-full pt-12 pb-6 px-4 relative z-10">
+                <div className="flex flex-col gap-0">
                   {navLinks.map((link, i) => (
                     <motion.div
                       key={link.name}
-                      initial={{ opacity: 0, x: 15 }}
+                      initial={{ opacity: 0, x: 10 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.05 + i * 0.04 }}
                     >
                       <Link
                         to={link.href}
-                        className="text-3xl sm:text-4xl font-heading font-black tracking-tighter hover:text-[#e12e7a] transition-colors leading-[1.15] block"
+                        className="text-2xl sm:text-3xl font-heading font-black tracking-tighter hover:text-[#e12e7a] transition-colors leading-[1.1] block py-1.5"
                       >
                         {link.name}
                       </Link>
@@ -109,27 +112,27 @@ export function Navbar() {
                   ))}
                 </div>
                 
-                <div className="mt-6 flex flex-col">
+                <div className="mt-8 flex flex-col">
                   <motion.div
-                    initial={{ opacity: 0, y: 15 }}
+                    initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 }}
                   >
                     <Button 
                       nativeButton={false}
-                      className="w-full rounded-xl h-14 text-lg font-black bg-black text-white group flex items-center justify-between px-6 active:scale-[0.98] transition-all hover:bg-[#e12e7a]"
+                      className="w-full rounded-xl h-12 text-base font-black bg-black text-white group flex items-center justify-between px-5 active:scale-[0.98] transition-all hover:bg-[#e12e7a]"
                       render={<Link to="/contact" />}
                     >
                       Start a project
-                      <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                     </Button>
                   </motion.div>
 
-                  <div className="mt-8 pt-6 border-t border-black/5">
-                    <p className="text-[9px] font-black uppercase tracking-widest text-[#1a1a1a]/30 mb-2">Connect</p>
-                    <div className="grid grid-cols-1 gap-0.5">
-                      <a href="mailto:Qyntcreatives@gmail.com" className="text-sm font-bold tracking-tight text-[#1a1a1a] hover:text-[#e12e7a] transition-colors">Qyntcreatives@gmail.com</a>
-                      <a href="tel:9627277111" className="text-sm font-bold tracking-tight text-[#1a1a1a] hover:text-[#e12e7a] transition-colors">9627277111</a>
+                  <div className="mt-10 pt-6 border-t border-black/5">
+                    <p className="text-[9px] font-black uppercase tracking-widest text-[#1a1a1a]/40 mb-3">Connect</p>
+                    <div className="grid grid-cols-1 gap-1">
+                      <a href="mailto:Qyntcreatives@gmail.com" className="text-[13px] font-bold tracking-tight text-[#1a1a1a] hover:text-[#e12e7a] transition-colors">Qyntcreatives@gmail.com</a>
+                      <a href="tel:9627277111" className="text-[13px] font-bold tracking-tight text-[#1a1a1a] hover:text-[#e12e7a] transition-colors">9627277111</a>
                     </div>
                   </div>
                 </div>

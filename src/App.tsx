@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from "react-route
 import { LenisProvider } from "./components/LenisProvider";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
-import { Logo } from "./components/Logo";
 import { InteractiveBackground } from "./components/InteractiveBackground";
 
 // Pages
@@ -32,7 +31,11 @@ function Loader() {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <Logo className="scale-150" />
+          <img 
+            src="/logo.png" 
+            alt="Qynt Creatives & Co." 
+            className="h-24 md:h-32 w-auto object-contain"
+          />
         </motion.div>
         <motion.div 
           className="absolute -bottom-12 left-0 w-full h-0.5 bg-black/10 rounded-full overflow-hidden"
