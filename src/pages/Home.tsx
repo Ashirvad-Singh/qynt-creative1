@@ -5,7 +5,6 @@ import { Services } from "../components/Services";
 import { DashboardUI } from "../components/DashboardUI";
 import { Team } from "../components/Team";
 import { Testimonials } from "../components/Testimonials";
-import { Pricing } from "../components/Pricing";
 import { FAQ } from "../components/FAQ";
 import Globe3DDemo from "../components/3d-globe-demo";
 import MacbookScrollDemo from "../components/macbook-scroll-demo";
@@ -47,7 +46,6 @@ export function Home() {
       <DashboardUI />
       <Team />
       <Testimonials />
-      <Pricing />
       <FAQ />
       <FinalCTA />
     </>

@@ -15,7 +15,6 @@ import { ContactPage } from "./pages/ContactPage";
 import { ProjectDetail } from "./pages/ProjectDetail";
 import { ServiceDetail } from "./pages/ServiceDetail";
 import { Blog } from "./pages/Blog";
-import { PricingPage } from "./pages/PricingPage";
 import { FAQPage } from "./pages/FAQPage";
 
 function Loader() {
@@ -108,7 +107,6 @@ function AppContent() {
                   <Route path="/portfolio" element={<PortfolioPage />} />
                   <Route path="/portfolio/:id" element={<ProjectDetail />} />
                   <Route path="/blog" element={<Blog />} />
-                  <Route path="/pricing" element={<PricingPage />} />
                   <Route path="/faq" element={<FAQPage />} />
                   <Route path="/contact" element={<ContactPage />} />
                   <Route path="*" element={<Home />} />

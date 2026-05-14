@@ -2,7 +2,7 @@ import { motion, useScroll, useSpring, useTransform } from "motion/react";
 import { Team } from "../components/Team";
 import { FinalCTA } from "../components/FinalCTA";
 import { PremiumBackground } from "../components/PremiumBackground";
-import { Award, Target, Eye, Heart, CheckCircle2, Star, Zap, Users } from "lucide-react";
+import { Award, Target, Eye, Heart, CheckCircle2, Star, Zap, Users, Shield, Search } from "lucide-react";
 import { useRef } from "react";
 
 export function About() {
@@ -111,28 +111,88 @@ export function About() {
         </div>
       </section>
 
-      {/* Values Grid */}
+      {/* Mission & Vision Section */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="p-12 md:p-16 rounded-[48px] bg-black text-white"
+            >
+              <div className="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center mb-10">
+                <Target className="w-8 h-8 text-accent-green" />
+              </div>
+              <h3 className="text-sm font-black uppercase tracking-[0.3em] mb-4 text-accent-green">Our Mission</h3>
+              <h2 className="text-4xl sm:text-5xl font-heading font-black tracking-tighter leading-tight mb-8">
+                Empowering visionary founders to build products that define categories.
+              </h2>
+              <p className="text-xl text-white/60 leading-relaxed font-medium">
+                We bridge the gap between technical complexity and intuitive human experience, ensuring that every project we touch achieves its full potential.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="p-12 md:p-16 rounded-[48px] bg-[#f9f9f9] border border-black/5"
+            >
+              <div className="w-16 h-16 rounded-2xl bg-black/5 flex items-center justify-center mb-10">
+                <Eye className="w-8 h-8 text-black" />
+              </div>
+              <h3 className="text-sm font-black uppercase tracking-[0.3em] mb-4 text-black/40">Our Vision</h3>
+              <h2 className="text-4xl sm:text-5xl font-heading font-black tracking-tighter leading-tight mb-8">
+                To be the global standard for cinematic digital craftsmanship.
+              </h2>
+              <p className="text-xl text-muted-foreground leading-relaxed font-medium">
+                We believe in a future where technology is invisible and the experience is everything. Our goal is to set the benchmark for quality in the digital frontier.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Core Values Section */}
       <section className="py-40 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="text-center mb-24">
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              className="text-black font-black uppercase tracking-[0.2em] text-[10px] mb-6"
+            >
+              Foundation
+            </motion.div>
+            <h2 className="text-5xl md:text-7xl font-heading font-black tracking-tighter mb-8 leading-none">
+              Our Core <br />
+              <span className="text-black/20">Expectations.</span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
             {[
-              { icon: Eye, title: "Our Vision", desc: "Setting the standard for how brands interact with digital ecosystems.", color: "bg-black text-white" },
-              { icon: Target, title: "Our Mission", desc: "Empowering ambitious founders to build products that define categories.", color: "bg-[#f9f9f9] text-black" },
-              { icon: Heart, title: "Our Core", desc: "Relentless curiosity, radical transparency, and functional aesthetics.", color: "bg-[#f9f9f9] text-black" }
+              { icon: Zap, title: "Velocity & Precision", desc: "We move fast without breaking things. Speed is a feature, but quality is non-negotiable." },
+              { icon: Heart, title: "Radical Transparency", desc: "No fluff, no vanity. We speak the truth even when it's uncomfortable to ensure project success." },
+              { icon: Star, title: "Functional Aesthetics", desc: "Design must serve a purpose. We create beauty that works and scales with your business." },
+              { icon: Shield, title: "Unwavering Integrity", desc: "We take full ownership of our output. If it's not world-class, it doesn't leave the studio." },
+              { icon: Users, title: "Human Centricity", desc: "Every line of code and every pixel is designed for a human being on the other side." },
+              { icon: Search, title: "Relentless Curiosity", desc: "We are perpetual students of the game, always exploring new frontiers and technologies." }
             ].map((value, i) => (
               <motion.div
-                key={i}
+                key={value.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className={`p-10 rounded-[48px] border border-black/5 hover:border-black/10 transition-all group ${value.color}`}
+                className="p-10 rounded-[40px] bg-white border border-black/5 hover:border-black/10 hover:shadow-xl hover:shadow-black/5 transition-all group"
               >
-                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-8 border border-current/10`}>
-                  <value.icon className="w-6 h-6" />
+                <div className="w-14 h-14 rounded-2xl bg-black/5 flex items-center justify-center mb-8 group-hover:bg-[#e12e7a]/10 transition-colors">
+                  <value.icon className="w-6 h-6 text-black group-hover:text-[#e12e7a] transition-colors" />
                 </div>
-                <h3 className="text-3xl font-heading font-black tracking-tighter mb-6">{value.title}</h3>
-                <p className="text-lg opacity-60 leading-relaxed font-medium">
+                <h3 className="text-2xl font-black tracking-tight mb-4">{value.title}</h3>
+                <p className="text-muted-foreground leading-relaxed font-medium">
                   {value.desc}
                 </p>
               </motion.div>

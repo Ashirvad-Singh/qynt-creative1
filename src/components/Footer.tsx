@@ -38,7 +38,6 @@ export function Footer() {
               {[
                 { name: "Portfolio", href: "/portfolio" },
                 { name: "Services", href: "/services" },
-                { name: "Pricing", href: "/pricing" },
                 { name: "FAQ", href: "/faq" },
                 { name: "About", href: "/about" },
                 { name: "Contact", href: "/contact" }
