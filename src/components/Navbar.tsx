@@ -63,12 +63,11 @@ export function Navbar() {
           <Magnetic>
             <Button 
               nativeButton={false}
-              size="sm" 
-              className="rounded-full px-6 group bg-black hover:bg-black/80"
+              className="rounded-full px-8 h-12 gap-3 group bg-[#1a1a1a] text-white hover:bg-black transition-all shadow-md active:scale-95"
               render={<Link to="/contact" />}
             >
-              Start a project
-              <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+              <span className="text-[13px] font-bold tracking-tight">Start a project</span>
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 stroke-[2.5px]" />
             </Button>
           </Magnetic>
         </div>

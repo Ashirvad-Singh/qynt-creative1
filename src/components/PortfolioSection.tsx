@@ -6,132 +6,121 @@ import { useState, useEffect, useRef } from "react";
 const projects = [
   {
     id: 1,
-    title: "The Zenith Collection",
-    category: "Luxury Fashion",
-    image: "https://images.unsplash.com/photo-1549439602-43ebca2327af?q=80&w=2070&auto=format&fit=crop",
+    title: "Roadhouse Cafe & Bar",
+    category: "Hospitality & Dining",
+    image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=2074&auto=format&fit=crop",
     accent: "#FF4E00",
+    url: "https://www.roadhousecafeandbar.com/",
     links: [
-      "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=1000",
-      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000",
-      "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1000"
+      "https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=1000",
+      "https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1000",
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1000"
     ]
   },
   {
     id: 2,
-    title: "Nexus OS Dashboard",
-    category: "Fintech SaaS",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+    title: "School Plus Furniture",
+    category: "Educational Design",
+    image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2070&auto=format&fit=crop",
     accent: "#3B82F6",
+    url: "https://www.schoolplusfurniture.com/",
     links: [
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000",
-      "https://images.unsplash.com/photo-1543286386-713bdd548da4?q=80&w=1000",
-      "https://images.unsplash.com/photo-1454165833772-d996d4ce50f7?q=80&w=1000"
+      "https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=1000",
+      "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1000",
+      "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=1000"
     ]
   },
   {
     id: 3,
-    title: "Hyperion Drive",
-    category: "Automotive Tech",
-    image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070&auto=format&fit=crop",
+    title: "Metal Cat Music",
+    category: "Entertainment & Record Label",
+    image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=2070&auto=format&fit=crop",
     accent: "#00D26A",
+    url: "https://www.metalcatmusic.com/",
     links: [
-      "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1000",
-      "https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=1000",
-      "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=1000"
+      "https://images.unsplash.com/photo-1514525253361-bee8d48ae024?q=80&w=1000",
+      "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=1000",
+      "https://images.unsplash.com/photo-1493225255756-d9584f8606e9?q=80&w=1000"
     ]
   },
   {
     id: 4,
-    title: "Visionary AR Glasses",
-    category: "Consumer Tech",
-    image: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=1000&auto=format&fit=crop",
+    title: "Charta International",
+    category: "Global Logistics",
+    image: "https://images.unsplash.com/photo-1494412651409-8963ce7935a7?q=80&w=2070&auto=format&fit=crop",
     accent: "#A855F7",
+    url: "https://chartainternational.com/",
     links: [
-      "https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?q=80&w=1000",
-      "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=1000",
-      "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1000"
+      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1000",
+      "https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=1000",
+      "https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=1000"
+    ]
+  },
+  {
+    id: 5,
+    title: "Giglab Soundworks",
+    category: "Audio Engineering",
+    image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=2070&auto=format&fit=crop",
+    accent: "#FFB800",
+    url: "https://www.giglabsoundworks.com/",
+    links: [
+      "https://images.unsplash.com/photo-1520529277867-dbf8c5e0b33b?q=80&w=1000",
+      "https://images.unsplash.com/photo-1461783470494-4da244f62c7e?q=80&w=1000",
+      "https://images.unsplash.com/photo-1462965326201-d02e4f455804?q=80&w=1000"
+    ]
+  },
+  {
+    id: 6,
+    title: "Coast Air Pro",
+    category: "Commercial HVAC",
+    image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=2070&auto=format&fit=crop",
+    accent: "#00E0FF",
+    url: "https://coastairpro.wpenginepowered.com/",
+    links: [
+      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1000",
+      "https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=1000",
+      "https://images.unsplash.com/photo-1521791136064-7986c29598a5?q=80&w=1000"
     ]
   }
 ];
 
+
 export function PortfolioSection() {
-  const [isReady, setIsReady] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setIsReady(true), 1800);
-    return () => clearTimeout(timer);
-  }, []);
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
-
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-66%"]);
-
   return (
-    <section id="portfolio" ref={containerRef} className="relative h-[250vh] bg-white">
-      <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 w-full mb-12">
-          <div className="flex flex-col md:flex-row justify-between items-end gap-10">
-            <div className="max-w-2xl">
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                className="text-accent-blue font-bold uppercase tracking-widest text-xs mb-4"
-              >
-                Selected Showcase
-              </motion.div>
-              <motion.h2 
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                className="text-5xl md:text-7xl font-heading font-extrabold tracking-tighter"
-              >
-                We craft things that <br />
-                <span className="text-muted-foreground">people actually use.</span>
-              </motion.h2>
-            </div>
+    <section id="portfolio" className="py-24 md:py-40 bg-white">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-16 md:mb-24 gap-10">
+          <div className="max-w-2xl">
             <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              className="pb-2 hidden md:block"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              className="text-accent-blue font-bold uppercase tracking-widest text-xs mb-4"
             >
-              <div className="flex gap-4">
-                <div className="w-12 h-12 rounded-full border border-border flex items-center justify-center cursor-none hover:bg-foreground hover:text-white transition-colors">
-                  <span className="sr-only">Previous</span>
-                  <span>←</span>
-                </div>
-                <div className="w-12 h-12 rounded-full border border-border flex items-center justify-center cursor-none hover:bg-foreground hover:text-white transition-colors">
-                  <span className="sr-only">Next</span>
-                  <span>→</span>
-                </div>
-              </div>
+              Selected Showcase
             </motion.div>
+            <motion.h2 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              className="text-4xl md:text-7xl font-heading font-extrabold tracking-tighter"
+            >
+              We craft things that <br />
+              <span className="text-muted-foreground">people actually use.</span>
+            </motion.h2>
           </div>
         </div>
 
-        <div className="px-6 md:px-[calc((100vw-80rem)/2)] lg:px-[calc((100vw-80rem)/2)]">
-          <motion.div 
-            style={{ x }} 
-            className="flex gap-12 md:gap-20"
-          >
-            {isReady ? (
-              projects.map((project) => (
-                <div key={project.id} className="w-[85vw] md:w-[450px] shrink-0">
-                  <PortfolioCard project={project} />
-                </div>
-              ))
-            ) : (
-              [1, 2, 3, 4].map((i) => (
-                <div key={i} className="w-[85vw] md:w-[450px] shrink-0 aspect-[4/5] rounded-[40px] overflow-hidden">
-                  <Skeleton className="w-full h-full" />
-                </div>
-              ))
-            )}
-            {/* Extended padding for horizontal scroll end */}
-            <div className="w-[1px] shrink-0 h-1 md:w-[20vw]" />
-          </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+          {projects.map((project, i) => (
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <PortfolioCard project={project} />
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

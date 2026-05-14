@@ -3,7 +3,7 @@ import { ImagesBadge } from "@/components/ui/images-badge";
 
 export default function ImagesBadgeDemo() {
   return (
-    <div className="flex h-[10rem] w-full items-center justify-center">
+    <div className="flex flex-col h-auto md:h-[10rem] w-full items-center justify-center py-10 px-6">
       <ImagesBadge
         text="Introducing Agenforce Marketing Template"
         images={[

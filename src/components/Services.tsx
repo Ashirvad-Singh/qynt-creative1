@@ -59,9 +59,9 @@ export function Services() {
   }, []);
 
   return (
-    <section id="services" className="py-40 bg-secondary-bg relative overflow-hidden">
+    <section id="services" className="py-16 md:py-40 bg-secondary-bg relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-24">
+        <div className="text-center mb-12 md:mb-24">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -72,14 +72,14 @@ export function Services() {
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-7xl font-heading font-extrabold tracking-tighter"
+            className="text-3xl sm:text-5xl md:text-7xl font-heading font-extrabold tracking-tighter"
           >
             We don't do templates. <br />
             <span className="text-muted-foreground text-gradient">We build systems.</span>
           </motion.h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-3 gap-6 auto-rows-[250px]">
+        <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-3 gap-6 auto-rows-[200px] md:auto-rows-[250px]">
           {services.map((service, i) => (
             <Link key={service.title} to={`/services/${service.id}`} className={service.className}>
               <motion.div

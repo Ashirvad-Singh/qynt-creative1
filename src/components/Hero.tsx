@@ -6,6 +6,7 @@ import { Magnetic } from "./Magnetic";
 import { Skeleton } from "./Skeleton";
 import { useState, useEffect, useRef } from "react";
 import { PremiumBackground } from "./PremiumBackground";
+import { Link } from "react-router-dom";
 
 export function Hero() {
   const containerRef = useRef(null);
@@ -23,63 +24,63 @@ export function Hero() {
     <section 
       id="hero" 
       ref={containerRef}
-      className="relative min-h-screen pt-48 pb-20 overflow-hidden flex flex-col items-center"
+      className="relative min-h-screen pt-32 md:pt-48 pb-20 overflow-hidden flex flex-col items-center"
     >
       <PremiumBackground />
 
       {/* Floating Parallax Elements */}
-      <div className="absolute inset-0 pointer-events-none hidden lg:block">
+      <div className="absolute inset-0 pointer-events-none hidden xl:block">
         <motion.div 
           style={{ y: y1 }}
-          className="absolute top-[20%] left-[10%] z-20"
+          className="absolute top-[25%] left-[5%] z-20"
         >
-          <div className="bg-white/40 backdrop-blur-xl p-6 rounded-[32px] border border-black/5 shadow-2xl flex items-center gap-4">
-             <div className="w-12 h-12 rounded-2xl bg-accent-green/20 flex items-center justify-center text-accent-green">
-                <TrendingUp className="w-6 h-6" />
+          <div className="bg-white/40 backdrop-blur-xl p-4 md:p-6 rounded-[32px] border border-black/5 shadow-2xl flex items-center gap-4">
+             <div className="w-10 h-10 md:w-12 md:h-12 rounded-2xl bg-accent-green/20 flex items-center justify-center text-accent-green">
+                <TrendingUp className="w-5 h-5 md:w-6 md:h-6" />
              </div>
              <div>
-                <p className="text-[10px] font-black uppercase tracking-widest text-[#1a1a1a]/40">Performance</p>
-                <p className="text-xl font-black tracking-tighter">+45% ROI</p>
+                <p className="text-[8px] md:text-[10px] font-black uppercase tracking-widest text-[#1a1a1a]/40">Performance</p>
+                <p className="text-lg md:text-xl font-black tracking-tighter">+45% ROI</p>
              </div>
           </div>
         </motion.div>
 
         <motion.div 
           style={{ y: y2 }}
-          className="absolute top-[60%] right-[8%] z-20"
+          className="absolute top-[65%] right-[5%] z-20"
         >
-          <div className="bg-white/40 backdrop-blur-xl p-6 rounded-[32px] border border-black/5 shadow-2xl flex items-center gap-4">
-             <div className="w-12 h-12 rounded-2xl bg-black flex items-center justify-center text-white">
-                <Users className="w-6 h-6" />
+          <div className="bg-white/40 backdrop-blur-xl p-4 md:p-6 rounded-[32px] border border-black/5 shadow-2xl flex items-center gap-4">
+             <div className="w-10 h-10 md:w-12 md:h-12 rounded-2xl bg-black flex items-center justify-center text-white">
+                <Users className="w-5 h-5 md:w-6 md:h-6" />
              </div>
              <div>
-                <p className="text-[10px] font-black uppercase tracking-widest text-[#1a1a1a]/40">Global Scale</p>
-                <p className="text-xl font-black tracking-tighter">1.2M+ Reach</p>
+                <p className="text-[8px] md:text-[10px] font-black uppercase tracking-widest text-[#1a1a1a]/40">Global Scale</p>
+                <p className="text-lg md:text-xl font-black tracking-tighter">1.2M+ Reach</p>
              </div>
           </div>
         </motion.div>
 
         <motion.div 
           style={{ y: y4 }}
-          className="absolute top-[15%] right-[15%] z-20"
+          className="absolute top-[18%] right-[8%] z-20"
         >
-          <div className="bg-white/40 backdrop-blur-xl p-5 rounded-[28px] border border-black/5 shadow-2xl flex items-center gap-3">
-             <div className="w-10 h-10 rounded-xl bg-[#f9f9f9] flex items-center justify-center text-[#1a1a1a]">
-                <Award className="w-5 h-5" />
+          <div className="bg-white/40 backdrop-blur-xl p-4 md:p-5 rounded-[28px] border border-black/5 shadow-2xl flex items-center gap-3">
+             <div className="w-8 h-8 md:w-10 md:h-10 rounded-xl bg-[#f9f9f9] flex items-center justify-center text-[#1a1a1a]">
+                <Award className="w-4 h-4 md:w-5 md:h-5" />
              </div>
-             <p className="text-sm font-black tracking-tighter">Top-Rated Studio</p>
+             <p className="text-xs md:text-sm font-black tracking-tighter">Top-Rated Studio</p>
           </div>
         </motion.div>
 
         <motion.div 
           style={{ y: y3 }}
-          className="absolute bottom-[20%] left-[15%] z-20"
+          className="absolute bottom-[25%] left-[8%] z-20"
         >
-          <div className="bg-white/40 backdrop-blur-xl p-5 rounded-[28px] border border-black/5 shadow-2xl flex items-center gap-3">
-             <div className="w-10 h-10 rounded-xl bg-[#00D26A]/10 text-accent-green flex items-center justify-center">
-                <ShieldCheck className="w-5 h-5" />
+          <div className="bg-white/40 backdrop-blur-xl p-4 md:p-5 rounded-[28px] border border-black/5 shadow-2xl flex items-center gap-3">
+             <div className="w-8 h-8 md:w-10 md:h-10 rounded-xl bg-[#00D26A]/10 text-accent-green flex items-center justify-center">
+                <ShieldCheck className="w-4 h-4 md:w-5 md:h-5" />
              </div>
-             <p className="text-sm font-black tracking-tighter">Certified Security</p>
+             <p className="text-xs md:text-sm font-black tracking-tighter">Certified Security</p>
           </div>
         </motion.div>
       </div>
@@ -95,7 +96,7 @@ export function Hero() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="relative inline-block mb-8"
         >
-          <h1 className="text-6xl md:text-[100px] font-heading font-black leading-[0.9] tracking-tighter text-[#1a1a1a]">
+          <h1 className="text-4xl sm:text-6xl md:text-8xl lg:text-[100px] font-heading font-black leading-[0.9] tracking-tighter text-[#1a1a1a]">
             We build what makes <br />
             digital <span className="relative">
               successful
@@ -128,7 +129,11 @@ export function Hero() {
           className="mb-24"
         >
           <Magnetic>
-            <Button size="lg" className="h-16 px-10 rounded-full bg-[#1a1a1a] hover:bg-black text-white text-lg font-bold shadow-2xl transition-all hover:scale-105 group relative overflow-hidden">
+            <Button 
+              size="lg" 
+              className="h-16 px-10 rounded-full bg-[#1a1a1a] hover:bg-black text-white text-lg font-bold shadow-2xl transition-all hover:scale-105 group relative overflow-hidden"
+              render={<Link to="/contact" />}
+            >
               <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               <div className="flex items-center gap-3 relative z-10">
                 <Sparkles className="w-5 h-5 text-white/80" />

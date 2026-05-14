@@ -533,7 +533,7 @@ export function Globe3D({
   );
 
   return (
-    <div className={cn("relative h-[500px] w-full", className)}>
+    <div className={cn("relative h-[300px] sm:h-[400px] md:h-[500px] w-full", className)}>
       <Canvas
         gl={{
           antialias: true,

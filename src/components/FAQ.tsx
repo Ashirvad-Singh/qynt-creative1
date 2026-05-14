@@ -27,7 +27,7 @@ const faqs = [
 
 export function FAQ() {
   return (
-    <section className="py-40 bg-white relative overflow-hidden">
+    <section className="py-16 md:py-40 bg-white relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full -z-10">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-black/[0.02] rounded-full blur-[120px]" />
@@ -35,7 +35,7 @@ export function FAQ() {
       </div>
 
       <div className="max-w-4xl mx-auto px-6">
-        <div className="text-center mb-20">
+        <div className="text-center mb-12 md:mb-20">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -46,7 +46,7 @@ export function FAQ() {
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-7xl font-heading font-extrabold tracking-tighter"
+            className="text-4xl md:text-7xl font-heading font-extrabold tracking-tighter"
           >
             Frequently Asked <br />
             <span className="text-muted-foreground text-gradient">Questions</span>

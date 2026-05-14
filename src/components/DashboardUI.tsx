@@ -3,7 +3,7 @@ import { BarChart3, LineChart, PieChart, Zap } from "lucide-react";
 
 export function DashboardUI() {
   return (
-    <section className="py-40 bg-secondary-bg overflow-hidden relative">
+    <section className="py-16 md:py-40 bg-secondary-bg overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <div>
@@ -17,7 +17,7 @@ export function DashboardUI() {
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="text-5xl md:text-7xl font-heading font-extrabold tracking-tighter mb-8"
+              className="text-4xl md:text-7xl font-heading font-extrabold tracking-tighter mb-8"
             >
               Real metrics, <br />
               <span className="text-muted-foreground text-gradient">unreal results.</span>

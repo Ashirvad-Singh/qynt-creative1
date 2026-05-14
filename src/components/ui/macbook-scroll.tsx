@@ -47,9 +47,12 @@ export const MacbookScroll = ({
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    if (typeof window !== "undefined" && window.innerWidth < 768) {
-      setIsMobile(true);
-    }
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   const scaleX = useTransform(
@@ -70,7 +73,7 @@ export const MacbookScroll = ({
   return (
     <div
       ref={ref}
-      className="flex min-h-[200vh] shrink-0 scale-[0.35] transform flex-col items-center justify-start py-0 [perspective:800px] sm:scale-50 md:scale-100 md:py-80"
+      className="flex min-h-[120vh] md:min-h-[200vh] shrink-0 scale-[0.5] sm:scale-75 md:scale-100 transform flex-col items-center justify-start py-0 [perspective:800px] md:py-80 overflow-visible"
     >
       <motion.h2
         style={{

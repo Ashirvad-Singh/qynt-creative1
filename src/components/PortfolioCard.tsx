@@ -10,6 +10,7 @@ interface Project {
   image: string;
   accent: string;
   links: string[];
+  url?: string;
 }
 
 export function PortfolioCard({ project }: { project: Project, key?: any }) {
@@ -67,40 +68,60 @@ export function PortfolioCard({ project }: { project: Project, key?: any }) {
 
         {/* Overlay Info */}
         <div 
-          className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex flex-col justify-end p-10"
+          className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex flex-col justify-end p-6 md:p-10"
           style={{ transform: "translateZ(40px)" }}
         >
           <motion.p 
             animate={{ y: isHovered ? -5 : 0, opacity: isHovered ? 1 : 0.6 }}
-            className="text-white/80 text-xs font-bold uppercase tracking-[0.2em] mb-3"
+            className="text-white/80 text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] mb-3"
           >
             {project.category}
           </motion.p>
           <motion.h3 
             animate={{ y: isHovered ? -5 : 0 }}
-            className="text-white text-4xl font-heading font-extrabold leading-[1.1] tracking-tighter"
+            className="text-white text-2xl md:text-4xl font-heading font-extrabold leading-[1.1] tracking-tighter"
           >
             {project.title}
           </motion.h3>
         </div>
 
         {/* Floating Reveal Button */}
-        <motion.div
-          animate={{ 
-            opacity: isHovered ? 1 : 0,
-            scale: isHovered ? 1 : 0.8,
-            rotate: isHovered ? 45 : 0
-          }}
-          className="absolute top-10 right-10 w-14 h-14 rounded-full bg-white flex items-center justify-center shadow-lg"
-          style={{ transform: "translateZ(60px)" }}
-        >
-          <ArrowUpRight className="w-6 h-6 text-primary" />
-        </motion.div>
+        <div className="absolute top-6 right-6 md:top-10 md:right-10 flex gap-2">
+          {project.url && (
+            <motion.a
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              animate={{ 
+                opacity: isHovered ? 1 : 0,
+                scale: isHovered ? 1 : 0.8,
+              }}
+              className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-black/80 text-white backdrop-blur-md flex items-center justify-center shadow-lg pointer-events-auto"
+              style={{ transform: "translateZ(60px)" }}
+            >
+              <ArrowUpRight className="w-5 h-5 md:w-6 md:h-6" />
+            </motion.a>
+          )}
+          <motion.div
+            animate={{ 
+              opacity: isHovered ? 1 : 0,
+              scale: isHovered ? 1 : 0.8,
+              rotate: isHovered ? 45 : 0
+            }}
+            className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white flex items-center justify-center shadow-lg"
+            style={{ transform: "translateZ(60px)" }}
+          >
+            <ArrowUpRight className="w-5 h-5 md:w-6 md:h-6 text-primary" />
+          </motion.div>
+        </div>
       </div>
 
-      {/* Bursting Images Effect - Advanced Layering */}
+      {/* Bursting Images Effect - Only on Desktop */}
       <AnimatePresence>
-        {isHovered && (
+        {isHovered && window.innerWidth >= 768 && (
           <>
             {/* Top Left Burst */}
             <motion.div

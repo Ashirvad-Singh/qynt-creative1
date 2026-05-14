@@ -30,10 +30,10 @@ const plans = [
 
 export function Pricing() {
   return (
-    <section id="pricing" className="py-40 bg-white relative overflow-hidden">
+    <section id="pricing" className="py-16 md:py-40 bg-white relative overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-black/[0.02] blur-[120px] -z-10 rounded-full" />
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-24">
+        <div className="text-center mb-16 md:mb-24">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -44,7 +44,7 @@ export function Pricing() {
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-8xl font-heading font-extrabold tracking-tighter leading-[0.9]"
+            className="text-4xl md:text-8xl font-heading font-extrabold tracking-tighter leading-[0.9]"
           >
             Premium work. <br />
             <span className="text-muted-foreground">Transparent pricing.</span>

@@ -8,8 +8,6 @@ import { Testimonials } from "../components/Testimonials";
 import { Pricing } from "../components/Pricing";
 import { FAQ } from "../components/FAQ";
 import Globe3DDemo from "../components/3d-globe-demo";
-import ImagesBadgeDemo from "../components/images-badge-demo";
-import BackgroundBeamsWithCollisionDemo from "../components/background-beams-with-collision-demo";
 import MacbookScrollDemo from "../components/macbook-scroll-demo";
 import { FinalCTA } from "../components/FinalCTA";
 import { motion } from "motion/react";
@@ -20,8 +18,7 @@ export function Home() {
       <Hero />
       <MacbookScrollDemo />
       <TrustStats />
-      <ImagesBadgeDemo />
-      <section className="py-24 bg-black overflow-hidden relative">
+      <section className="py-16 md:py-24 bg-black overflow-hidden relative">
         <div className="max-w-7xl mx-auto px-6 mb-12 text-center relative z-10">
           <motion.div
             initial={{ opacity: 0 }}
@@ -33,19 +30,18 @@ export function Home() {
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-heading font-black tracking-tighter text-white"
+            className="text-3xl sm:text-5xl md:text-6xl font-heading font-black tracking-tighter text-white"
           >
             We deploy solutions <br />
             <span className="text-white/40">to every corner of the globe.</span>
           </motion.h2>
         </div>
-        <div className="relative h-[600px] w-full flex items-center justify-center">
+        <div className="relative h-[350px] sm:h-[500px] md:h-[600px] w-full flex items-center justify-center">
           {/* Subtle glow behind globe */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent-blue/10 rounded-full blur-[120px] pointer-events-none" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[600px] aspect-square bg-accent-blue/10 rounded-full blur-[120px] pointer-events-none" />
           <Globe3DDemo />
         </div>
       </section>
-      <BackgroundBeamsWithCollisionDemo />
       <PortfolioSection />
       <Services />
       <DashboardUI />

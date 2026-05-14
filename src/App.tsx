@@ -49,11 +49,20 @@ function Loader() {
   );
 }
 
+import { useLenis } from "lenis/react";
+
 function ScrollToTop() {
   const { pathname } = useLocation();
+  const lenis = useLenis();
+
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    if (lenis) {
+      lenis.scrollTo(0, { immediate: true });
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, lenis]);
+
   return null;
 }
 
