@@ -4,39 +4,39 @@ import { cn } from "../lib/utils";
 
 const testimonials = [
   {
-    id: "manu",
-    name: "Manu Arora",
-    role: "Tech Innovator & Entrepreneur",
-    content: "What a fantastic AI Proactiv AI is, I just love it. It has completely transformed the way I approach problems and develop solutions.",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Manu"
+    id: "alex",
+    name: "Alex Rivera",
+    role: "CEO, Nexa Digital",
+    content: "Qynt transformed our brand identity into something truly remarkable. Their attention to detail and creative vision is unmatched in the industry.",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex"
   },
   {
-    id: "tyler",
-    name: "Tyler Durden",
-    role: "Creative Director & Business Owner",
-    content: "I made a soap with the help of AI, it was so easy to use. I'm so glad this happened because it revolutionized my entire business model and production process.",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Tyler"
+    id: "sarah",
+    name: "Sarah Chen",
+    role: "Founder, Bloom Studio",
+    content: "Working with Qynt was the best decision for our product launch. They delivered a high-performance platform that exceeded all our KPIs.",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah"
   },
   {
-    id: "alice",
-    name: "Alice Johnson",
-    role: "Senior Software Engineer",
-    content: "This AI has transformed the way I work! It's like having a brilliant assistant who knows exactly what I need before I even ask.",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Alice"
+    id: "marcus",
+    name: "Marcus Thorne",
+    role: "Creative Director",
+    content: "The level of craftsmanship Qynt brings to every pixel is incredible. They are truly masters of the digital medium.",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Marcus"
   },
   {
-    id: "bob",
-    name: "Bob Smith",
-    role: "Industry Analyst",
-    content: "Absolutely revolutionary, a game-changer for our industry. It has streamlined our processes and enhanced our productivity dramatically.",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Bob"
+    id: "james",
+    name: "James Wilson",
+    role: "VP of Product",
+    content: "A seamless collaboration from start to finish. Qynt understands technology and design equally well, which is rare to find.",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=James"
   },
   {
-    id: "eva",
-    name: "Eva Green",
-    role: "Operations Director",
-    content: "The efficiency it brings is unmatched. It's a vital tool that has helped us cut costs and improve our end product significantly.",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Eva"
+    id: "elena",
+    name: "Elena Petrov",
+    role: "Marketing Director",
+    content: "Our conversion rates spiked by 40% after the redesign. Qynt knows how to build for results without compromising on aesthetics.",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Elena"
   },
   {
     id: "henry",
@@ -80,8 +80,8 @@ const backgroundTestimonials = [
 ];
 
 export function Testimonials() {
-  const [activeId, setActiveId] = useState("tyler");
-  const activeTestimonial = testimonials.find(t => t.id === activeId) || testimonials[1];
+  const [activeId, setActiveId] = useState("alex");
+  const activeTestimonial = testimonials.find(t => t.id === activeId) || testimonials[0];
 
   return (
     <section className="relative min-h-screen bg-[#030303] overflow-hidden py-32 flex items-center justify-center">

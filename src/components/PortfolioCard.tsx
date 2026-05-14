@@ -86,36 +86,37 @@ export function PortfolioCard({ project }: { project: Project, key?: any }) {
         </div>
 
         {/* Floating Reveal Button */}
-        <div className="absolute top-6 right-6 md:top-10 md:right-10 flex gap-2">
-          {project.url && (
-            <motion.a
-              href={project.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={(e) => e.stopPropagation()}
-              whileHover={{ scale: 1.1 }}
+        <div className="absolute top-6 right-6 md:top-10 md:right-10">
+          {project.url ? (
+            <motion.button
+              onClick={(e) => {
+                e.stopPropagation();
+                window.open(project.url, "_blank", "noopener,noreferrer");
+              }}
+              whileHover={{ scale: 1.1, rotate: 45 }}
               whileTap={{ scale: 0.95 }}
               animate={{ 
                 opacity: isHovered ? 1 : 0,
                 scale: isHovered ? 1 : 0.8,
               }}
-              className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-black/80 text-white backdrop-blur-md flex items-center justify-center shadow-lg pointer-events-auto"
+              className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-black text-white hover:bg-[#e12e7a] flex items-center justify-center shadow-lg transition-colors pointer-events-auto"
               style={{ transform: "translateZ(60px)" }}
             >
               <ArrowUpRight className="w-5 h-5 md:w-6 md:h-6" />
-            </motion.a>
+            </motion.button>
+          ) : (
+            <motion.div
+              animate={{ 
+                opacity: isHovered ? 1 : 0,
+                scale: isHovered ? 1 : 0.8,
+                rotate: isHovered ? 45 : 0
+              }}
+              className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white flex items-center justify-center shadow-lg"
+              style={{ transform: "translateZ(60px)" }}
+            >
+              <ArrowUpRight className="w-5 h-5 md:w-6 md:h-6 text-primary" />
+            </motion.div>
           )}
-          <motion.div
-            animate={{ 
-              opacity: isHovered ? 1 : 0,
-              scale: isHovered ? 1 : 0.8,
-              rotate: isHovered ? 45 : 0
-            }}
-            className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white flex items-center justify-center shadow-lg"
-            style={{ transform: "translateZ(60px)" }}
-          >
-            <ArrowUpRight className="w-5 h-5 md:w-6 md:h-6 text-primary" />
-          </motion.div>
         </div>
       </div>
 

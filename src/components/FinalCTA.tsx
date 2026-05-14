@@ -58,9 +58,9 @@ export function FinalCTA() {
           {/* Right Contact Cards */}
           <div className="lg:col-span-4 flex flex-col gap-4">
             {[
-              { icon: Phone, label: "Call directly", value: "+1 (555) 012-3456", href: "tel:+15550123456", color: "bg-black/5 text-black" },
-              { icon: Mail, label: "Send email", value: "hello@qynt.creative", href: "mailto:hello@qynt.creative", color: "bg-black/5 text-black" },
-              { icon: MessageCircle, label: "WhatsApp", value: "Quick & uncomplicated", href: "#", color: "bg-black/5 text-black" }
+              { icon: Phone, label: "Call directly", value: "9627277111", href: "tel:+919627277111", color: "bg-black/5 text-black" },
+              { icon: Mail, label: "Send email", value: "Qyntcreatives@gmail.com", href: "mailto:Qyntcreatives@gmail.com", color: "bg-black/5 text-black" },
+              { icon: MessageCircle, label: "WhatsApp", value: "Quick & uncomplicated", href: "https://wa.me/919627277111", color: "bg-black/5 text-black" }
             ].map((contact, i) => (
               <motion.a
                 key={contact.label}

@@ -56,21 +56,32 @@ export function ContactPage() {
             
             <div className="space-y-6">
                {[
-                 { icon: <Mail className="w-5 h-5" />, label: "Email", value: "hello@qynt.creative", desc: "Response in 24h" },
-                 { icon: <MessageSquare className="w-5 h-5" />, label: "Availability", value: "Accepting Projects", desc: "Current status: Active", status: true },
-                 { icon: <Phone className="w-5 h-5" />, label: "Call", value: "+1 (555) 012-3456", desc: "Mon-Fri, 9am-6pm" }
+                 { icon: <Mail className="w-5 h-5" />, label: "Email", value: "Qyntcreatives@gmail.com", desc: "Response in 24h" },
+                 { icon: <Phone className="w-5 h-5" />, label: "Call", value: "9627277111", desc: "Mon-Fri, 9am-6pm" },
+                 { icon: <MapPin className="w-5 h-5" />, label: "Location", value: "Sector 105 D block Noida", desc: "Main Studio" },
+                 { icon: <MessageSquare className="w-5 h-5" />, label: "Availability", value: "Accepting Projects", desc: "Current status: Active", status: true }
                ].map((item, i) => (
                  <motion.div 
                    key={i}
                    initial={{ opacity: 0, scale: 0.95 }}
                    whileInView={{ opacity: 1, scale: 1 }}
+                   whileHover="hover"
                    viewport={{ once: true }}
                    transition={{ delay: i * 0.1 }}
-                   className="flex items-center gap-4 md:gap-6 p-4 md:p-6 rounded-[28px] md:rounded-[32px] bg-white border border-black/5 hover:border-black/10 transition-all group"
+                   className="flex items-center gap-4 md:gap-6 p-4 md:p-6 rounded-[28px] md:rounded-[32px] bg-white border border-black/5 hover:border-black/10 transition-all group cursor-pointer"
                  >
-                   <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-black flex items-center justify-center text-white transition-transform group-hover:scale-110">
+                   <motion.div 
+                     variants={{
+                       hover: { 
+                         y: [0, -6, 0],
+                         rotate: [0, -5, 5, 0],
+                         transition: { duration: 0.5, repeat: Infinity }
+                       }
+                     }}
+                     className="w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-black flex items-center justify-center text-white transition-transform group-hover:scale-110"
+                   >
                      {item.icon}
-                   </div>
+                   </motion.div>
                    <div className="flex-grow">
                      <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-1">{item.label}</p>
                      <div className="flex items-center gap-2">

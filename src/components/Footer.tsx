@@ -55,14 +55,15 @@ export function Footer() {
             <div className="space-y-6">
               <div>
                 <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-widest mb-2">New Projects</p>
-                <a href="mailto:hello@qynt.creative" className="text-lg font-bold hover:text-accent-blue transition-colors">hello@qynt.creative</a>
+                <a href="mailto:Qyntcreatives@gmail.com" className="text-lg font-bold hover:text-[#e12e7a] transition-colors">Qyntcreatives@gmail.com</a>
               </div>
               <div>
                 <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-widest mb-2">Studio HQ</p>
                 <address className="not-italic text-muted-foreground font-medium">
-                  128 Creative Plaza, Dist. 7<br />
-                  San Francisco, CA 94103
+                  Sector 105 D block<br />
+                  Noida, India
                 </address>
+                <a href="tel:9627277111" className="text-sm font-bold mt-2 block hover:text-[#e12e7a] transition-colors">9627277111</a>
               </div>
             </div>
           </div>

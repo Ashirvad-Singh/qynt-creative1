@@ -24,7 +24,7 @@ export function Hero() {
     <section 
       id="hero" 
       ref={containerRef}
-      className="relative min-h-screen pt-32 md:pt-48 pb-20 overflow-hidden flex flex-col items-center"
+      className="relative min-h-screen pt-24 sm:pt-32 md:pt-48 pb-20 overflow-hidden flex flex-col items-center"
     >
       <PremiumBackground />
 
@@ -96,9 +96,9 @@ export function Hero() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="relative inline-block mb-8"
         >
-          <h1 className="text-4xl sm:text-6xl md:text-8xl lg:text-[100px] font-heading font-black leading-[0.9] tracking-tighter text-[#1a1a1a]">
+          <h1 className="text-[40px] leading-[1] sm:text-6xl md:text-8xl lg:text-[100px] font-heading font-black tracking-tighter text-[#1a1a1a]">
             We build what makes <br />
-            digital <span className="relative">
+            digital <span className="relative inline-block mt-2 sm:mt-0">
               successful
               <motion.div 
                 initial={{ width: 0 }}
@@ -131,6 +131,7 @@ export function Hero() {
           <Magnetic>
             <Button 
               size="lg" 
+              nativeButton={false}
               className="h-16 px-10 rounded-full bg-[#1a1a1a] hover:bg-black text-white text-lg font-bold shadow-2xl transition-all hover:scale-105 group relative overflow-hidden"
               render={<Link to="/contact" />}
             >
@@ -148,34 +149,34 @@ export function Hero() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 1 }}
-          className="flex flex-wrap items-center justify-center gap-x-16 gap-y-10"
+          className="flex flex-wrap items-center justify-center gap-x-8 gap-y-10 md:gap-x-16"
         >
           <div className="flex flex-col items-center">
-            <span className="text-4xl md:text-5xl font-black tracking-tighter text-[#1a1a1a]">92+</span>
-            <p className="text-xs uppercase tracking-widest font-bold text-muted-foreground mt-2">Projects <br /> completed</p>
+            <span className="text-3xl md:text-5xl font-black tracking-tighter text-[#1a1a1a]">92+</span>
+            <p className="text-[10px] uppercase tracking-widest font-bold text-muted-foreground mt-2">Projects <br /> completed</p>
           </div>
           <div className="w-px h-12 bg-black/5 hidden md:block" />
           <div className="flex flex-col items-center">
-            <span className="text-4xl md:text-5xl font-black tracking-tighter text-[#1a1a1a]">100</span>
-            <p className="text-xs uppercase tracking-widest font-bold text-muted-foreground mt-2">PageSpeed <br /> Score</p>
+            <span className="text-3xl md:text-5xl font-black tracking-tighter text-[#1a1a1a]">100</span>
+            <p className="text-[10px] uppercase tracking-widest font-bold text-muted-foreground mt-2">PageSpeed <br /> Score</p>
           </div>
           <div className="w-px h-12 bg-black/5 hidden md:block" />
           <div className="flex flex-col items-center">
-            <span className="text-4xl md:text-5xl font-black tracking-tighter text-[#1a1a1a]">4.9</span>
-            <p className="text-xs uppercase tracking-widest font-bold text-muted-foreground mt-2">Google <br /> Rating</p>
+            <span className="text-3xl md:text-5xl font-black tracking-tighter text-[#1a1a1a]">4.9</span>
+            <p className="text-[10px] uppercase tracking-widest font-bold text-muted-foreground mt-2">Google <br /> Rating</p>
           </div>
         </motion.div>
       </motion.div>
 
-      {/* Partner Logo Ticker (Simplified for design) */}
-      <div className="mt-32 w-full max-w-7xl px-6 opacity-30 grayscale overflow-hidden">
-        <div className="flex items-center justify-center gap-20 py-10 border-t border-black/5">
-          <span className="font-heading font-black text-2xl tracking-tighter">NIKE</span>
-          <span className="font-heading font-black text-2xl tracking-tighter">APPLE</span>
-          <span className="font-heading font-black text-2xl tracking-tighter">TESLA</span>
-          <span className="font-heading font-black text-2xl tracking-tighter">META</span>
-          <span className="font-heading font-black text-2xl tracking-tighter">AMAZON</span>
-          <span className="font-heading font-black text-2xl tracking-tighter">GOOGLE</span>
+      {/* Partner Logo Ticker */}
+      <div className="mt-20 md:mt-32 w-full max-w-7xl px-6 opacity-30 grayscale overflow-hidden">
+        <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 py-10 border-t border-black/5 md:gap-20">
+          <span className="font-heading font-black text-xl md:text-2xl tracking-tighter">NIKE</span>
+          <span className="font-heading font-black text-xl md:text-2xl tracking-tighter">APPLE</span>
+          <span className="font-heading font-black text-xl md:text-2xl tracking-tighter">TESLA</span>
+          <span className="font-heading font-black text-xl md:text-2xl tracking-tighter">META</span>
+          <span className="font-heading font-black text-xl md:text-2xl tracking-tighter">AMAZON</span>
+          <span className="font-heading font-black text-xl md:text-2xl tracking-tighter">GOOGLE</span>
         </div>
       </div>
     </section>
