@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "motion/react";
-import logo from "../assets/images/regenerated_image_1778739825630.jpg";
+import logo from "../assets/images/regenerated_image_1778756183964.png";
 import { Button, buttonVariants } from "./ui/button";
 import { ArrowRight, Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";

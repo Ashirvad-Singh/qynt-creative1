@@ -208,6 +208,51 @@ export function About() {
         <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-white to-transparent opacity-100 invert" />
         
         <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center mb-40">
+             <div>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  className="text-accent-green font-bold uppercase tracking-[0.2em] text-[10px] mb-6"
+                >
+                  Founder&apos;s Statement
+                </motion.div>
+                <h2 className="text-4xl md:text-6xl font-heading font-black tracking-tighter mb-8 leading-tight">
+                  Design is the silent ambassador of your brand.
+                </h2>
+                <div className="space-y-6 text-xl text-white/60 font-medium leading-relaxed">
+                   <p>
+                      When we started QYNT, we didn&apos;t just want to build another agency. We wanted to build a laboratory for digital distinction.
+                   </p>
+                   <p>
+                      In a world of templated thinking, we choose complexity handled with simplicity. We choose craft over speed, and impact over volume.
+                   </p>
+                </div>
+                <div className="mt-12 flex items-center gap-4">
+                   <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center font-heading font-black italic">Q</div>
+                   <div>
+                      <p className="font-black tracking-tight">Qynt Creative</p>
+                      <p className="text-[10px] uppercase font-bold tracking-widest text-white/40">Founder & CEO</p>
+                   </div>
+                </div>
+             </div>
+             <div className="relative">
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  className="aspect-[4/5] rounded-[40px] bg-white/5 border border-white/10 overflow-hidden"
+                >
+                   <img 
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000" 
+                    alt="Founder" 
+                    className="w-full h-full object-cover grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-1000"
+                    referrerPolicy="no-referrer"
+                   />
+                </motion.div>
+                <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-accent-green/20 rounded-full blur-[80px]" />
+             </div>
+          </div>
+
           <div className="text-center mb-40">
             <motion.div
               initial={{ opacity: 0 }}
@@ -228,7 +273,7 @@ export function About() {
             
             {[
               { year: "2024", title: "The Inception", desc: "Started as a boutique studio with 3 founders and a shared vision for cinematic digital experiences." },
-              { year: "2025", title: "Category Defining", desc: "Launched 12 category-defining products for global clients, growing our team to 15 elite craftspeole." },
+              { year: "2025", title: "Category Defining", desc: "Launched 12 category-defining products for global clients, growing our team to 20 elite craftspeople." },
               { year: "Future", title: "New Frontiers", desc: "Exploring the intersection of AI, spatial computing, and luxury digital design." }
             ].map((milestone, i) => (
               <motion.div 

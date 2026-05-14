@@ -97,14 +97,14 @@ export function Hero() {
           className="relative inline-block mb-8"
         >
           <h1 className="text-[40px] leading-[1] sm:text-6xl md:text-8xl lg:text-[100px] font-heading font-black tracking-tighter text-[#1a1a1a]">
-            We build what makes <br />
-            digital <span className="relative inline-block mt-2 sm:mt-0">
-              successful
+            Where vision <br />
+            meets <span className="relative inline-block mt-2 sm:mt-0">
+              distinction
               <motion.div 
                 initial={{ width: 0 }}
                 animate={{ width: '100%' }}
                 transition={{ delay: 0.8, duration: 1 }}
-                className="absolute -bottom-2 left-0 h-1.5 bg-[#00D26A] rounded-full"
+                className="absolute -bottom-2 left-0 h-1.5 bg-[#e12e7a] rounded-full opacity-20"
               />
             </span>
           </h1>
