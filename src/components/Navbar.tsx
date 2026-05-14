@@ -1,4 +1,5 @@
 import { motion, useScroll, useTransform } from "motion/react";
+import logo from "../assets/images/regenerated_image_1778739825630.jpg";
 import { Button, buttonVariants } from "./ui/button";
 import { ArrowRight, Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
@@ -43,7 +44,7 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <Link to="/" className="flex items-center flex-shrink-0">
           <img 
-            src="/logo.png" 
+            src={logo} 
             alt="Qynt Creatives & Co." 
             className="h-10 sm:h-12 md:h-16 w-auto object-contain"
           />

@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import logo from "../assets/images/regenerated_image_1778739825630.jpg";
 import { ArrowUpRight, Github, Instagram, Linkedin, Twitter } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -11,7 +12,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-20 mb-20">
           <div className="md:col-span-2 space-y-8">
             <img 
-              src="/logo.png" 
+              src={logo} 
               alt="Qynt Creatives & Co." 
               className="h-12 md:h-16 w-auto object-contain origin-left"
             />

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import logo from "./assets/images/regenerated_image_1778739825630.jpg";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { LenisProvider } from "./components/LenisProvider";
 import { Navbar } from "./components/Navbar";
@@ -31,7 +32,7 @@ function Loader() {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <img 
-            src="/logo.png" 
+            src={logo} 
             alt="Qynt Creatives & Co." 
             className="h-24 md:h-32 w-auto object-contain"
           />
