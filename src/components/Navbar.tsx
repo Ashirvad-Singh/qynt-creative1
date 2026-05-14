@@ -13,20 +13,20 @@ export function Navbar() {
 
   const backgroundColor = useTransform(
     scrollY,
-    [0, 50],
+    [0, 100],
     ["rgba(255, 255, 255, 0)", "rgba(255, 255, 255, 0.8)"]
   );
   const backdropBlur = useTransform(
     scrollY,
-    [0, 50],
+    [0, 100],
     ["blur(0px)", "blur(20px)"]
   );
   const borderBottom = useTransform(
     scrollY,
-    [0, 50],
+    [0, 100],
     ["1px solid rgba(0, 0, 0, 0)", "1px solid rgba(0, 0, 0, 0.08)"]
   );
-  const paddingY = useTransform(scrollY, [0, 50], ["24px", "16px"]);
+  const paddingY = useTransform(scrollY, [0, 100], ["24px", "16px"]);
 
   const navLinks = [
     { name: "Portfolio", href: "/portfolio" },

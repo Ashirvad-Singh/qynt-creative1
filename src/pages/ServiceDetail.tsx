@@ -71,25 +71,25 @@ export function ServiceDetail() {
              <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" /> All Services
           </Link>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div>
-              <div className="w-20 h-20 rounded-3xl bg-accent-blue/10 flex items-center justify-center text-accent-blue mb-10">
+              <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl md:rounded-3xl bg-accent-blue/10 flex items-center justify-center text-accent-blue mb-8 md:mb-10">
                 {service.icon}
               </div>
-              <h1 className="text-6xl md:text-9xl font-heading font-extrabold tracking-tighter leading-[0.8] mb-10">
+              <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-heading font-extrabold tracking-tighter leading-[0.8] mb-8 md:mb-10 break-words">
                 {service.title}
               </h1>
-              <p className="text-2xl text-muted-foreground leading-relaxed max-w-xl">
+              <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-xl">
                  {service.fullDesc}
               </p>
             </div>
-            <div className="space-y-12">
+            <div className="space-y-8 md:space-y-12">
                {/* Stats Grid */}
-               <div className="grid grid-cols-2 gap-8">
+               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8">
                   {service.stats.map(stat => (
-                    <div key={stat.label} className="p-8 rounded-3xl bg-secondary-bg border border-black/5">
-                      <p className="text-[10px] uppercase font-bold tracking-widest text-muted-foreground mb-2">{stat.label}</p>
-                      <p className="text-4xl font-heading font-extrabold tracking-tighter">{stat.value}</p>
+                    <div key={stat.label} className="p-6 md:p-8 rounded-2xl md:rounded-3xl bg-secondary-bg border border-black/5">
+                      <p className="text-[9px] md:text-[10px] uppercase font-bold tracking-widest text-muted-foreground mb-2">{stat.label}</p>
+                      <p className="text-3xl md:text-4xl font-heading font-extrabold tracking-tighter break-all">{stat.value}</p>
                     </div>
                   ))}
                </div>

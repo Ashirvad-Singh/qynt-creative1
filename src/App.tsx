@@ -78,7 +78,7 @@ function AppContent() {
   }, []);
 
   return (
-    <div className="relative min-h-screen selection:bg-black selection:text-white">
+    <div className="relative min-h-screen selection:bg-black selection:text-white overflow-x-hidden">
       <ScrollToTop />
       <InteractiveBackground />
       <AnimatePresence mode="wait">
@@ -86,7 +86,7 @@ function AppContent() {
       </AnimatePresence>
 
       {!loading && (
-        <div className="relative flex flex-col min-h-screen">
+        <div className="relative flex flex-col min-h-screen overflow-x-hidden">
           <Navbar />
           <main className="flex-grow">
             <AnimatePresence mode="wait">
