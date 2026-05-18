@@ -1,152 +1,24 @@
 import { motion } from "motion/react";
-import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, ArrowRight, CheckCircle2, Layout, Smartphone, Globe, Megaphone, Code2, Cpu } from "lucide-react";
-import { Button } from "../components/ui/button";
-import { FAQ } from "../components/FAQ";
-
-import { FinalCTA } from "../components/FinalCTA";
-
-const services = [
-  {
-    id: "web-design",
-    title: "Brand Strategy & Visual ID",
-    icon: <Layout />,
-    desc: "We build comprehensive visual languages that speak your brand's truth.",
-    fullDesc: "Our branding process starts with intense market research and deep discovery sessions. We translate your company's core values into a visual system that works across every touchpoint—from mobile apps to office walls.",
-    process: [
-      { step: "01", title: "Discovery", desc: "Immersion in your brand world and competitor landscape." },
-      { step: "02", title: "Strategy", desc: "Defining the core narrative and positioning." },
-      { step: "03", title: "Visual ID", desc: "Crafting the logo, typography, and color systems." },
-      { step: "04", title: "Execution", desc: "Deploying the brand across digital and physical assets." }
-    ],
-    features: ["Digital Brand Guidelines", "Logo Ecosystem", "Custom Typography", "Motion Branding"],
-    stats: [
-      { label: "Design Iterations", value: "Unlimited" },
-      { label: "Delivery Time", value: "4-6 Weeks" },
-      { label: "Format Support", value: "All High-res" }
-    ],
-    tools: ["Figma", "Adobe CC", "After Effects", "Cinema 4D", "Spline"],
-    subServices: [
-      { title: "Brand Audit", desc: "Evaluating your current brand equity and identifying gaps." },
-      { title: "Visual Language", desc: "Developing a consistent aesthetic for all communication." },
-      { title: "Brand Voice", desc: "Crafting the tone and messaging strategy for your audience." }
-    ]
-  },
-  {
-     id: "web-dev",
-     title: "High-Performance Development",
-     icon: <Smartphone />,
-     desc: "Scalable architecture meets editorial frontend.",
-     fullDesc: "We build digital products that feel like consumer apps and function like enterprise powerhouses. Performance, scalability, and UX are at the heart of our engineering phase.",
-     process: [
-        { step: "01", title: "Research", desc: "Mapping user flows and feature sets." },
-        { step: "02", title: "Architecture", desc: "Setting up a scalable, future-proof stack." },
-        { step: "03", title: "Full Build", desc: "Clean code meets smooth animations." },
-        { step: "04", title: "Launch", desc: "Optimized deployment and early scaling." }
-     ],
-     features: ["Dashboard UX", "Real-time sync", "Subscription flows", "AI Integration"],
-     stats: [
-        { label: "Avg Load Time", value: "<1.2s" },
-        { label: "Accessibility", value: "AA Target" },
-        { label: "SEO Score", value: "95+" }
-     ],
-     tools: ["React / Next.js", "TypeScript", "Tailwind CSS", "Supabase", "Vercel"],
-     subServices: [
-       { title: "SaaS Platforms", desc: "Complex web applications with modern architectures." },
-       { title: "E-commerce", desc: "High-conversion shopping experiences that drive sales." },
-       { title: "Mobile Apps", desc: "Native-feel experiences built with React Native or PWA." }
-     ]
-  }
-];
+import { Link, useParams } from "react-router-dom";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import { services } from "./experienceData";
 
 export function ServiceDetail() {
   const { id } = useParams();
-  const service = services.find(s => s.id === id) || services[0];
-
+  const service = services.find(s => s.id === id) ?? services[0];
+  const Icon = service.icon;
   return (
-    <div className="pt-20">
-      <section className="py-20 lg:py-40">
-        <div className="max-w-7xl mx-auto px-6">
-          <Link to="/services" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-20 group">
-             <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" /> All Services
-          </Link>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <div>
-              <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl md:rounded-3xl bg-accent-blue/10 flex items-center justify-center text-accent-blue mb-8 md:mb-10">
-                {service.icon}
-              </div>
-              <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-heading font-extrabold tracking-tighter leading-[0.8] mb-8 md:mb-10 break-words">
-                {service.title}
-              </h1>
-              <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-xl">
-                 {service.fullDesc}
-              </p>
-            </div>
-            <div className="space-y-8 md:space-y-12">
-               {/* Stats Grid */}
-               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8">
-                  {service.stats.map(stat => (
-                    <div key={stat.label} className="p-6 md:p-8 rounded-2xl md:rounded-3xl bg-secondary-bg border border-black/5">
-                      <p className="text-[9px] md:text-[10px] uppercase font-bold tracking-widest text-muted-foreground mb-2">{stat.label}</p>
-                      <p className="text-3xl md:text-4xl font-heading font-extrabold tracking-tighter break-all">{stat.value}</p>
-                    </div>
-                  ))}
-               </div>
-
-               {/* Tools Section */}
-               <div className="p-8 rounded-3xl bg-black text-white">
-                  <h4 className="text-[10px] uppercase font-bold tracking-widest text-white/40 mb-6 font-heading">Tech Stack & Tools</h4>
-                  <div className="flex flex-wrap gap-3">
-                    {service.tools.map(tool => (
-                      <div key={tool} className="px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-sm font-bold">
-                        {tool}
-                      </div>
-                    ))}
-                  </div>
-               </div>
-            </div>
+    <div className="bg-white text-black">
+      <section className="relative min-h-screen overflow-hidden px-6 pt-36 pb-16" style={{ background: `linear-gradient(135deg, ${service.accent}22, #fff 42%, #f6f3ee)` }}>
+        <div className="mx-auto max-w-7xl">
+          <Link to="/services" className="mb-16 inline-flex items-center gap-2 text-sm font-black uppercase tracking-widest text-black/55"><ArrowLeft className="h-4 w-4" /> Services</Link>
+          <div className="grid gap-12 lg:grid-cols-12 lg:items-end">
+            <motion.div initial={{ opacity: 0, y: 45 }} animate={{ opacity: 1, y: 0 }} className="lg:col-span-8"><p className="mb-6 text-[11px] font-black uppercase tracking-[0.35em]" style={{ color: service.accent }}>{service.eyebrow}</p><h1 className="font-heading text-7xl font-black leading-[0.82] tracking-[-0.08em] md:text-[132px]">{service.title}</h1></motion.div>
+            <motion.div initial={{ opacity: 0, scale: .9 }} animate={{ opacity: 1, scale: 1 }} className="lg:col-span-4"><div className="grid aspect-square place-items-center rounded-[3rem] text-white shadow-2xl" style={{ backgroundColor: service.accent }}><Icon className="h-28 w-28" /></div></motion.div>
           </div>
         </div>
       </section>
-
-      {/* Sub-services / Focus Areas */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-           <div className="mb-16">
-              <h2 className="text-4xl md:text-6xl font-heading font-extrabold tracking-tighter mb-4">Focus Areas</h2>
-              <p className="text-muted-foreground text-lg">Specialized solutions within this discipline.</p>
-           </div>
-           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {service.subServices.map(sub => (
-                <div key={sub.title} className="p-10 rounded-[40px] bg-secondary-bg border border-black/5 hover:border-black/10 transition-all">
-                   <h4 className="text-2xl font-black mb-4 tracking-tight">{sub.title}</h4>
-                   <p className="text-muted-foreground leading-relaxed">{sub.desc}</p>
-                </div>
-              ))}
-           </div>
-        </div>
-      </section>
-
-      <section className="py-40 bg-secondary-bg">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="mb-24 text-center">
-             <h2 className="text-5xl font-heading font-extrabold tracking-tighter">Our Methodology</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
-            {service.process.map(p => (
-              <div key={p.step} className="relative">
-                 <div className="text-6xl font-heading font-extrabold text-accent-blue/10 mb-6">{p.step}</div>
-                 <h4 className="text-2xl font-bold mb-4">{p.title}</h4>
-                 <p className="text-muted-foreground leading-relaxed">{p.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <FAQ />
-      <FinalCTA />
+      <section className="px-6 py-28"><div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-12"><h2 className="lg:col-span-5 font-heading text-5xl font-black tracking-[-0.06em]">Transformation story</h2><div className="lg:col-span-7"><p className="text-3xl font-semibold leading-tight">{service.promise}</p><p className="mt-8 text-xl leading-relaxed text-black/60">{service.narrative}</p><div className="mt-12 space-y-4">{service.process.map((step, i)=><motion.div initial={{ opacity:0, x:40 }} whileInView={{ opacity:1, x:0 }} viewport={{ once:true }} key={step} className="flex items-center gap-6 border-t border-black/10 py-6"><span className="font-mono text-black/35">0{i+1}</span><span className="font-heading text-3xl font-black tracking-[-0.04em]">{step}</span></motion.div>)}</div><p className="mt-12 rounded-[2rem] bg-black p-8 text-2xl font-black text-white">{service.proof}</p><Link to="/contact" className="mt-10 inline-flex items-center gap-3 rounded-full px-7 py-4 text-sm font-black text-white" style={{ backgroundColor: service.accent }}>Build this with us <ArrowRight className="h-4 w-4" /></Link></div></div></section>
     </div>
   );
 }
