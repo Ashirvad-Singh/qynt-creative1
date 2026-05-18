@@ -17,8 +17,6 @@ import { ProjectDetail } from "./pages/ProjectDetail";
 import { ServiceDetail } from "./pages/ServiceDetail";
 import { Blog } from "./pages/Blog";
 import { FAQPage } from "./pages/FAQPage";
-import { Careers } from "./pages/Careers";
-import { NotFound } from "./pages/NotFound";
 
 function Loader() {
   return (
@@ -111,9 +109,8 @@ function AppContent() {
                   <Route path="/portfolio/:id" element={<ProjectDetail />} />
                   <Route path="/blog" element={<Blog />} />
                   <Route path="/faq" element={<FAQPage />} />
-                  <Route path="/careers" element={<Careers />} />
                   <Route path="/contact" element={<ContactPage />} />
-                  <Route path="*" element={<NotFound />} />
+                  <Route path="*" element={<Home />} />
                 </Routes>
               </motion.div>
             </AnimatePresence>

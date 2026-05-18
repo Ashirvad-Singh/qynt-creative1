@@ -1,38 +1,63 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import { Link } from "react-router-dom";
-import { projects } from "./experienceData";
-
-const filters = ["All", "Product Design", "Brand + Web", "Commerce Experience", "Healthcare Platform"];
+import { motion } from "motion/react";
+import { PortfolioSection } from "../components/PortfolioSection";
+import { FinalCTA } from "../components/FinalCTA";
+import { PremiumBackground } from "../components/PremiumBackground";
 
 export function PortfolioPage() {
-  const [filter, setFilter] = useState("All");
-  const shown = filter === "All" ? projects : projects.filter(p => p.category === filter);
   return (
-    <div className="bg-[#f6f3ee] text-black">
-      <section className="px-6 pt-40 pb-16">
-        <div className="mx-auto max-w-7xl">
-          <p className="mb-8 text-[11px] font-black uppercase tracking-[0.35em] text-black/40">Portfolio / motion index</p>
-          <h1 className="font-heading text-7xl font-black leading-[0.82] tracking-[-0.08em] md:text-[132px]">Case studies that move differently.</h1>
-          <div className="mt-12 flex flex-wrap gap-3">{filters.map(f => <button onClick={() => setFilter(f)} key={f} className={`rounded-full px-5 py-3 text-xs font-black uppercase tracking-widest transition ${filter === f ? "bg-black text-white" : "bg-white text-black/55 hover:text-black"}`}>{f}</button>)}</div>
+    <div className="relative">
+      <section className="relative min-h-[80vh] pt-48 pb-20 flex flex-col items-center">
+        <PremiumBackground />
+        <div className="max-w-7xl mx-auto px-6 w-full relative z-10">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="text-black font-black uppercase tracking-[0.3em] text-[10px] mb-8 flex items-center gap-3"
+          >
+            <div className="w-8 h-px bg-black" />
+            Selected Works
+          </motion.div>
+          <motion.h1 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="text-6xl md:text-[140px] font-heading font-black tracking-tighter leading-[0.8] mb-12"
+          >
+            Curating <br />
+            <span className="text-black/30">Masterpieces.</span>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            className="text-xl text-muted-foreground font-medium max-w-2xl leading-relaxed"
+          >
+            A collection of category-defining digital experiences and elite design systems.
+          </motion.p>
         </div>
       </section>
-      <section className="px-6 pb-28">
-        <div className="mx-auto grid max-w-7xl auto-rows-[260px] gap-5 md:grid-cols-6">
-          <AnimatePresence mode="popLayout">
-            {shown.map((project, i) => (
-              <motion.div layout initial={{ opacity: 0, scale: .96 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: .96 }} key={project.id} className={`${i % 4 === 0 ? "md:col-span-4 md:row-span-2" : i % 4 === 1 ? "md:col-span-2 md:row-span-1" : "md:col-span-3 md:row-span-1"}`}>
-                <Link to={`/portfolio/${project.id}`} className="group relative block h-full overflow-hidden rounded-[2.5rem] bg-black text-white">
-                  <img src={project.image} alt={project.title} className="absolute inset-0 h-full w-full object-cover opacity-75 transition duration-700 group-hover:scale-110 group-hover:opacity-40" referrerPolicy="no-referrer" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent" />
-                  <div className="absolute left-6 right-6 top-6 flex justify-between text-[10px] font-black uppercase tracking-[0.25em] text-white/60"><span>{project.category}</span><span>{project.year}</span></div>
-                  <div className="absolute inset-x-0 bottom-0 p-7"><h2 className="font-heading text-5xl font-black tracking-[-0.06em]">{project.title}</h2><p className="mt-3 max-w-xl translate-y-4 text-white/70 opacity-0 transition group-hover:translate-y-0 group-hover:opacity-100">{project.intro}</p></div>
-                </Link>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </div>
-      </section>
+
+      <div className="relative z-10 bg-white">
+        <PortfolioSection />
+        
+        <section className="py-60 bg-[#f9f9f9]">
+          <div className="max-w-7xl mx-auto px-6 text-center">
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              className="text-black font-black uppercase tracking-[0.2em] text-[10px] mb-6"
+            >
+              The Mindset
+            </motion.div>
+            <h2 className="text-5xl md:text-8xl font-heading font-black tracking-tighter mb-12 leading-none">Our Philosophy.</h2>
+            <p className="text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-medium">
+              We don&apos;t believe in vanity projects. Every piece of work in our portfolio is a result of deep strategic research and technical excellence.
+            </p>
+          </div>
+        </section>
+
+        <FinalCTA />
+      </div>
     </div>
   );
 }
