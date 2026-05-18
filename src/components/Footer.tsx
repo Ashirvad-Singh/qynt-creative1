@@ -40,6 +40,7 @@ export function Footer() {
                 { name: "Portfolio", href: "/portfolio" },
                 { name: "Services", href: "/services" },
                 { name: "FAQ", href: "/faq" },
+                { name: "Careers", href: "/careers" },
                 { name: "About", href: "/about" },
                 { name: "Contact", href: "/contact" }
               ].map((link) => (
