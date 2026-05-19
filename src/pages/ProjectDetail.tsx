@@ -9,83 +9,125 @@ import { useRef } from "react";
 const projects = [
   {
     id: 1,
-    title: "Vortx Ecosystem",
-    category: "Unified Branding",
+    title: "Gig Lab Sound Works",
+    category: "Music Production Website",
     image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000",
-    client: "Vortx Labs",
+    client: "Gig Lab Sound Works",
     year: "2024",
-    role: "Brand Identity, Web Design",
-    description: "A complete overhaul of the Vortx digital identity, focusing on fluid motion and architectural hierarchy. We built a system that scales across their entire product suite.",
-    challenges: "The main challenge was reconciling a complex technical architecture with a consumer-friendly aesthetic that didn't feel reductive.",
-    solution: "We implemented a modular design language based on 'energy flows', using custom shaders and bento-grid layouts to organize high-density information.",
-    stack: ["React", "Motion", "Three.js", "Tailwind"],
+    role: "Web Design, Frontend Development",
+    description:
+      "A modern music production and sound engineering website focused on immersive visuals and artist-first presentation.",
+    challenges:
+      "Creating a premium studio vibe while keeping the website lightweight and responsive.",
+    solution:
+      "Built a visually rich layout with smooth transitions, optimized media delivery, and strong typography hierarchy.",
+    stack: ["WordPress", "GSAP", "JavaScript", "CSS"],
     metrics: [
-      { label: "Performance", value: "98/100" },
-      { label: "Conversion", value: "+45%" },
-      { label: "System scale", value: "Global" }
+      { label: "Performance", value: "95+" },
+      { label: "Responsive", value: "Fully Optimized" },
+      { label: "Experience", value: "Interactive" }
     ],
     gallery: [
-       "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?q=80&w=2000",
-       "https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=2000",
-       "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2000"
-    ]
+      "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?q=80&w=2000",
+      "https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=2000",
+      "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2000"
+    ],
+    live: "https://www.giglabsoundworks.com/"
   },
+
   {
     id: 2,
-    title: "Nexis Dashboard",
-    category: "SaaS Design & Build",
+    title: "Metalcat Music",
+    category: "Artist & Music Platform",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000",
-    client: "Nexis AI",
-    year: "2023",
-    role: "UI/UX, Frontend Development",
-    description: "An AI-powered dashboard for enterprise resource planning. We focused on reducing cognitive load through intelligent information density.",
-    challenges: "Visualizing massive data streams without overwhelming the user.",
-    solution: "A custom 'Focus Mode' that uses AI to highlight critical path tasks and dims peripheral noise.",
-    stack: ["Next.js", "D3.js", "Framer Motion", "Supabase"],
+    client: "Metalcat Music",
+    year: "2024",
+    role: "UI/UX, Website Development",
+    description:
+      "A bold and edgy music-focused platform designed for artists, releases, and media promotion.",
+    challenges:
+      "Maintaining heavy visual aesthetics without slowing down the browsing experience.",
+    solution:
+      "Used optimized assets, dark-themed branding, and structured content sections for better engagement.",
+    stack: ["WordPress", "Elementor", "JavaScript"],
     metrics: [
-      { label: "Data Latency", value: "<150ms" },
-      { label: "User Task Speed", value: "2x Faster" }
+      { label: "Engagement", value: "+40%" },
+      { label: "Mobile UX", value: "Optimized" }
     ],
     gallery: [
-       "https://images.unsplash.com/photo-1551288049-bbda4e9664ad?q=80&w=2000",
-       "https://images.unsplash.com/photo-1504868584819-f8e90526ef53?q=80&w=2000"
-    ]
+      "https://images.unsplash.com/photo-1551288049-bbda4e9664ad?q=80&w=2000",
+      "https://images.unsplash.com/photo-1504868584819-f8e90526ef53?q=80&w=2000"
+    ],
+    live: "https://www.metalcatmusic.com/"
   },
+
   {
     id: 3,
-    title: "Lumina Brand",
-    category: "Next-Gen Development",
+    title: "CHSKD",
+    category: "Creative Portfolio",
     image: "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1000",
-    client: "Lumina Energy",
-    year: "2024",
-    role: "Full-Stack Development",
-    description: "A high-performance web platform for a renewable energy startup.",
-    challenges: "Building a site that is both aesthetically premium and highly performant on low-bandwidth connections.",
-    solution: "Hybrid static-dynamic rendering and optimized WebP delivery.",
-    stack: ["Astro", "React", "Node.js"],
+    client: "CHSKD",
+    year: "2025",
+    role: "Frontend Development",
+    description:
+      "A creative digital experience with clean animations and modern interaction patterns.",
+    challenges:
+      "Balancing minimal design with visually engaging transitions.",
+    solution:
+      "Implemented smooth scrolling effects, modern layouts, and responsive interactive sections.",
+    stack: ["React", "Tailwind", "Framer Motion"],
     metrics: [
-      { label: "Load Time", value: "0.8s" },
-      { label: "Availability", value: "99.9%" }
+      { label: "Performance", value: "Fast" },
+      { label: "Design", value: "Minimal Modern" }
     ],
-    gallery: []
+    gallery: [],
+    live: "https://chskd.in/"
   },
+
   {
     id: 4,
-    title: "Orbit App",
-    category: "Strategic Consulting",
+    title: "Roadhouse Bar",
+    category: "Restaurant & Bar Website",
     image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1000",
-    client: "Orbit Mobile",
-    year: "2023",
-    role: "Product Strategy, UX Design",
-    description: "The next evolution of shared mobility.",
-    challenges: "Simplifying a multi-step booking process into a single-tap experience.",
-    solution: "Geofencing-based automatic check-ins and predictive destination suggestions.",
-    stack: ["React Native", "Firebase", "Google Maps"],
+    client: "Roadhouse Bar",
+    year: "2024",
+    role: "Frontend Development, UI Design",
+    description:
+      "A stylish bar and restaurant website with immersive visuals and responsive layouts.",
+    challenges:
+      "Capturing nightlife aesthetics while keeping navigation intuitive.",
+    solution:
+      "Used cinematic imagery, modern typography, and smooth section-based storytelling.",
+    stack: ["React", "Vercel", "Tailwind CSS"],
     metrics: [
-      { label: "User Retention", value: "85%" },
-      { label: "Avg Booking", value: "1.2 min" }
+      { label: "UI Experience", value: "Premium" },
+      { label: "Load Speed", value: "Optimized" }
     ],
-    gallery: []
+    gallery: [],
+    live: "https://roadhousebar.vercel.app/"
+  },
+
+  {
+    id: 5,
+    title: "Charta International",
+    category: "Corporate Website",
+    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000",
+    client: "Charta International",
+    year: "2025",
+    role: "Corporate Web Development",
+    description:
+      "A professional corporate website designed for international business presence and credibility.",
+    challenges:
+      "Building a clean enterprise-level design without making it feel outdated or generic.",
+    solution:
+      "Created structured layouts, polished branding sections, and optimized performance across devices.",
+    stack: ["WordPress", "PHP", "Custom CSS"],
+    metrics: [
+      { label: "SEO", value: "Optimized" },
+      { label: "Corporate UX", value: "Professional" }
+    ],
+    gallery: [],
+    live: "https://chartainternational.com/"
   }
 ];
 
