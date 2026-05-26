@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import logo from "./assets/images/regenerated_image_1778756183964.png";
+import logo from "./assets/images/regenerated_image_1779793682809.png";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { LenisProvider } from "./components/LenisProvider";
 import { Navbar } from "./components/Navbar";

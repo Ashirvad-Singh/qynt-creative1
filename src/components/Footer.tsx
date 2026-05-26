@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import logo from "../assets/images/regenerated_image_1778756183964.png";
+import logo from "../assets/images/regenerated_image_1779793682809.png";
 import { ArrowUpRight, Github, Instagram, Linkedin, Twitter } from "lucide-react";
 import { Link } from "react-router-dom";
 
