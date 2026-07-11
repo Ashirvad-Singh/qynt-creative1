@@ -5,10 +5,16 @@ import { ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
 import { PremiumBackground } from "../components/PremiumBackground";
 import { Magnetic } from "../components/Magnetic";
 import { Button } from "../components/ui/button";
+import { SEO } from "../components/SEO";
 
 export function ServicesPage() {
   return (
     <div className="relative">
+      <SEO 
+        title="Services & Capabilities" 
+        description="We build high-performance web systems, custom mobile apps, AI-powered integrations, and cohesive brand identities for modern enterprises." 
+        keywords="design capabilities, branding services, react development, custom software engineering"
+      />
       <section className="relative min-h-[80vh] pt-48 pb-20 flex flex-col items-center">
         <PremiumBackground />
         <div className="max-w-7xl mx-auto px-6 w-full relative z-10 text-center">

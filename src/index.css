@@ -49,8 +49,8 @@
     --radius-3xl: calc(var(--radius) * 2.2);
     --radius-4xl: calc(var(--radius) * 2.6);
 
-    --color-accent-green: #00D26A;
-    --color-accent-blue: #3B82F6;
+    --color-accent-green: #000000;
+    --color-accent-blue: #000000;
     --color-secondary-bg: #F5F5F7;
 }
 

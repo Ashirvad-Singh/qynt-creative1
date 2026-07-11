@@ -2,10 +2,16 @@ import { motion } from "motion/react";
 import { PortfolioSection } from "../components/PortfolioSection";
 import { FinalCTA } from "../components/FinalCTA";
 import { PremiumBackground } from "../components/PremiumBackground";
+import { SEO } from "../components/SEO";
 
 export function PortfolioPage() {
   return (
     <div className="relative">
+      <SEO 
+        title="Portfolio" 
+        description="Explore the case studies of Roadhouse Cafe, School Plus Furniture, Metal Cat Music, Charta International, Giglab, and Coast Air Pro by QYNT." 
+        keywords="design portfolio, case studies, software portfolio, creative work"
+      />
       <section className="relative min-h-[80vh] pt-48 pb-20 flex flex-col items-center">
         <PremiumBackground />
         <div className="max-w-7xl mx-auto px-6 w-full relative z-10">

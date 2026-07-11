@@ -4,6 +4,7 @@ import { FinalCTA } from "../components/FinalCTA";
 import { PremiumBackground } from "../components/PremiumBackground";
 import { Award, Target, Eye, Heart, CheckCircle2, Star, Zap, Users, Shield, Search } from "lucide-react";
 import { useRef } from "react";
+import { SEO } from "../components/SEO";
 
 export function About() {
   const containerRef = useRef(null);
@@ -23,6 +24,11 @@ export function About() {
       ref={containerRef}
       className="relative"
     >
+      <SEO 
+        title="About Us" 
+        description="Learn more about QYNT Creative & Co. We are an elite digital collective operating at the intersection of branding, visual UX, and deep tech." 
+        keywords="design agency philosophy, software agency history, qynt founders"
+      />
       <section className="relative min-h-screen pt-48 pb-20 flex flex-col items-center overflow-hidden">
         <PremiumBackground />
         
@@ -122,9 +128,9 @@ export function About() {
               className="p-12 md:p-16 rounded-[48px] bg-black text-white"
             >
               <div className="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center mb-10">
-                <Target className="w-8 h-8 text-accent-green" />
+                <Target className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-sm font-black uppercase tracking-[0.3em] mb-4 text-accent-green">Our Mission</h3>
+              <h3 className="text-sm font-black uppercase tracking-[0.3em] mb-4 text-white/60">Our Mission</h3>
               <h2 className="text-4xl sm:text-5xl font-heading font-black tracking-tighter leading-tight mb-8">
                 Empowering visionary founders to build products that define categories.
               </h2>
@@ -188,8 +194,8 @@ export function About() {
                 transition={{ delay: i * 0.1 }}
                 className="p-10 rounded-[40px] bg-white border border-black/5 hover:border-black/10 hover:shadow-xl hover:shadow-black/5 transition-all group"
               >
-                <div className="w-14 h-14 rounded-2xl bg-black/5 flex items-center justify-center mb-8 group-hover:bg-[#e12e7a]/10 transition-colors">
-                  <value.icon className="w-6 h-6 text-black group-hover:text-[#e12e7a] transition-colors" />
+                <div className="w-14 h-14 rounded-2xl bg-black/5 flex items-center justify-center mb-8 group-hover:bg-black/10 transition-colors">
+                  <value.icon className="w-6 h-6 text-black group-hover:text-black transition-colors" />
                 </div>
                 <h3 className="text-2xl font-black tracking-tight mb-4">{value.title}</h3>
                 <p className="text-muted-foreground leading-relaxed font-medium">
@@ -213,7 +219,7 @@ export function About() {
                 <motion.div
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
-                  className="text-accent-green font-bold uppercase tracking-[0.2em] text-[10px] mb-6"
+                  className="text-white/60 font-bold uppercase tracking-[0.2em] text-[10px] mb-6"
                 >
                   Founder&apos;s Statement
                 </motion.div>
@@ -249,7 +255,7 @@ export function About() {
                     referrerPolicy="no-referrer"
                    />
                 </motion.div>
-                <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-accent-green/20 rounded-full blur-[80px]" />
+                <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-white/5 rounded-full blur-[80px]" />
              </div>
           </div>
 
@@ -284,13 +290,13 @@ export function About() {
                 className={`flex flex-col lg:flex-row gap-10 lg:gap-0 items-center justify-between relative ${i % 2 === 0 ? '' : 'lg:flex-row-reverse'}`}
               >
                 <div className={`w-full lg:w-[45%] ${i % 2 === 0 ? 'lg:text-right' : 'lg:text-left'}`}>
-                  <h4 className="text-2xl font-black mb-4 uppercase tracking-widest text-accent-green">{milestone.year}</h4>
+                  <h4 className="text-2xl font-black mb-4 uppercase tracking-widest text-neutral-400">{milestone.year}</h4>
                   <h3 className="text-4xl md:text-5xl font-heading font-black tracking-tighter mb-6">{milestone.title}</h3>
                   <p className="text-xl text-white/40 font-medium leading-relaxed">{milestone.desc}</p>
                 </div>
 
                 {/* Timeline Dot */}
-                <div className="absolute left-[50%] -translate-x-1/2 w-4 h-4 rounded-full bg-accent-green hidden lg:block border-[4px] border-black shadow-[0_0_20px_rgba(0,210,106,0.5)]" />
+                <div className="absolute left-[50%] -translate-x-1/2 w-4 h-4 rounded-full bg-white hidden lg:block border-[4px] border-black shadow-[0_0_20px_rgba(255,255,255,0.4)]" />
 
                 <div className="w-full lg:w-[45%] opacity-0 pointer-events-none">
                   {/* Empty for spacing */}

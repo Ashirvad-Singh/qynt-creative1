@@ -66,11 +66,11 @@ export function Navbar() {
           <Magnetic>
             <Button 
               nativeButton={false}
-              className="rounded-full px-8 h-12 gap-3 group bg-[#1a1a1a] text-white hover:bg-black transition-all shadow-md active:scale-95"
+              className="rounded-full w-56 h-14 gap-3 group bg-black text-white hover:bg-neutral-900 transition-all shadow-lg active:scale-95 text-[10px] font-black uppercase tracking-[0.2em]"
               render={<Link to="/contact" />}
             >
-              <span className="text-[13px] font-bold tracking-tight">Start a project</span>
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 stroke-[2.5px]" />
+              <span>Start a project</span>
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1.5" />
             </Button>
           </Magnetic>
         </div>
@@ -104,7 +104,7 @@ export function Navbar() {
                     >
                       <Link
                         to={link.href}
-                        className="text-2xl sm:text-3xl font-heading font-black tracking-tighter hover:text-[#e12e7a] transition-colors leading-[1.1] block py-1.5"
+                        className="text-2xl sm:text-3xl font-heading font-black tracking-tighter hover:text-black/60 transition-colors leading-[1.1] block py-1.5"
                       >
                         {link.name}
                       </Link>
@@ -120,19 +120,19 @@ export function Navbar() {
                   >
                     <Button 
                       nativeButton={false}
-                      className="w-full rounded-xl h-12 text-base font-black bg-black text-white group flex items-center justify-between px-5 active:scale-[0.98] transition-all hover:bg-[#e12e7a]"
+                      className="w-full rounded-full h-14 text-xs font-black uppercase tracking-[0.2em] bg-black text-white group flex items-center justify-between px-8 active:scale-[0.98] transition-all hover:bg-neutral-900 shadow-lg"
                       render={<Link to="/contact" />}
                     >
                       Start a project
-                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1.5" />
                     </Button>
                   </motion.div>
 
                   <div className="mt-10 pt-6 border-t border-black/5">
                     <p className="text-[9px] font-black uppercase tracking-widest text-[#1a1a1a]/40 mb-3">Connect</p>
                     <div className="grid grid-cols-1 gap-1">
-                      <a href="mailto:Qyntcreatives@gmail.com" className="text-[13px] font-bold tracking-tight text-[#1a1a1a] hover:text-[#e12e7a] transition-colors">Qyntcreatives@gmail.com</a>
-                      <a href="tel:9627277111" className="text-[13px] font-bold tracking-tight text-[#1a1a1a] hover:text-[#e12e7a] transition-colors">9627277111</a>
+                      <a href="mailto:Qyntcreatives@gmail.com" className="text-[13px] font-bold tracking-tight text-[#1a1a1a] hover:text-black/60 transition-colors">Qyntcreatives@gmail.com</a>
+                      <a href="tel:9627277111" className="text-[13px] font-bold tracking-tight text-[#1a1a1a] hover:text-black/60 transition-colors">9627277111</a>
                     </div>
                   </div>
                 </div>

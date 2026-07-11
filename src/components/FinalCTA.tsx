@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { Button } from "./ui/button";
-import { MessageCircle, Mail, Phone, ArrowUpRight, Star, Clock, Zap } from "lucide-react";
+import { MessageCircle, Mail, Phone, ArrowRight, ArrowUpRight, Star, Clock, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export function FinalCTA() {
@@ -47,10 +47,10 @@ export function FinalCTA() {
               <Button 
                 render={<Link to="/contact" />}
                 nativeButton={false}
-                className="bg-transparent border-none text-white hover:text-white/80 p-0 text-xl font-black flex items-center gap-2 group/btn"
+                className="w-64 h-14 rounded-full bg-white hover:bg-neutral-100 text-black text-xs md:text-sm font-black uppercase tracking-[0.2em] shadow-xl transition-all hover:scale-105 active:scale-95 group inline-flex items-center justify-center gap-3"
               >
-                Check Budget Calculator
-                <ArrowUpRight className="w-6 h-6 transition-transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1" />
+                Contact Us
+                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1.5" />
               </Button>
             </div>
           </motion.div>

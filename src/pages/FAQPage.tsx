@@ -2,10 +2,16 @@ import { motion } from "motion/react";
 import { FAQ } from "../components/FAQ";
 import { PremiumBackground } from "../components/PremiumBackground";
 import { FinalCTA } from "../components/FinalCTA";
+import { SEO } from "../components/SEO";
 
 export function FAQPage() {
   return (
     <div className="relative">
+      <SEO 
+        title="Frequently Asked Questions" 
+        description="Find answers to common questions about QYNT's design workflow, technology stacks, pricing structure, support, and collaboration timelines." 
+        keywords="faq, agency pricing, project timeline, software design guide"
+      />
       <section className="relative min-h-[60vh] pt-48 pb-20 flex flex-col items-center">
         <PremiumBackground />
         <div className="max-w-7xl mx-auto px-6 w-full relative z-10 text-center">

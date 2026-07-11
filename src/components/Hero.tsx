@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform, useSpring } from "motion/react";
 import { Button } from "./ui/button";
 import { FloatingCard } from "./FloatingCard";
-import { ArrowUpRight, Play, Sparkles, TrendingUp, Users, Award, Zap, ShieldCheck } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Play, Sparkles, TrendingUp, Users, Award, Zap, ShieldCheck } from "lucide-react";
 import { Magnetic } from "./Magnetic";
 import { Skeleton } from "./Skeleton";
 import { useState, useEffect, useRef } from "react";
@@ -104,7 +104,7 @@ export function Hero() {
                 initial={{ width: 0 }}
                 animate={{ width: '100%' }}
                 transition={{ delay: 0.8, duration: 1 }}
-                className="absolute -bottom-2 left-0 h-1.5 bg-[#e12e7a] rounded-full opacity-20"
+                className="absolute -bottom-2 left-0 h-1.5 bg-black rounded-full opacity-20"
               />
             </span>
           </h1>
@@ -132,13 +132,13 @@ export function Hero() {
             <Button 
               size="lg" 
               nativeButton={false}
-              className="h-16 px-10 rounded-full bg-[#1a1a1a] hover:bg-black text-white text-lg font-bold shadow-2xl transition-all hover:scale-105 group relative overflow-hidden"
+              className="w-64 h-14 rounded-full bg-black hover:bg-neutral-900 text-white text-xs md:text-sm font-black uppercase tracking-[0.2em] shadow-2xl transition-all hover:scale-105 group relative overflow-hidden"
               render={<Link to="/contact" />}
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               <div className="flex items-center gap-3 relative z-10">
-                <Sparkles className="w-5 h-5 text-white/80" />
-                Get Free Proposal
+                <span>Get Free Proposal</span>
+                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1.5" />
               </div>
             </Button>
           </Magnetic>
@@ -167,18 +167,6 @@ export function Hero() {
           </div>
         </motion.div>
       </motion.div>
-
-      {/* Partner Logo Ticker */}
-      <div className="mt-20 md:mt-32 w-full max-w-7xl px-6 opacity-30 grayscale overflow-hidden">
-        <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 py-10 border-t border-black/5 md:gap-20">
-          <span className="font-heading font-black text-xl md:text-2xl tracking-tighter">NIKE</span>
-          <span className="font-heading font-black text-xl md:text-2xl tracking-tighter">APPLE</span>
-          <span className="font-heading font-black text-xl md:text-2xl tracking-tighter">TESLA</span>
-          <span className="font-heading font-black text-xl md:text-2xl tracking-tighter">META</span>
-          <span className="font-heading font-black text-xl md:text-2xl tracking-tighter">AMAZON</span>
-          <span className="font-heading font-black text-xl md:text-2xl tracking-tighter">GOOGLE</span>
-        </div>
-      </div>
     </section>
   );
 }

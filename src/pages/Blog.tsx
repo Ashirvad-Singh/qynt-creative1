@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Calendar, Clock, ArrowRight, ArrowUpRight } from "lucide-react";
 import { FinalCTA } from "../components/FinalCTA";
 import { Button } from "../components/ui/button";
+import { SEO } from "../components/SEO";
 
 const posts = [
   {
@@ -60,6 +61,11 @@ export function Blog() {
 
   return (
     <div className="pt-32">
+      <SEO 
+        title="Blog & Insights" 
+        description="Insights on design systems, web development trends, brand identity, and tech tutorials from QYNT." 
+        keywords="web design blog, custom software articles, technology insights"
+      />
       <div className="max-w-7xl mx-auto px-6 mb-24">
         <div className="flex flex-col items-center text-center mb-20">
           <motion.div
@@ -192,9 +198,9 @@ export function Blog() {
           <Button 
             render={<Link to="/contact" />}
             nativeButton={false}
-            className="bg-[#1a1a1a] rounded-xl h-14 px-8 font-bold flex items-center gap-2 hover:bg-black transition-all group"
+            className="h-14 px-8 rounded-full bg-black hover:bg-neutral-900 text-white text-xs md:text-sm font-black uppercase tracking-[0.2em] shadow-lg transition-all hover:scale-105 active:scale-95 group inline-flex items-center gap-3"
           >
-            Subscribe to Newsletter <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+            Subscribe to Newsletter <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1.5" />
           </Button>
         </div>
       </div>

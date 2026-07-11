@@ -24,7 +24,7 @@ export function Footer() {
                 <motion.a
                   key={i}
                   href="#"
-                  whileHover={{ y: -5, color: "var(--color-accent-blue)" }}
+                  whileHover={{ y: -5, color: "var(--color-foreground)" }}
                   className="w-12 h-12 rounded-full border border-border flex items-center justify-center text-muted-foreground transition-colors"
                 >
                   <Icon className="w-5 h-5" />
@@ -58,7 +58,7 @@ export function Footer() {
             <div className="space-y-6">
               <div>
                 <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-widest mb-2">New Projects</p>
-                <a href="mailto:Qyntcreatives@gmail.com" className="text-lg font-bold hover:text-[#e12e7a] transition-colors">Qyntcreatives@gmail.com</a>
+                 <a href="mailto:Qyntcreatives@gmail.com" className="text-lg font-bold hover:text-black/60 transition-colors">Qyntcreatives@gmail.com</a>
               </div>
               <div>
                 <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-widest mb-2">Studio HQ</p>
@@ -66,7 +66,7 @@ export function Footer() {
                   Sector 105 D block<br />
                   Noida, India
                 </address>
-                <a href="tel:9627277111" className="text-sm font-bold mt-2 block hover:text-[#e12e7a] transition-colors">9627277111</a>
+                 <a href="tel:9627277111" className="text-sm font-bold mt-2 block hover:text-black/60 transition-colors">9627277111</a>
               </div>
             </div>
           </div>

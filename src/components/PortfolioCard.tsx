@@ -99,7 +99,7 @@ export function PortfolioCard({ project }: { project: Project, key?: any }) {
                 opacity: isHovered ? 1 : 0,
                 scale: isHovered ? 1 : 0.8,
               }}
-              className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-black text-white hover:bg-[#e12e7a] flex items-center justify-center shadow-lg transition-colors pointer-events-auto"
+              className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-black text-white hover:bg-neutral-800 flex items-center justify-center shadow-lg transition-colors pointer-events-auto"
               style={{ transform: "translateZ(60px)" }}
             >
               <ArrowUpRight className="w-5 h-5 md:w-6 md:h-6" />

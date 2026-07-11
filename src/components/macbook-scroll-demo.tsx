@@ -3,7 +3,7 @@ import { MacbookScroll } from "@/components/ui/macbook-scroll";
 
 export default function MacbookScrollDemo() {
   return (
-    <div className="w-full overflow-hidden bg-white dark:bg-[#0B0B0F] py-20">
+    <div className="w-full overflow-hidden bg-white dark:bg-[#0B0B0F] py-4 md:py-8">
       <MacbookScroll
         title={
           <span className="text-4xl md:text-6xl font-heading font-black tracking-tighter">

@@ -1,91 +1,150 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, ArrowUpRight, Github, Globe, CheckCircle2, Award, Zap, TrendingUp, Info } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Github, Globe, CheckCircle2, Award, Zap, TrendingUp, Info } from "lucide-react";
 import { Button } from "../components/ui/button";
 import { FinalCTA } from "../components/FinalCTA";
 import { PremiumBackground } from "../components/PremiumBackground";
 import { useRef } from "react";
+import { SEO } from "../components/SEO";
 
 const projects = [
   {
     id: 1,
-    title: "Vortx Ecosystem",
-    category: "Unified Branding",
-    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000",
-    client: "Vortx Labs",
+    title: "Roadhouse Cafe & Bar",
+    category: "Hospitality & Dining",
+    image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=2074&auto=format&fit=crop",
+    client: "Roadhouse Group",
     year: "2024",
-    role: "Brand Identity, Web Design",
-    description: "A complete overhaul of the Vortx digital identity, focusing on fluid motion and architectural hierarchy. We built a system that scales across their entire product suite.",
-    challenges: "The main challenge was reconciling a complex technical architecture with a consumer-friendly aesthetic that didn't feel reductive.",
-    solution: "We implemented a modular design language based on 'energy flows', using custom shaders and bento-grid layouts to organize high-density information.",
-    stack: ["React", "Motion", "Three.js", "Tailwind"],
+    role: "Brand Overhaul & Digital Experience",
+    description: "A cinematic website and digital ordering ecosystem for Roadhouse Cafe & Bar. We fused warm, organic design textures with cutting-edge front-end animation to match their premium rustic atmosphere.",
+    challenges: "Recreating the warm, ambient texture of the physical dining space in a digital medium without compromising on accessibility and mobile booking speed.",
+    solution: "We implemented an immersive dark-mode grid overlay, rich typography pairing (Outfit and Inter), and custom micro-interactions that mirror physical hospitality touchpoints.",
+    stack: ["React", "Framer Motion", "Tailwind CSS", "Vite"],
     metrics: [
-      { label: "Performance", value: "98/100" },
-      { label: "Conversion", value: "+45%" },
-      { label: "System scale", value: "Global" }
+      { label: "Performance", value: "99/100" },
+      { label: "Bookings", value: "+60%" },
+      { label: "Mobile Load Speed", value: "0.4s" }
     ],
     gallery: [
-       "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?q=80&w=2000",
-       "https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=2000",
-       "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2000"
+      "https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=1000",
+      "https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1000",
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1000"
     ]
   },
   {
     id: 2,
-    title: "Nexis Dashboard",
-    category: "SaaS Design & Build",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000",
-    client: "Nexis AI",
+    title: "School Plus Furniture",
+    category: "Educational Design",
+    image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2070&auto=format&fit=crop",
+    client: "School Plus Ltd",
     year: "2023",
-    role: "UI/UX, Frontend Development",
-    description: "An AI-powered dashboard for enterprise resource planning. We focused on reducing cognitive load through intelligent information density.",
-    challenges: "Visualizing massive data streams without overwhelming the user.",
-    solution: "A custom 'Focus Mode' that uses AI to highlight critical path tasks and dims peripheral noise.",
-    stack: ["Next.js", "D3.js", "Framer Motion", "Supabase"],
+    role: "B2B E-commerce & Product Catalog",
+    description: "A sophisticated, architectural design system and digital catalogue platform for School Plus Furniture. The platform translates physical educational spacing configurations into an interactive 3D digital viewer.",
+    challenges: "Transforming high-density modular furniture catalogs into a responsive, clean, and intuitive web directory for institutions.",
+    solution: "A tailored bento-grid showcase coupled with a smart product filter system and a clean, light-mode minimal aesthetic using high-contrast typography.",
+    stack: ["React", "Vite", "Tailwind CSS", "Three.js"],
     metrics: [
-      { label: "Data Latency", value: "<150ms" },
-      { label: "User Task Speed", value: "2x Faster" }
+      { label: "Data Latency", value: "<100ms" },
+      { label: "Engagement", value: "+85%" },
+      { label: "Conversions", value: "2.5x Increase" }
     ],
     gallery: [
-       "https://images.unsplash.com/photo-1551288049-bbda4e9664ad?q=80&w=2000",
-       "https://images.unsplash.com/photo-1504868584819-f8e90526ef53?q=80&w=2000"
+      "https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=1000",
+      "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1000",
+      "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=1000"
     ]
   },
   {
     id: 3,
-    title: "Lumina Brand",
-    category: "Next-Gen Development",
-    image: "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1000",
-    client: "Lumina Energy",
+    title: "Metal Cat Music",
+    category: "Entertainment & Record Label",
+    image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=2070&auto=format&fit=crop",
+    client: "Metal Cat Records",
     year: "2024",
-    role: "Full-Stack Development",
-    description: "A high-performance web platform for a renewable energy startup.",
-    challenges: "Building a site that is both aesthetically premium and highly performant on low-bandwidth connections.",
-    solution: "Hybrid static-dynamic rendering and optimized WebP delivery.",
-    stack: ["Astro", "React", "Node.js"],
+    role: "Brand Identity, Audio Stream & Design",
+    description: "An explosive, audio-rich portfolio and promotional platform for the record label Metal Cat Music. Designed to be gritty, visceral, and unapologetically distinct.",
+    challenges: "Balancing heavy media assets and live audio streams with instantaneous load times and animations on low-end devices.",
+    solution: "Pre-buffered stream loaders, hardware-accelerated Canvas animations, and a high-impact neon visual design framework.",
+    stack: ["React", "Web Audio API", "Framer Motion", "Tailwind"],
     metrics: [
-      { label: "Load Time", value: "0.8s" },
-      { label: "Availability", value: "99.9%" }
+      { label: "Audio Playtime", value: "+110%" },
+      { label: "PageSpeed", value: "98/100" },
+      { label: "Signups", value: "+75%" }
     ],
-    gallery: []
+    gallery: [
+      "https://images.unsplash.com/photo-1514525253361-bee8d48ae024?q=80&w=1000",
+      "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=1000",
+      "https://images.unsplash.com/photo-1493225255756-d9584f8606e9?q=80&w=1000"
+    ]
   },
   {
     id: 4,
-    title: "Orbit App",
-    category: "Strategic Consulting",
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1000",
-    client: "Orbit Mobile",
+    title: "Charta International",
+    category: "Global Logistics",
+    image: "https://images.unsplash.com/photo-1494412651409-8963ce7935a7?q=80&w=2070&auto=format&fit=crop",
+    client: "Charta Logistics",
     year: "2023",
-    role: "Product Strategy, UX Design",
-    description: "The next evolution of shared mobility.",
-    challenges: "Simplifying a multi-step booking process into a single-tap experience.",
-    solution: "Geofencing-based automatic check-ins and predictive destination suggestions.",
-    stack: ["React Native", "Firebase", "Google Maps"],
+    role: "Enterprise Supply Chain Dashboard",
+    description: "A state-of-the-art global logistics portal and branding strategy. We created a high-density, real-time shipment monitoring interface built for maximum reliability.",
+    challenges: "Visualizing massive, chaotic global routing paths and delivery statuses in a single unified dashboard.",
+    solution: "Integrated map-rendering engines, real-time WebSockets state updates, and dynamic layout scaling.",
+    stack: ["React", "Tailwind CSS", "WebSockets", "Mapbox"],
     metrics: [
-      { label: "User Retention", value: "85%" },
-      { label: "Avg Booking", value: "1.2 min" }
+      { label: "Data Latency", value: "<50ms" },
+      { label: "Errors Avoided", value: "-30%" },
+      { label: "Active Users", value: "12k+" }
     ],
-    gallery: []
+    gallery: [
+      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1000",
+      "https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=1000",
+      "https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=1000"
+    ]
+  },
+  {
+    id: 5,
+    title: "Giglab Soundworks",
+    category: "Audio Engineering",
+    image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=2070&auto=format&fit=crop",
+    client: "Giglab Studios",
+    year: "2024",
+    role: "Web Platform & Sound Studio Branding",
+    description: "A premium digital home for Giglab Soundworks, emphasizing high-fidelity acoustic excellence. Immersive dark styling matches their high-end physical sound engineering rooms.",
+    challenges: "Translating acoustical acoustic space values and premium sound design credentials visually for clients.",
+    solution: "We constructed custom waveform audio elements, animated soundwave backdrops, and an interactive acoustic space simulation.",
+    stack: ["React", "Vite", "Canvas API", "Framer Motion"],
+    metrics: [
+      { label: "Session Duration", value: "3x Higher" },
+      { label: "Leads Generated", value: "+55%" },
+      { label: "Bounce Rate", value: "<18%" }
+    ],
+    gallery: [
+      "https://images.unsplash.com/photo-1520529277867-dbf8c5e0b33b?q=80&w=1000",
+      "https://images.unsplash.com/photo-1461783470494-4da244f62c7e?q=80&w=1000",
+      "https://images.unsplash.com/photo-1462965326201-d02e4f455804?q=80&w=1000"
+    ]
+  },
+  {
+    id: 6,
+    title: "Coast Air Pro",
+    category: "Commercial HVAC",
+    image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=2070&auto=format&fit=crop",
+    client: "Coast Air HVAC",
+    year: "2024",
+    role: "Service Dispatcher & Branding",
+    description: "A clean, performance-optimized booking system and modern web presentation for commercial heating & cooling leader Coast Air Pro.",
+    challenges: "Connecting field tech availability databases to customer booking portals with zero lag and clean UI.",
+    solution: "Modernized client scheduling API endpoints, instant zip-code availability checkers, and dynamic service cards.",
+    stack: ["React", "Tailwind CSS", "REST API", "Geocoding"],
+    metrics: [
+      { label: "Dispatch Speed", value: "+40%" },
+      { label: "Booking Friction", value: "-50%" },
+      { label: "Search Visibility", value: "+120%" }
+    ],
+    gallery: [
+      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1000",
+      "https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=1000",
+      "https://images.unsplash.com/photo-1521791136064-7986c29598a5?q=80&w=1000"
+    ]
   }
 ];
 
@@ -107,6 +166,11 @@ export function ProjectDetail() {
 
   return (
     <div className="bg-white">
+      <SEO 
+        title={project.title} 
+        description={project.description} 
+        keywords={`${project.title}, ${project.category}, ${project.stack.join(", ")}, qynt portfolio`}
+      />
       {/* Cinematic Hero */}
       <section ref={heroRef} className="relative min-h-screen flex items-center pt-20 overflow-hidden">
         <motion.div 
@@ -141,7 +205,7 @@ export function ProjectDetail() {
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="text-accent-green font-black uppercase tracking-[0.3em] text-[10px] mb-8"
+              className="text-white/60 font-black uppercase tracking-[0.3em] text-[10px] mb-8"
             >
               Case Study / {project.category}
             </motion.div>
@@ -232,12 +296,12 @@ export function ProjectDetail() {
                 ))}
                 
                 <div className="pt-8 space-y-4">
-                  <Button className="w-full h-16 rounded-2xl bg-black text-white font-black uppercase tracking-widest text-xs group">
-                    Live Project <ArrowUpRight className="ml-2 w-5 h-5" />
+                  <Button className="w-full h-16 rounded-full bg-black hover:bg-neutral-900 text-white font-black uppercase tracking-[0.2em] text-xs group transition-all">
+                    Live Project <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1.5" />
                   </Button>
                   <div className="flex gap-4">
-                    <Button variant="outline" className="flex-grow h-14 rounded-xl border-black/5 font-bold"><Globe className="w-4 h-4 mr-2" /> Web</Button>
-                    <Button variant="outline" className="flex-grow h-14 rounded-xl border-black/5 font-bold"><Github className="w-4 h-4 mr-2" /> Repo</Button>
+                    <Button variant="outline" className="flex-grow h-14 rounded-full border border-black/10 bg-transparent text-black hover:bg-black/5 font-black uppercase tracking-[0.2em] text-[10px] group transition-all"><Globe className="w-4 h-4 mr-2" /> Web</Button>
+                    <Button variant="outline" className="flex-grow h-14 rounded-full border border-black/10 bg-transparent text-black hover:bg-black/5 font-black uppercase tracking-[0.2em] text-[10px] group transition-all"><Github className="w-4 h-4 mr-2" /> Repo</Button>
                   </div>
                 </div>
               </div>
@@ -291,7 +355,7 @@ export function ProjectDetail() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex justify-between items-center mb-20">
             <h2 className="text-4xl md:text-6xl font-heading font-black tracking-tighter">Up Next</h2>
-            <Link to="/portfolio" className="text-sm font-black uppercase tracking-widest hover:text-accent-green transition-colors">All Projects</Link>
+            <Link to="/portfolio" className="text-sm font-black uppercase tracking-widest hover:text-black/60 transition-colors">All Projects</Link>
           </div>
           
           <Link to={`/portfolio/${nextProject.id}`}>
@@ -301,7 +365,7 @@ export function ProjectDetail() {
             >
               <img src={nextProject.image} className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-[2s]" referrerPolicy="no-referrer" />
               <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center p-10">
-                <p className="text-[10px] font-black uppercase tracking-[0.4em] mb-6 text-accent-green">Next Case Study</p>
+                <p className="text-[10px] font-black uppercase tracking-[0.4em] mb-6 text-white/60">Next Case Study</p>
                 <h3 className="text-6xl md:text-9xl font-heading font-black tracking-tighter leading-none mb-10 group-hover:tracking-normal transition-all duration-700">{nextProject.title}</h3>
                 <div className="flex items-center gap-2 text-xl font-bold">
                   View Project <ArrowUpRight className="w-6 h-6" />

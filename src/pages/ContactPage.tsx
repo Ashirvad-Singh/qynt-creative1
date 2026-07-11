@@ -4,6 +4,7 @@ import React, { useState, useRef } from "react";
 import { Button } from "../components/ui/button";
 import { PremiumBackground } from "../components/PremiumBackground";
 import { Magnetic } from "../components/Magnetic";
+import { SEO } from "../components/SEO";
 
 export function ContactPage() {
   const [formState, setFormState] = useState("idle");
@@ -20,6 +21,11 @@ export function ContactPage() {
       className="relative min-h-screen"
       ref={containerRef}
     >
+      <SEO 
+        title="Contact Us" 
+        description="Connect with QYNT Creative & Co. Let's discuss your next brand identity design, UI/UX project, or elite software engineering needs." 
+        keywords="hire software engineers, design agency, brand identity, qynt contact"
+      />
       <PremiumBackground />
 
       <div className="max-w-7xl mx-auto px-6 pt-32 md:pt-48 pb-20 md:pb-40 relative z-10">
@@ -151,12 +157,12 @@ export function ContactPage() {
                   <Magnetic>
                     <Button 
                       disabled={formState !== "idle"}
-                      className="w-full h-16 md:h-20 rounded-2xl md:rounded-[32px] text-base md:text-lg font-black uppercase tracking-widest group bg-black hover:bg-black/90 text-white shadow-2xl relative overflow-hidden"
+                      className="w-64 h-14 mx-auto rounded-full text-xs md:text-sm font-black uppercase tracking-[0.2em] group bg-black hover:bg-neutral-900 text-white shadow-2xl relative overflow-hidden flex items-center justify-center gap-3"
                     >
                       <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                       {formState === "idle" ? (
                         <span className="flex items-center gap-3 relative z-10">
-                          Launch Inquiry <ArrowRight className="w-6 h-6 transition-transform group-hover:translate-x-2" />
+                          Launch Inquiry <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1.5" />
                         </span>
                       ) : formState === "submitting" ? (
                         <motion.div 

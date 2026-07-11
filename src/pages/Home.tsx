@@ -10,10 +10,16 @@ import Globe3DDemo from "../components/3d-globe-demo";
 import MacbookScrollDemo from "../components/macbook-scroll-demo";
 import { FinalCTA } from "../components/FinalCTA";
 import { motion } from "motion/react";
+import { SEO } from "../components/SEO";
 
 export function Home() {
   return (
     <>
+      <SEO 
+        title="Cinematic Digital Agency" 
+        description="QYNT Creative & Co. is a cinematic digital studio specializing in high-end brand identity, world-class UI/UX, and elite software engineering for visionary brands." 
+        keywords="cinematic studio, branding, UIUX design, custom software engineering, qynt creative"
+      />
       <Hero />
       <MacbookScrollDemo />
       <TrustStats />

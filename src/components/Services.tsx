@@ -1,7 +1,5 @@
 import { motion } from "motion/react";
 import { Code2, Cpu, Globe, Layout, Megaphone, Smartphone } from "lucide-react";
-import { Skeleton } from "./Skeleton";
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const services = [
@@ -51,15 +49,8 @@ const services = [
 ];
 
 export function Services() {
-  const [isReady, setIsReady] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setIsReady(true), 2100);
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
-    <section id="services" className="py-16 md:py-40 bg-secondary-bg relative overflow-hidden">
+    <section id="services" className="py-16 md:py-24 bg-secondary-bg relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-12 md:mb-24">
           <motion.div
@@ -89,26 +80,16 @@ export function Services() {
                 viewport={{ once: true }}
                 className={`group relative h-full rounded-[32px] p-8 overflow-hidden border border-black/5 hover:border-black/10 transition-all duration-500 bg-white`}
               >
-                {isReady ? (
-                  <>
-                    <div className="relative z-10 flex flex-col h-full">
-                      <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center shadow-sm mb-6 group-hover:scale-110 transition-transform duration-500">
-                        {service.icon}
-                      </div>
-                      <h3 className="text-2xl font-heading font-bold mb-3">{service.title}</h3>
-                      <p className="text-muted-foreground text-sm leading-relaxed max-w-[200px]">
-                        {service.description}
-                      </p>
-                    </div>
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-white/40 blur-3xl -mr-32 -mt-32 group-hover:bg-white/60 transition-colors duration-500" />
-                  </>
-                ) : (
-                  <div className="flex flex-col h-full space-y-4">
-                    <Skeleton className="w-12 h-12 rounded-2xl" />
-                    <Skeleton className="w-32 h-6" />
-                    <Skeleton className="w-full h-12" />
+                <div className="relative z-10 flex flex-col h-full">
+                  <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center shadow-sm mb-6 group-hover:scale-110 transition-transform duration-500">
+                    {service.icon}
                   </div>
-                )}
+                  <h3 className="text-2xl font-heading font-bold mb-3">{service.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed max-w-[200px]">
+                    {service.description}
+                  </p>
+                </div>
+                <div className="absolute top-0 right-0 w-64 h-64 bg-white/40 blur-3xl -mr-32 -mt-32 group-hover:bg-white/60 transition-colors duration-500" />
               </motion.div>
             </Link>
           ))}
