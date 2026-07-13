@@ -1,5 +1,4 @@
 import { motion } from "motion/react";
-import logo from "../assets/images/regenerated_image_1779793682809.png";
 import { ArrowUpRight, Github, Instagram, Linkedin, Twitter } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -11,11 +10,9 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-20 mb-20">
           <div className="md:col-span-2 space-y-8">
-            <img 
-              src={logo} 
-              alt="Qynt Creatives & Co." 
-              className="h-12 md:h-16 w-auto object-contain origin-left"
-            />
+            <div className="font-heading font-black text-xl md:text-2xl tracking-tighter text-[#1a1a1a]">
+              QYNT CREATIVES
+            </div>
             <p className="text-xl text-muted-foreground leading-relaxed max-w-sm">
               We design and build the digital future for visionary brands. Let's create something world-class together.
             </p>
@@ -73,7 +70,7 @@ export function Footer() {
         </div>
 
         <div className="pt-12 border-t border-border flex flex-col md:flex-row items-center justify-between gap-6 text-[10px] text-muted-foreground font-bold uppercase tracking-[0.2em]">
-          <p>© {currentYear} QYNT CREATIVE STUDIO. ALL RIGHTS RESERVED.</p>
+          <p>© {currentYear} QYNT CREATIVES. ALL RIGHTS RESERVED.</p>
           <div className="flex gap-10">
             <Link to="#" className="hover:text-foreground transition-colors">Privacy Policy</Link>
             <Link to="#" className="hover:text-foreground transition-colors">Terms of Service</Link>

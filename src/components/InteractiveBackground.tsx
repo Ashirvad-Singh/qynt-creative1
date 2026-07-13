@@ -20,21 +20,21 @@ export function InteractiveBackground() {
       <div 
         className="absolute inset-0 opacity-[0.03]" 
         style={{ 
-          backgroundImage: `linear-gradient(to right, #000 1px, transparent 1px), linear-gradient(to bottom, #000 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(to right, #FF7A50 1px, transparent 1px), linear-gradient(to bottom, #FF7A50 1px, transparent 1px)`,
           backgroundSize: '40px 40px'
         }}
       />
       
       {/* Animated Mesh Gradients */}
       <motion.div 
-        className="absolute -top-[20%] -left-[10%] w-[60%] h-[60%] bg-black/5 rounded-full blur-[120px]"
+        className="absolute -top-[20%] -left-[10%] w-[60%] h-[60%] bg-[#FF7A50]/15 rounded-full blur-[120px]"
         animate={{
           x: mousePos.x * 0.05,
           y: mousePos.y * 0.05 + (scrollY.get() * 0.1),
         }}
       />
       <motion.div 
-        className="absolute -bottom-[20%] -right-[10%] w-[50%] h-[50%] bg-accent-green/5 rounded-full blur-[100px]"
+        className="absolute -bottom-[20%] -right-[10%] w-[50%] h-[50%] bg-[#3B82F6]/10 rounded-full blur-[100px]"
         animate={{
           x: -mousePos.x * 0.03,
           y: -mousePos.y * 0.03,

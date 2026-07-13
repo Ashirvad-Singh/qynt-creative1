@@ -23,7 +23,7 @@ export function ContactPage() {
     >
       <SEO 
         title="Contact Us" 
-        description="Connect with QYNT Creative & Co. Let's discuss your next brand identity design, UI/UX project, or elite software engineering needs." 
+        description="Connect with Qynt Creatives. Let's discuss your next brand identity design, UI/UX project, or elite software engineering needs." 
         keywords="hire software engineers, design agency, brand identity, qynt contact"
       />
       <PremiumBackground />

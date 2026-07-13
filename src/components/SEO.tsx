@@ -9,7 +9,7 @@ interface SEOProps {
 export function SEO({ title, description, keywords }: SEOProps) {
   useEffect(() => {
     // Dynamic Page Title
-    document.title = `${title} | QYNT Creative & Co.`;
+    document.title = `${title} | Qynt Creatives`;
 
     // Dynamic Meta Description
     let metaDescription = document.querySelector('meta[name="description"]');

@@ -1,111 +1,88 @@
 import { motion } from "motion/react";
-import { Button } from "./ui/button";
-import { MessageCircle, Mail, Phone, ArrowRight, ArrowUpRight, Star, Clock, Zap } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export function FinalCTA() {
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Header Section */}
-        <div className="flex flex-col md:flex-row items-center gap-8 mb-16 px-4">
-          <h2 className="text-6xl md:text-8xl font-heading font-black tracking-tighter">Ready?</h2>
-          <div className="w-px h-16 bg-black/10 hidden md:block" />
-          <p className="text-muted-foreground text-lg md:text-xl font-medium max-w-md">
-            Let's build something extraordinary together.
-          </p>
-        </div>
+    <section className="relative w-full py-28 md:py-36 bg-[#030303] overflow-hidden select-none">
+      
+      {/* Blue dotted engineering grid background */}
+      <div 
+        className="absolute inset-0 opacity-[0.25]"
+        style={{
+          backgroundImage: 'radial-gradient(#00C2FF 1px, transparent 1.2px)',
+          backgroundSize: '28px 28px'
+        }}
+      />
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-8">
-          {/* Main Large Card */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="lg:col-span-8 bg-[#0a0a0a] rounded-[40px] p-8 md:p-12 text-white relative overflow-hidden group"
-          >
-            {/* Background Glow */}
-            <div className="absolute top-0 right-0 w-1/2 h-full bg-white/5 blur-[120px] -z-0 pointer-events-none" />
-            
-            <div className="relative z-10 h-full flex flex-col justify-between">
-              <div>
-                <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-full mb-8">
-                  <div className="w-2 h-2 rounded-full bg-white/40 animate-pulse" />
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-white/80">Slots available for projects</span>
-                </div>
-                
-                <h3 className="text-4xl md:text-7xl font-heading font-black tracking-tighter leading-[0.9] mb-6">
-                  Get a free quote <br />
-                  <span className="text-white/40 font-extrabold">in under 2 minutes.</span>
-                </h3>
-                
-                <p className="text-white/60 text-lg font-medium max-w-md mb-12">
-                  Fill our budget calculator, configure your project — receive an individual offer within 24h.
-                </p>
-              </div>
+      {/* Futuristic Blue/Cyan Ambient Spotlight Blurs */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-[#00B5FF]/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-[10%] right-[10%] w-[400px] h-[200px] bg-purple-500/5 rounded-full blur-[100px] pointer-events-none" />
 
-              <Button 
-                render={<Link to="/contact" />}
-                nativeButton={false}
-                className="w-64 h-14 rounded-full bg-white hover:bg-neutral-100 text-black text-xs md:text-sm font-black uppercase tracking-[0.2em] shadow-xl transition-all hover:scale-105 active:scale-95 group inline-flex items-center justify-center gap-3"
-              >
-                Contact Us
-                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1.5" />
-              </Button>
-            </div>
-          </motion.div>
+      <div className="relative w-full max-w-7xl mx-auto px-6 z-10 flex flex-col items-center justify-center text-center">
+        
+        {/* Tagline */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-6"
+        >
+          <span className="text-xs sm:text-sm font-medium text-neutral-400 tracking-wide">
+            New components and templates every month.
+          </span>
+        </motion.div>
 
-          {/* Right Contact Cards */}
-          <div className="lg:col-span-4 flex flex-col gap-4">
-            {[
-              { icon: Phone, label: "Call directly", value: "9627277111", href: "tel:+919627277111", color: "bg-black/5 text-black" },
-              { icon: Mail, label: "Send email", value: "Qyntcreatives@gmail.com", href: "mailto:Qyntcreatives@gmail.com", color: "bg-black/5 text-black" },
-              { icon: MessageCircle, label: "WhatsApp", value: "Quick & uncomplicated", href: "https://wa.me/919627277111", color: "bg-black/5 text-black" }
-            ].map((contact, i) => (
-              <motion.a
-                key={contact.label}
-                href={contact.href}
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="flex items-center justify-between p-6 bg-[#f9f9f9] hover:bg-[#efefef] border border-black/5 rounded-[32px] group transition-all"
-              >
-                <div className="flex items-center gap-4">
-                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center ${contact.color}`}>
-                    <contact.icon className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-1">{contact.label}</p>
-                    <p className="text-lg font-black tracking-tight">{contact.value}</p>
-                  </div>
-                </div>
-                <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-black transition-colors" />
-              </motion.a>
-            ))}
-          </div>
-        </div>
-
-        {/* Bottom Stats Bar */}
-        <motion.div 
+        {/* Heading */}
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-[#f9f9f9] border border-black/5 rounded-[32px] p-8 flex flex-wrap items-center justify-center gap-x-16 gap-y-6"
+          transition={{ duration: 0.7, delay: 0.1 }}
+          className="text-4xl sm:text-6xl md:text-7.5xl font-heading font-black tracking-tight leading-none text-white max-w-4xl mb-8"
         >
-          <div className="flex items-center gap-3">
-            <Clock className="w-5 h-5 text-black/40" />
-            <span className="text-sm font-bold tracking-tight">Response in 24h</span>
-          </div>
-          <div className="flex items-center gap-3">
-            <Star className="w-5 h-5 text-black/40 fill-black/10" />
-            <span className="text-sm font-bold tracking-tight">5.0 Google Rating</span>
-          </div>
-          <div className="flex items-center gap-3">
-            <Zap className="w-5 h-5 text-black/40" />
-            <span className="text-sm font-bold tracking-tight">120+ Projects</span>
-          </div>
+          Build your next project in <br className="hidden sm:inline" />
+          minutes, not hours.
+        </motion.h2>
+
+        {/* Description */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="text-neutral-400 text-sm sm:text-base md:text-lg max-w-3xl leading-relaxed mb-12 font-medium"
+        >
+          We are a team of developers who are passionate about creating <br className="hidden md:inline" />
+          web apps that make you feel like you're in the future.
+        </motion.p>
+
+        {/* Action Buttons Row */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full max-w-md"
+        >
+          {/* Get Started Button (Purple Gradient Pill) */}
+          <Link to="/contact" className="w-full sm:w-auto">
+            <button className="w-full sm:w-auto rounded-full bg-gradient-to-r from-[#4F46E5] to-[#7C3AED] hover:from-[#4338CA] hover:to-[#6D28D9] text-white px-8 py-5 text-xs font-black uppercase tracking-widest flex items-center justify-center gap-2 group transition-all duration-300 shadow-lg shadow-indigo-500/20 active:scale-95">
+              Get started 
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </button>
+          </Link>
+
+          {/* Alternative action (Dark Glassmorphic Pill) */}
+          <a href="tel:9627277111" className="w-full sm:w-auto">
+            <button className="w-full sm:w-auto rounded-full bg-white/5 border border-white/10 hover:bg-white/10 text-white px-8 py-5 text-xs font-black uppercase tracking-widest flex items-center justify-center gap-2 transition-all duration-300 active:scale-95">
+              <Phone className="w-4 h-4 text-white/60" />
+              Call directly
+            </button>
+          </a>
         </motion.div>
+
       </div>
     </section>
   );

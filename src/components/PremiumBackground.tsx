@@ -27,7 +27,7 @@ export function PremiumBackground() {
   return (
     <div className="absolute inset-0 -z-20 overflow-hidden pointer-events-none select-none">
       {/* Base Background */}
-      <div className="absolute inset-0 bg-white" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#FFF1EB] via-white to-[#E8EEFF]" />
 
       {/* Interactive Spotlight */}
       <motion.div 
@@ -44,7 +44,7 @@ export function PremiumBackground() {
       <motion.div 
         className="absolute inset-0 opacity-[0.05] z-0" 
         style={{ 
-          backgroundImage: `linear-gradient(to right, #000 1px, transparent 1px), linear-gradient(to bottom, #000 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(to right, #FF7A50 1px, transparent 1px), linear-gradient(to bottom, #FF7A50 1px, transparent 1px)`,
           backgroundSize: '60px 60px',
           y: gridY
         }}
@@ -54,7 +54,7 @@ export function PremiumBackground() {
       <motion.div 
         className="absolute inset-0 opacity-[0.02] z-0 px-10" 
         style={{ 
-          backgroundImage: `linear-gradient(to right, #000 1px, transparent 1px), linear-gradient(to bottom, #000 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(to right, #FF5A36 1px, transparent 1px), linear-gradient(to bottom, #FF5A36 1px, transparent 1px)`,
           backgroundSize: '20px 20px',
           y: useTransform(scrollY, [0, 1000], [0, 80])
         }}
@@ -68,7 +68,7 @@ export function PremiumBackground() {
         }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
         style={{ y: y1, rotate: rotateSlower }}
-        className="absolute -top-[10%] -left-[10%] w-[80%] h-[80%] bg-black/[0.03] rounded-full blur-[160px]"
+        className="absolute -top-[10%] -left-[10%] w-[80%] h-[80%] bg-[#FF7A50]/15 rounded-full blur-[160px]"
       />
       <motion.div 
         animate={{
@@ -77,7 +77,7 @@ export function PremiumBackground() {
         }}
         transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 2 }}
         style={{ y: y2 }}
-        className="absolute -bottom-[20%] -right-[10%] w-[90%] h-[90%] bg-black/[0.02] rounded-full blur-[180px]"
+        className="absolute -bottom-[20%] -right-[10%] w-[90%] h-[90%] bg-[#3B82F6]/10 rounded-full blur-[180px]"
       />
 
       {/* Moving Particles */}

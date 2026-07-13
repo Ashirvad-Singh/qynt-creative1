@@ -134,8 +134,8 @@ export function Testimonials() {
                 />
               </div>
 
-              <h2 className="text-2xl md:text-5xl font-heading font-black text-white tracking-tighter leading-[1.1] max-w-4xl mb-16">
-                {activeTestimonial.content}
+              <h2 className="text-2xl md:text-5xl font-heading font-black text-white tracking-tighter leading-[1.1] max-w-4xl mb-16 text-center">
+                "{activeTestimonial.content}"
               </h2>
             </motion.div>
           </AnimatePresence>
@@ -148,9 +148,9 @@ export function Testimonials() {
                 onClick={() => setActiveId(t.id)}
                 className={cn(
                   "px-6 py-2.5 rounded-full text-xs font-black uppercase tracking-widest transition-all duration-500",
-                  activeId === t.id 
-                    ? "bg-white text-black shadow-[0_0_30px_rgba(255,255,255,0.3)]" 
-                    : "text-white/40 hover:text-white/80 hover:bg-white/5"
+                  activeId === t.id
+                    ? "bg-white text-black shadow-lg"
+                    : "text-white/40 hover:text-white"
                 )}
               >
                 {t.name}
@@ -159,12 +159,6 @@ export function Testimonials() {
           </div>
         </div>
       </div>
-      
-      {/* Edge vignette gradients */}
-      <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#030303] to-transparent pointer-events-none" />
-      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#030303] to-transparent pointer-events-none" />
     </section>
   );
 }
-
-

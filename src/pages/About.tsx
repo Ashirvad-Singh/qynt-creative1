@@ -26,7 +26,7 @@ export function About() {
     >
       <SEO 
         title="About Us" 
-        description="Learn more about QYNT Creative & Co. We are an elite digital collective operating at the intersection of branding, visual UX, and deep tech." 
+        description="Learn more about Qynt Creatives. We are an elite digital collective operating at the intersection of branding, visual UX, and deep tech." 
         keywords="design agency philosophy, software agency history, qynt founders"
       />
       <section className="relative min-h-screen pt-48 pb-20 flex flex-col items-center overflow-hidden">

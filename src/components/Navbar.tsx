@@ -1,5 +1,4 @@
 import { motion, useScroll, useTransform } from "motion/react";
-import logo from "../assets/images/regenerated_image_1779793682809.png";
 import { Button, buttonVariants } from "./ui/button";
 import { ArrowRight, Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
@@ -42,12 +41,8 @@ export function Navbar() {
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        <Link to="/" className="flex items-center flex-shrink-0">
-          <img 
-            src={logo} 
-            alt="Qynt Creatives & Co." 
-            className="h-10 sm:h-12 md:h-16 w-auto object-contain"
-          />
+        <Link to="/" className="flex items-center flex-shrink-0 font-heading font-black text-xl md:text-2xl tracking-tighter text-[#1a1a1a]">
+          QYNT CREATIVES
         </Link>
 
         {/* Desktop Nav */}
@@ -66,7 +61,7 @@ export function Navbar() {
           <Magnetic>
             <Button 
               nativeButton={false}
-              className="rounded-full w-56 h-14 gap-3 group bg-black text-white hover:bg-neutral-900 transition-all shadow-lg active:scale-95 text-[10px] font-black uppercase tracking-[0.2em]"
+              className="rounded-full w-56 h-14 gap-3 group bg-gradient-to-r from-[#FF7A50] to-[#FF5A36] text-white hover:opacity-95 transition-all shadow-lg shadow-orange-500/20 active:scale-95 text-[10px] font-black uppercase tracking-[0.2em] border-none"
               render={<Link to="/contact" />}
             >
               <span>Start a project</span>
@@ -90,7 +85,7 @@ export function Navbar() {
               {/* Background Decorative Text */}
               <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.015] flex flex-col justify-center items-center">
                 <span className="text-[60px] font-black leading-none -rotate-12 translate-x-1/4 uppercase">QYNT</span>
-                <span className="text-[60px] font-black leading-none -rotate-12 -translate-x-1/4 uppercase">STUDIO</span>
+                <span className="text-[60px] font-black leading-none -rotate-12 -translate-x-1/4 uppercase">CREATIVES</span>
               </div>
 
               <div className="flex flex-col h-full pt-12 pb-6 px-4 relative z-10">

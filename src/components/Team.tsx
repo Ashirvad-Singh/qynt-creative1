@@ -1,207 +1,222 @@
-import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from "motion/react";
-import { Github, Linkedin, Twitter } from "lucide-react";
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
+import { motion, AnimatePresence, useMotionValue, useSpring } from "motion/react";
+import { ArrowUpRight } from "lucide-react";
 
-const team = [
+interface Member {
+  name: string;
+  role: string;
+  image: string;
+  bio: string;
+}
+
+const team: Member[] = [
   {
-    name: "Caspian Vance",
-    role: "Founding Partner / Creative Director",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000",
-    socials: { twitter: "#", linkedin: "#" }
+    name: "Raghav Sharma",
+    role: "Founder",
+    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=300",
+    bio: "A software engineer and award-winning photographer who founded Qynt Creatives to merge design elegance with tech innovation."
   },
   {
-    name: "Elena Thorne",
-    role: "Head of Engineering",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1000",
-    socials: { twitter: "#", linkedin: "#", github: "#" }
+    name: "Manoj Punj",
+    role: "Co-Founder",
+    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=300",
+    bio: "Bringing 25+ years of Information Technology expertise and deep strategic business knowledge to scale enterprise structures."
   },
   {
-    name: "Marcus Grey",
-    role: "Strategic Branding",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1000",
-    socials: { twitter: "#", linkedin: "#" }
-  },
-  {
-    name: "Sasha Lee",
-    role: "UI/UX Ninja",
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000",
-    socials: { twitter: "#", linkedin: "#" }
-  },
-  {
-    name: "Dr. Aris V.",
-    role: "AI Scientist",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=1000",
-    socials: { twitter: "#", linkedin: "#", github: "#" }
-  },
-  {
-    name: "Nova Sterling",
-    role: "Operations Lead",
-    image: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&w=1000",
-    socials: { twitter: "#", linkedin: "#" }
+    name: "Ashirvad Singh",
+    role: "CTO",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=300",
+    bio: "Leads the tech team with expert-level knowledge of React, Node, and database architecture, building lightning-fast systems."
   }
 ];
 
-function TeamCard({ member }: { member: typeof team[0], key?: any }) {
-  const cardRef = useRef<HTMLDivElement>(null);
-  const [isHovered, setIsHovered] = useState(false);
+interface HoverMemberProps {
+  teamMembers: Member[];
+  defaultName?: string;
+  className?: string;
+  backgroundColor?: string;
+  textColor?: string;
+  hoverTextColor?: string;
+  cursorColor?: string;
+}
 
-  // Mouse tilt effect
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const mouseXSpring = useSpring(x);
-  const mouseYSpring = useSpring(y);
-  
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["6deg", "-6deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-6deg", "6deg"]);
+export function HoverMember({
+  teamMembers,
+  defaultName = "QYNT",
+  className = "",
+  backgroundColor = "bg-black",
+  textColor = "text-white/20",
+  hoverTextColor = "text-[#FF5A36]",
+  cursorColor = "bg-[#FF5A36]"
+}: HoverMemberProps) {
+  const [hoveredMember, setHoveredMember] = useState<Member | null>(null);
+  const [isHoveredSection, setIsHoveredSection] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  // Parallax for elements
-  const imageScale = useSpring(isHovered ? 1.05 : 1, { damping: 20 });
-  const bgX = useTransform(mouseXSpring, [-0.5, 0.5], ["-15px", "15px"]);
-  const bgY = useTransform(mouseYSpring, [-0.5, 0.5], ["-15px", "15px"]);
-  const contentX = useTransform(mouseXSpring, [-0.5, 0.5], ["-5px", "5px"]);
-  const contentY = useTransform(mouseYSpring, [-0.5, 0.5], ["-5px", "5px"]);
+  // Custom cursor follower tracking
+  const cursorX = useMotionValue(-100);
+  const cursorY = useMotionValue(-100);
+  const springConfig = { damping: 28, stiffness: 220 };
+  const springX = useSpring(cursorX, springConfig);
+  const springY = useSpring(cursorY, springConfig);
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
-    const xPct = mouseX / width - 0.5;
-    const yPct = mouseY / height - 0.5;
-    x.set(xPct);
-    y.set(yPct);
-  };
-
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-    setIsHovered(false);
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    cursorX.set(x);
+    cursorY.set(y);
   };
 
   return (
-    <motion.div
-      ref={cardRef}
+    <div
+      ref={containerRef}
       onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        rotateX,
-        rotateY,
-        transformStyle: "preserve-3d",
-        perspective: "1000px"
+      onMouseEnter={() => setIsHoveredSection(true)}
+      onMouseLeave={() => {
+        setIsHoveredSection(false);
+        setHoveredMember(null);
       }}
-      className="group relative"
+      className={`relative w-full py-28 md:py-36 overflow-hidden flex flex-col items-center justify-center select-none ${backgroundColor} ${className}`}
     >
-      {/* Floating gradient blur behind the active profile */}
-      <motion.div 
-        className="absolute -inset-10 bg-accent-blue/10 blur-[80px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none -z-10"
-        style={{ x: bgY, y: bgX }} 
-      />
+      {/* Custom Springy Cursor Follower with Arrow Icon */}
+      {isHoveredSection && (
+        <motion.div
+          style={{
+            x: springX,
+            y: springY,
+            translateX: "-50%",
+            translateY: "-50%",
+          }}
+          className={`absolute top-0 left-0 w-12 h-12 rounded-full pointer-events-none z-30 flex items-center justify-center text-white hidden md:flex ${cursorColor}`}
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: hoveredMember ? 1.25 : 1, opacity: 0.9 }}
+          exit={{ scale: 0, opacity: 0 }}
+        >
+          <ArrowUpRight className="w-5 h-5" />
+        </motion.div>
+      )}
 
-      <div className="relative aspect-[3/4.2] overflow-hidden rounded-[32px] bg-secondary-bg shadow-sm transition-all duration-500 group-hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.2)]">
-        {/* Layered background glass overlay with parallax */}
-        <motion.div 
-          style={{ x: bgX, y: bgY, translateZ: "-20px" }}
-          className="absolute inset-4 bg-white/5 backdrop-blur-xl border border-white/10 rounded-[24px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10 pointer-events-none"
-        />
-
-        {/* Portrait Image */}
-        <motion.img 
-          style={{ scale: imageScale }}
-          src={member.image} 
-          alt={member.name}
-          className="w-full h-full object-cover transition-[scale,filter] duration-700"
-          referrerPolicy="no-referrer"
-        />
-
-        {/* Shadow layer */}
-        <motion.div 
-          className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-opacity duration-700"
-        />
-
-        {/* Social links reveal - Staggered */}
-        <div className="absolute bottom-6 left-0 w-full flex justify-center gap-2 px-4 translate-z-40">
-          <AnimatePresence>
-            {isHovered && Object.entries(member.socials).map(([platform, href], idx) => (
-              <motion.a 
-                key={platform}
-                href={href}
-                initial={{ opacity: 0, y: 15, scale: 0.8 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: 5, scale: 0.8 }}
-                transition={{ 
-                  delay: idx * 0.05, 
-                  type: "spring", 
-                  stiffness: 300, 
-                  damping: 15 
-                }}
-                className="w-8 h-8 rounded-full glass border border-white/20 flex items-center justify-center text-white hover:bg-accent-blue hover:text-white transition-all duration-300"
-              >
-                {platform === "twitter" && <Twitter className="w-3.5 h-3.5" />}
-                {platform === "linkedin" && <Linkedin className="w-3.5 h-3.5" />}
-                {platform === "github" && <Github className="w-3.5 h-3.5" />}
-              </motion.a>
-            ))}
-          </AnimatePresence>
-        </div>
-
-        {/* Animated border glow */}
-        <div className="absolute inset-0 rounded-[32px] border border-white/10 group-hover:border-accent-blue/30 transition-colors duration-500" />
+      {/* Row of profile squircles at the top */}
+      <div className="flex items-center gap-4 justify-center mb-8 sm:mb-12 relative z-10 flex-wrap px-6">
+        {teamMembers.map((member) => {
+          const isSelected = hoveredMember?.name === member.name;
+          return (
+            <motion.div
+              key={member.name}
+              onMouseEnter={() => setHoveredMember(member)}
+              onMouseLeave={() => setHoveredMember(null)}
+              animate={{
+                scale: isSelected ? 1.15 : 1,
+                y: isSelected ? -5 : 0
+              }}
+              transition={{ type: "spring", stiffness: 400, damping: 25 }}
+              className={`w-16 h-16 sm:w-20 sm:h-20 rounded-[22px] sm:rounded-[26px] overflow-hidden cursor-pointer border-2 transition-all duration-300 ${
+                isSelected ? "border-[#FF5A36] shadow-lg shadow-orange-500/10" : "border-white/10 hover:border-white/30"
+              }`}
+            >
+              <img
+                src={member.image}
+                alt={member.name}
+                className="w-full h-full object-cover"
+                referrerPolicy="no-referrer"
+              />
+            </motion.div>
+          );
+        })}
       </div>
 
-      <motion.div 
-        className="mt-6"
-        animate={{ y: isHovered ? -3 : 0 }}
-        style={{ x: contentX, y: contentY }}
-        transition={{ type: "spring", stiffness: 300 }}
-      >
-        <h3 className="text-xl font-heading font-extrabold mb-0.5 tracking-tighter truncate">{member.name}</h3>
-        <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-accent-blue truncate">
-          {member.role}
-        </p>
-      </motion.div>
-    </motion.div>
+      {/* Giant Name Display underneath the squircles */}
+      <div className="relative w-full max-w-7xl mx-auto px-6 h-28 sm:h-44 md:h-52 flex items-center justify-center z-10 overflow-hidden">
+        <AnimatePresence mode="wait">
+          <motion.h2
+            key={hoveredMember ? hoveredMember.name : defaultName}
+            initial={{ y: 80, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -80, opacity: 0 }}
+            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className={`text-5xl sm:text-7xl md:text-9xl lg:text-[9.5vw] font-heading font-black tracking-tighter uppercase leading-none text-center select-none ${
+              hoveredMember ? hoverTextColor : textColor
+            }`}
+            style={{ fontFamily: 'var(--font-sans), system-ui' }}
+          >
+            {hoveredMember ? hoveredMember.name : defaultName}
+          </motion.h2>
+        </AnimatePresence>
+      </div>
+
+      {/* Dynamic Role Subtitle */}
+      <div className="h-6 mt-4 relative z-10">
+        <AnimatePresence mode="wait">
+          {hoveredMember && (
+            <motion.p
+              key={hoveredMember.name + "-role"}
+              initial={{ opacity: 0, y: 5 }}
+              animate={{ opacity: 0.9, y: 0 }}
+              exit={{ opacity: 0, y: -5 }}
+              className="text-[#FF7A50] text-xs font-black uppercase tracking-[0.3em]"
+            >
+              {hoveredMember.role}
+            </motion.p>
+          )}
+        </AnimatePresence>
+      </div>
+
+      {/* Dynamic Description Box */}
+      <div className="h-20 mt-6 relative z-10 max-w-2xl mx-auto px-6 text-center">
+        <AnimatePresence mode="wait">
+          <motion.p
+            key={hoveredMember ? hoveredMember.name + "-bio" : "default-bio"}
+            initial={{ opacity: 0, y: 5 }}
+            animate={{ opacity: 0.8, y: 0 }}
+            exit={{ opacity: 0, y: -5 }}
+            className="text-sm sm:text-base text-neutral-300 leading-relaxed font-medium"
+          >
+            {hoveredMember 
+              ? hoveredMember.bio 
+              : "Meet the core leadership driving software engineering, strategic branding, and business consulting at Qynt Creatives."}
+          </motion.p>
+        </AnimatePresence>
+      </div>
+    </div>
   );
 }
 
 export function Team() {
   return (
-    <section id="about" className="py-16 md:py-40 bg-white relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12 md:mb-24 gap-10">
+    <section id="about" className="py-24 bg-black relative overflow-hidden">
+      <div className="max-w-7xl mx-auto">
+        {/* Section Title Header */}
+        <div className="px-6 mb-16 flex flex-col md:flex-row justify-between items-end gap-10">
           <div className="max-w-2xl">
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              className="text-accent-blue font-bold uppercase tracking-widest text-xs mb-4"
+              className="text-neutral-500 font-bold uppercase tracking-widest text-xs mb-4"
             >
-              The Collective
+              The Leadership
             </motion.div>
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="text-4xl md:text-8xl font-heading font-extrabold tracking-tighter leading-[0.9]"
+              className="text-4xl md:text-8xl font-heading font-extrabold tracking-tighter leading-[0.9] text-white"
             >
-              Obsessed <span className="text-muted-foreground">with</span> <br />
-              <span className="text-muted-foreground">our craft.</span>
+              Obsessed <span className="text-neutral-500">with</span> <br />
+              <span className="text-neutral-500">our craft.</span>
             </motion.h2>
           </div>
           <motion.p 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            className="text-lg text-muted-foreground max-w-sm font-medium"
+            className="text-lg text-neutral-400 max-w-sm font-medium"
           >
-            A curated team of designers, engineers, and strategists working at the intersection of culture and technology.
+            Meet the leadership driving digital strategy, visual branding, and enterprise engineering at Qynt Creatives.
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-8">
-          {team.map((member) => (
-            <TeamCard key={member.name} member={member} />
-          ))}
-        </div>
+        {/* Skiper UI HoverMember Component implementation exactly matching the design */}
+        <HoverMember teamMembers={team} defaultName="QYNT" />
       </div>
     </section>
   );

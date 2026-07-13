@@ -1,6 +1,7 @@
 import { Hero } from "../components/Hero";
+import { ProcessSlider } from "../components/ProcessSlider";
 import { TrustStats } from "../components/TrustStats";
-import { PortfolioSection } from "../components/PortfolioSection";
+import { InstagramFeed } from "../components/InstagramFeed";
 import { Services } from "../components/Services";
 import { DashboardUI } from "../components/DashboardUI";
 import { Team } from "../components/Team";
@@ -17,10 +18,11 @@ export function Home() {
     <>
       <SEO 
         title="Cinematic Digital Agency" 
-        description="QYNT Creative & Co. is a cinematic digital studio specializing in high-end brand identity, world-class UI/UX, and elite software engineering for visionary brands." 
+        description="Qynt Creatives is a full-service Digital Marketing, Branding, and Business Consulting Agency that helps businesses build powerful brands, create impactful digital experiences, and achieve measurable growth." 
         keywords="cinematic studio, branding, UIUX design, custom software engineering, qynt creative"
       />
       <Hero />
+      <ProcessSlider />
       <MacbookScrollDemo />
       <TrustStats />
       <section className="py-16 md:py-24 bg-black overflow-hidden relative">
@@ -47,7 +49,7 @@ export function Home() {
           <Globe3DDemo />
         </div>
       </section>
-      <PortfolioSection />
+      <InstagramFeed />
       <Services />
       <DashboardUI />
       <Team />

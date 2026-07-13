@@ -4,8 +4,8 @@ import { useRef } from "react";
 const stats = [
   { label: "Projects Delivered", value: "250", suffix: "+" },
   { label: "Successful Exits", value: "12", suffix: "" },
-  { label: "Growth Generated", value: "$4.5", suffix: "B+" },
-  { label: "Global Reach", value: "45", suffix: " countries" },
+  { label: "Years IT Experience", value: "25", suffix: "+" },
+  { label: "Client Satisfaction", value: "99", suffix: "%" },
 ];
 
 function Counter({ value, suffix }: { value: string, suffix: string }) {

@@ -1,9 +1,7 @@
-import { motion, useScroll, useTransform, useSpring } from "motion/react";
+import { motion, useScroll, useTransform, useSpring, useMotionValue } from "motion/react";
 import { Button } from "./ui/button";
-import { FloatingCard } from "./FloatingCard";
-import { ArrowRight, ArrowUpRight, Play, Sparkles, TrendingUp, Users, Award, Zap, ShieldCheck } from "lucide-react";
+import { ArrowRight, TrendingUp, Users, Award, ShieldCheck } from "lucide-react";
 import { Magnetic } from "./Magnetic";
-import { Skeleton } from "./Skeleton";
 import { useState, useEffect, useRef } from "react";
 import { PremiumBackground } from "./PremiumBackground";
 import { Link } from "react-router-dom";
@@ -15,10 +13,46 @@ export function Hero() {
     offset: ["start start", "end start"]
   });
 
-  const y1 = useTransform(scrollYProgress, [0, 1], [0, -150]);
-  const y2 = useTransform(scrollYProgress, [0, 1], [0, -250]);
-  const y3 = useTransform(scrollYProgress, [0, 1], [0, -100]);
-  const y4 = useTransform(scrollYProgress, [0, 1], [0, -200]);
+  // Scroll Parallax Transforms
+  const y1 = useTransform(scrollYProgress, [0, 1], [0, -120]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [0, -200]);
+  const y3 = useTransform(scrollYProgress, [0, 1], [0, -80]);
+  const y4 = useTransform(scrollYProgress, [0, 1], [0, -160]);
+
+  // Mouse Parallax Setup
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const springX = useSpring(mouseX, { damping: 35, stiffness: 120 });
+  const springY = useSpring(mouseY, { damping: 35, stiffness: 120 });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      const { innerWidth, innerHeight } = window;
+      const x = (e.clientX - innerWidth / 2) / (innerWidth / 2);
+      const y = (e.clientY - innerHeight / 2) / (innerHeight / 2);
+      mouseX.set(x);
+      mouseY.set(y);
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [mouseX, mouseY]);
+
+  // Card Parallax Translations
+  const mx1 = useTransform(springX, [-1, 1], [-30, 30]);
+  const my1 = useTransform(springY, [-1, 1], [-30, 30]);
+
+  const mx2 = useTransform(springX, [-1, 1], [40, -40]);
+  const my2 = useTransform(springY, [-1, 1], [25, -25]);
+
+  const mx3 = useTransform(springX, [-1, 1], [-20, 20]);
+  const my3 = useTransform(springY, [-1, 1], [-20, 20]);
+
+  const mx4 = useTransform(springX, [-1, 1], [30, -30]);
+  const my4 = useTransform(springY, [-1, 1], [30, -30]);
+
+  // Hover states to illuminate connecting lines
+  const [hoveredCard, setHoveredCard] = useState<string | null>(null);
 
   return (
     <section 
@@ -28,60 +62,148 @@ export function Hero() {
     >
       <PremiumBackground />
 
-      {/* Floating Parallax Elements */}
-      <div className="absolute inset-0 pointer-events-none hidden xl:block">
+      {/* Styled keyframe stylesheet for pulsing traveling dashes */}
+      <style>{`
+        @keyframes flow-dots {
+          to {
+            stroke-dashoffset: -24;
+          }
+        }
+        .flowing-dash {
+          animation: flow-dots 1.5s linear infinite;
+        }
+      `}</style>
+
+      {/* Dynamic Connecting Lines SVG layer */}
+      <svg className="absolute inset-0 w-full h-full pointer-events-none z-0 hidden xl:block">
+        {/* Line 1: Top-Left Card */}
+        <motion.line 
+          x1="44%" 
+          y1="34%" 
+          x2={useTransform(mx1, (v) => `${15 + v/12}%`)} 
+          y2={useTransform(my1, (v) => `${29 + v/12}%`)} 
+          stroke={hoveredCard === "performance" ? "#FF7A50" : "rgba(0, 0, 0, 0.08)"} 
+          strokeWidth={hoveredCard === "performance" ? "2.5" : "1.5"} 
+          strokeDasharray="6 6" 
+          className="flowing-dash transition-colors duration-300"
+        />
+
+        {/* Line 2: Bottom-Right Card */}
+        <motion.line 
+          x1="56%" 
+          y1="46%" 
+          x2={useTransform(mx2, (v) => `${85 + v/12}%`)} 
+          y2={useTransform(my2, (v) => `${71 + v/12}%`)} 
+          stroke={hoveredCard === "scale" ? "#FF7A50" : "rgba(0, 0, 0, 0.08)"} 
+          strokeWidth={hoveredCard === "scale" ? "2.5" : "1.5"} 
+          strokeDasharray="6 6" 
+          className="flowing-dash transition-colors duration-300"
+        />
+
+        {/* Line 3: Bottom-Left Card */}
+        <motion.line 
+          x1="44%" 
+          y1="46%" 
+          x2={useTransform(mx3, (v) => `${18 + v/12}%`)} 
+          y2={useTransform(my3, (v) => `${78 + v/12}%`)} 
+          stroke={hoveredCard === "security" ? "#FF7A50" : "rgba(0, 0, 0, 0.08)"} 
+          strokeWidth={hoveredCard === "security" ? "2.5" : "1.5"} 
+          strokeDasharray="6 6" 
+          className="flowing-dash transition-colors duration-300"
+        />
+
+        {/* Line 4: Top-Right Card */}
+        <motion.line 
+          x1="56%" 
+          y1="34%" 
+          x2={useTransform(mx4, (v) => `${86 + v/12}%`)} 
+          y2={useTransform(my4, (v) => `${22 + v/12}%`)} 
+          stroke={hoveredCard === "rating" ? "#FF7A50" : "rgba(0, 0, 0, 0.08)"} 
+          strokeWidth={hoveredCard === "rating" ? "2.5" : "1.5"} 
+          strokeDasharray="6 6" 
+          className="flowing-dash transition-colors duration-300"
+        />
+      </svg>
+
+      {/* Floating Interactive Elements */}
+      <div className="absolute inset-0 pointer-events-none hidden xl:block z-20">
+        
+        {/* Card 1: Performance */}
         <motion.div 
-          style={{ y: y1 }}
-          className="absolute top-[25%] left-[5%] z-20"
+          style={{ y: y1, x: mx1, translateY: my1 }}
+          onMouseEnter={() => setHoveredCard("performance")}
+          onMouseLeave={() => setHoveredCard(null)}
+          className="absolute top-[25%] left-[5%] pointer-events-auto"
         >
-          <div className="bg-white/40 backdrop-blur-xl p-4 md:p-6 rounded-[32px] border border-black/5 shadow-2xl flex items-center gap-4">
+          <motion.div 
+            whileHover={{ scale: 1.05 }}
+            className="bg-white/70 backdrop-blur-xl p-4 md:p-6 rounded-[32px] border border-black/5 shadow-2xl flex items-center gap-4 cursor-pointer hover:shadow-orange-500/5 transition-shadow duration-300"
+          >
              <div className="w-10 h-10 md:w-12 md:h-12 rounded-2xl bg-accent-green/20 flex items-center justify-center text-accent-green">
                 <TrendingUp className="w-5 h-5 md:w-6 md:h-6" />
              </div>
              <div>
                 <p className="text-[8px] md:text-[10px] font-black uppercase tracking-widest text-[#1a1a1a]/40">Performance</p>
-                <p className="text-lg md:text-xl font-black tracking-tighter">+45% ROI</p>
+                <p className="text-lg md:text-xl font-black tracking-tighter text-neutral-900">+45% ROI</p>
              </div>
-          </div>
+          </motion.div>
         </motion.div>
 
+        {/* Card 2: Global Scale */}
         <motion.div 
-          style={{ y: y2 }}
-          className="absolute top-[65%] right-[5%] z-20"
+          style={{ y: y2, x: mx2, translateY: my2 }}
+          onMouseEnter={() => setHoveredCard("scale")}
+          onMouseLeave={() => setHoveredCard(null)}
+          className="absolute top-[65%] right-[5%] pointer-events-auto"
         >
-          <div className="bg-white/40 backdrop-blur-xl p-4 md:p-6 rounded-[32px] border border-black/5 shadow-2xl flex items-center gap-4">
+          <motion.div 
+            whileHover={{ scale: 1.05 }}
+            className="bg-white/70 backdrop-blur-xl p-4 md:p-6 rounded-[32px] border border-black/5 shadow-2xl flex items-center gap-4 cursor-pointer hover:shadow-orange-500/5 transition-shadow duration-300"
+          >
              <div className="w-10 h-10 md:w-12 md:h-12 rounded-2xl bg-black flex items-center justify-center text-white">
                 <Users className="w-5 h-5 md:w-6 md:h-6" />
              </div>
              <div>
                 <p className="text-[8px] md:text-[10px] font-black uppercase tracking-widest text-[#1a1a1a]/40">Global Scale</p>
-                <p className="text-lg md:text-xl font-black tracking-tighter">1.2M+ Reach</p>
+                <p className="text-lg md:text-xl font-black tracking-tighter text-neutral-900">1.2M+ Reach</p>
              </div>
-          </div>
+          </motion.div>
         </motion.div>
 
+        {/* Card 3: Top-Rated Studio */}
         <motion.div 
-          style={{ y: y4 }}
-          className="absolute top-[18%] right-[8%] z-20"
+          style={{ y: y4, x: mx4, translateY: my4 }}
+          onMouseEnter={() => setHoveredCard("rating")}
+          onMouseLeave={() => setHoveredCard(null)}
+          className="absolute top-[18%] right-[8%] pointer-events-auto"
         >
-          <div className="bg-white/40 backdrop-blur-xl p-4 md:p-5 rounded-[28px] border border-black/5 shadow-2xl flex items-center gap-3">
+          <motion.div 
+            whileHover={{ scale: 1.05 }}
+            className="bg-white/70 backdrop-blur-xl p-4 md:p-5 rounded-[28px] border border-black/5 shadow-2xl flex items-center gap-3 cursor-pointer hover:shadow-orange-500/5 transition-shadow duration-300"
+          >
              <div className="w-8 h-8 md:w-10 md:h-10 rounded-xl bg-[#f9f9f9] flex items-center justify-center text-[#1a1a1a]">
                 <Award className="w-4 h-4 md:w-5 md:h-5" />
              </div>
-             <p className="text-xs md:text-sm font-black tracking-tighter">Top-Rated Studio</p>
-          </div>
+             <p className="text-xs md:text-sm font-black tracking-tighter text-neutral-900">Top-Rated Studio</p>
+          </motion.div>
         </motion.div>
 
+        {/* Card 4: Certified Security */}
         <motion.div 
-          style={{ y: y3 }}
-          className="absolute bottom-[25%] left-[8%] z-20"
+          style={{ y: y3, x: mx3, translateY: my3 }}
+          onMouseEnter={() => setHoveredCard("security")}
+          onMouseLeave={() => setHoveredCard(null)}
+          className="absolute bottom-[25%] left-[8%] pointer-events-auto"
         >
-          <div className="bg-white/40 backdrop-blur-xl p-4 md:p-5 rounded-[28px] border border-black/5 shadow-2xl flex items-center gap-3">
-             <div className="w-8 h-8 md:w-10 md:h-10 rounded-xl bg-[#00D26A]/10 text-accent-green flex items-center justify-center">
+          <motion.div 
+            whileHover={{ scale: 1.05 }}
+            className="bg-white/70 backdrop-blur-xl p-4 md:p-5 rounded-[28px] border border-black/5 shadow-2xl flex items-center gap-3 cursor-pointer hover:shadow-orange-500/5 transition-shadow duration-300"
+          >
+             <div className="w-8 h-8 md:w-10 md:h-10 rounded-xl bg-[#00D26A]/10 text-[#00D26A] flex items-center justify-center">
                 <ShieldCheck className="w-4 h-4 md:w-5 md:h-5" />
              </div>
-             <p className="text-xs md:text-sm font-black tracking-tighter">Certified Security</p>
-          </div>
+             <p className="text-xs md:text-sm font-black tracking-tighter text-neutral-900">Certified Security</p>
+          </motion.div>
         </motion.div>
       </div>
 
@@ -94,7 +216,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="relative inline-block mb-8"
+          className="relative inline-block mb-8 select-none"
         >
           <h1 className="text-[40px] leading-[1] sm:text-6xl md:text-8xl lg:text-[100px] font-heading font-black tracking-tighter text-[#1a1a1a]">
             Where vision <br />

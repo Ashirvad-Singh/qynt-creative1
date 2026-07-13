@@ -49,9 +49,9 @@
     --radius-3xl: calc(var(--radius) * 2.2);
     --radius-4xl: calc(var(--radius) * 2.6);
 
-    --color-accent-green: #000000;
-    --color-accent-blue: #000000;
-    --color-secondary-bg: #F5F5F7;
+    --color-accent-green: #FF7A50;
+    --color-accent-blue: #FF5A36;
+    --color-secondary-bg: #FFF1EB;
 }
 
 :root {
@@ -81,7 +81,8 @@
     @apply border-border outline-ring/50;
     }
   body {
-    @apply bg-background text-foreground selection:bg-black selection:text-white leading-relaxed overflow-x-hidden;
+    @apply text-foreground selection:bg-[#FF7A50] selection:text-white leading-relaxed overflow-x-hidden;
+    background: linear-gradient(135deg, #FFF1EB 0%, #FFFFFF 50%, #E8EEFF 100%) !important;
     font-feature-settings: "ss01", "ss02", "cv01", "cv02";
     }
 }
