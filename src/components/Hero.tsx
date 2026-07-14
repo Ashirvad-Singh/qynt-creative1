@@ -3,7 +3,6 @@ import { Button } from "./ui/button";
 import { ArrowRight, TrendingUp, Users, Award, ShieldCheck } from "lucide-react";
 import { Magnetic } from "./Magnetic";
 import { useState, useEffect, useRef } from "react";
-import { PremiumBackground } from "./PremiumBackground";
 import { Link } from "react-router-dom";
 
 export function Hero() {
@@ -55,12 +54,23 @@ export function Hero() {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
 
   return (
-    <section 
-      id="hero" 
+    <section
+      id="hero"
       ref={containerRef}
       className="relative min-h-screen pt-24 sm:pt-32 md:pt-48 pb-20 overflow-hidden flex flex-col items-center"
     >
-      <PremiumBackground />
+      <video
+        className="absolute inset-0 z-0 h-full w-full object-cover"
+        src="/qynt-brand-film%20(2).mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        aria-hidden="true"
+      />
+      <div className="absolute inset-0 z-[1] bg-black/55" />
+      <div className="absolute inset-x-0 bottom-0 z-[1] h-48 bg-gradient-to-t from-white via-white/50 to-transparent" />
 
       {/* Styled keyframe stylesheet for pulsing traveling dashes */}
       <style>{`
@@ -75,67 +85,67 @@ export function Hero() {
       `}</style>
 
       {/* Dynamic Connecting Lines SVG layer */}
-      <svg className="absolute inset-0 w-full h-full pointer-events-none z-0 hidden xl:block">
+      <svg className="absolute inset-0 w-full h-full pointer-events-none z-[2] hidden xl:block">
         {/* Line 1: Top-Left Card */}
-        <motion.line 
-          x1="44%" 
-          y1="34%" 
-          x2={useTransform(mx1, (v) => `${15 + v/12}%`)} 
-          y2={useTransform(my1, (v) => `${29 + v/12}%`)} 
-          stroke={hoveredCard === "performance" ? "#FF7A50" : "rgba(0, 0, 0, 0.08)"} 
-          strokeWidth={hoveredCard === "performance" ? "2.5" : "1.5"} 
-          strokeDasharray="6 6" 
+        <motion.line
+          x1="44%"
+          y1="34%"
+          x2={useTransform(mx1, (v) => `${15 + v/12}%`)}
+          y2={useTransform(my1, (v) => `${29 + v/12}%`)}
+          stroke={hoveredCard === "performance" ? "#FF7A50" : "rgba(255, 255, 255, 0.25)"}
+          strokeWidth={hoveredCard === "performance" ? "2.5" : "1.5"}
+          strokeDasharray="6 6"
           className="flowing-dash transition-colors duration-300"
         />
 
         {/* Line 2: Bottom-Right Card */}
-        <motion.line 
-          x1="56%" 
-          y1="46%" 
-          x2={useTransform(mx2, (v) => `${85 + v/12}%`)} 
-          y2={useTransform(my2, (v) => `${71 + v/12}%`)} 
-          stroke={hoveredCard === "scale" ? "#FF7A50" : "rgba(0, 0, 0, 0.08)"} 
-          strokeWidth={hoveredCard === "scale" ? "2.5" : "1.5"} 
-          strokeDasharray="6 6" 
+        <motion.line
+          x1="56%"
+          y1="46%"
+          x2={useTransform(mx2, (v) => `${85 + v/12}%`)}
+          y2={useTransform(my2, (v) => `${71 + v/12}%`)}
+          stroke={hoveredCard === "scale" ? "#FF7A50" : "rgba(255, 255, 255, 0.25)"}
+          strokeWidth={hoveredCard === "scale" ? "2.5" : "1.5"}
+          strokeDasharray="6 6"
           className="flowing-dash transition-colors duration-300"
         />
 
         {/* Line 3: Bottom-Left Card */}
-        <motion.line 
-          x1="44%" 
-          y1="46%" 
-          x2={useTransform(mx3, (v) => `${18 + v/12}%`)} 
-          y2={useTransform(my3, (v) => `${78 + v/12}%`)} 
-          stroke={hoveredCard === "security" ? "#FF7A50" : "rgba(0, 0, 0, 0.08)"} 
-          strokeWidth={hoveredCard === "security" ? "2.5" : "1.5"} 
-          strokeDasharray="6 6" 
+        <motion.line
+          x1="44%"
+          y1="46%"
+          x2={useTransform(mx3, (v) => `${18 + v/12}%`)}
+          y2={useTransform(my3, (v) => `${78 + v/12}%`)}
+          stroke={hoveredCard === "security" ? "#FF7A50" : "rgba(255, 255, 255, 0.25)"}
+          strokeWidth={hoveredCard === "security" ? "2.5" : "1.5"}
+          strokeDasharray="6 6"
           className="flowing-dash transition-colors duration-300"
         />
 
         {/* Line 4: Top-Right Card */}
-        <motion.line 
-          x1="56%" 
-          y1="34%" 
-          x2={useTransform(mx4, (v) => `${86 + v/12}%`)} 
-          y2={useTransform(my4, (v) => `${22 + v/12}%`)} 
-          stroke={hoveredCard === "rating" ? "#FF7A50" : "rgba(0, 0, 0, 0.08)"} 
-          strokeWidth={hoveredCard === "rating" ? "2.5" : "1.5"} 
-          strokeDasharray="6 6" 
+        <motion.line
+          x1="56%"
+          y1="34%"
+          x2={useTransform(mx4, (v) => `${86 + v/12}%`)}
+          y2={useTransform(my4, (v) => `${22 + v/12}%`)}
+          stroke={hoveredCard === "rating" ? "#FF7A50" : "rgba(255, 255, 255, 0.25)"}
+          strokeWidth={hoveredCard === "rating" ? "2.5" : "1.5"}
+          strokeDasharray="6 6"
           className="flowing-dash transition-colors duration-300"
         />
       </svg>
 
       {/* Floating Interactive Elements */}
       <div className="absolute inset-0 pointer-events-none hidden xl:block z-20">
-        
+
         {/* Card 1: Performance */}
-        <motion.div 
+        <motion.div
           style={{ y: y1, x: mx1, translateY: my1 }}
           onMouseEnter={() => setHoveredCard("performance")}
           onMouseLeave={() => setHoveredCard(null)}
           className="absolute top-[25%] left-[5%] pointer-events-auto"
         >
-          <motion.div 
+          <motion.div
             whileHover={{ scale: 1.05 }}
             className="bg-white/70 backdrop-blur-xl p-4 md:p-6 rounded-[32px] border border-black/5 shadow-2xl flex items-center gap-4 cursor-pointer hover:shadow-orange-500/5 transition-shadow duration-300"
           >
@@ -150,13 +160,13 @@ export function Hero() {
         </motion.div>
 
         {/* Card 2: Global Scale */}
-        <motion.div 
+        <motion.div
           style={{ y: y2, x: mx2, translateY: my2 }}
           onMouseEnter={() => setHoveredCard("scale")}
           onMouseLeave={() => setHoveredCard(null)}
           className="absolute top-[65%] right-[5%] pointer-events-auto"
         >
-          <motion.div 
+          <motion.div
             whileHover={{ scale: 1.05 }}
             className="bg-white/70 backdrop-blur-xl p-4 md:p-6 rounded-[32px] border border-black/5 shadow-2xl flex items-center gap-4 cursor-pointer hover:shadow-orange-500/5 transition-shadow duration-300"
           >
@@ -171,13 +181,13 @@ export function Hero() {
         </motion.div>
 
         {/* Card 3: Top-Rated Studio */}
-        <motion.div 
+        <motion.div
           style={{ y: y4, x: mx4, translateY: my4 }}
           onMouseEnter={() => setHoveredCard("rating")}
           onMouseLeave={() => setHoveredCard(null)}
           className="absolute top-[18%] right-[8%] pointer-events-auto"
         >
-          <motion.div 
+          <motion.div
             whileHover={{ scale: 1.05 }}
             className="bg-white/70 backdrop-blur-xl p-4 md:p-5 rounded-[28px] border border-black/5 shadow-2xl flex items-center gap-3 cursor-pointer hover:shadow-orange-500/5 transition-shadow duration-300"
           >
@@ -189,13 +199,13 @@ export function Hero() {
         </motion.div>
 
         {/* Card 4: Certified Security */}
-        <motion.div 
+        <motion.div
           style={{ y: y3, x: mx3, translateY: my3 }}
           onMouseEnter={() => setHoveredCard("security")}
           onMouseLeave={() => setHoveredCard(null)}
           className="absolute bottom-[25%] left-[8%] pointer-events-auto"
         >
-          <motion.div 
+          <motion.div
             whileHover={{ scale: 1.05 }}
             className="bg-white/70 backdrop-blur-xl p-4 md:p-5 rounded-[28px] border border-black/5 shadow-2xl flex items-center gap-3 cursor-pointer hover:shadow-orange-500/5 transition-shadow duration-300"
           >
@@ -207,7 +217,7 @@ export function Hero() {
         </motion.div>
       </div>
 
-      <motion.div 
+      <motion.div
         style={{ y: useTransform(scrollYProgress, [0, 1], [0, -50]) }}
         className="max-w-7xl mx-auto px-6 text-center relative z-10"
       >
@@ -218,15 +228,15 @@ export function Hero() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="relative inline-block mb-8 select-none"
         >
-          <h1 className="text-[40px] leading-[1] sm:text-6xl md:text-8xl lg:text-[100px] font-heading font-black tracking-tighter text-[#1a1a1a]">
+          <h1 className="text-[40px] leading-[1] sm:text-6xl md:text-8xl lg:text-[100px] font-heading font-black tracking-tighter text-white drop-shadow-2xl">
             Where vision <br />
             meets <span className="relative inline-block mt-2 sm:mt-0">
               distinction
-              <motion.div 
+              <motion.div
                 initial={{ width: 0 }}
                 animate={{ width: '100%' }}
                 transition={{ delay: 0.8, duration: 1 }}
-                className="absolute -bottom-2 left-0 h-1.5 bg-black rounded-full opacity-20"
+                className="absolute -bottom-2 left-0 h-1.5 bg-white rounded-full opacity-40"
               />
             </span>
           </h1>
@@ -237,7 +247,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8 }}
-          className="text-lg md:text-xl text-muted-foreground font-medium max-w-3xl mx-auto mb-12 leading-relaxed"
+          className="text-lg md:text-xl text-white/85 font-medium max-w-3xl mx-auto mb-12 leading-relaxed drop-shadow-lg"
         >
           Webdesign from HQ: Websites, Web-Apps and individual software <br className="hidden md:block" />
           — all from one source, perfectly tailored to your business.
@@ -251,8 +261,8 @@ export function Hero() {
           className="mb-24"
         >
           <Magnetic>
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               nativeButton={false}
               className="w-64 h-14 rounded-full bg-black hover:bg-neutral-900 text-white text-xs md:text-sm font-black uppercase tracking-[0.2em] shadow-2xl transition-all hover:scale-105 group relative overflow-hidden"
               render={<Link to="/contact" />}
@@ -274,18 +284,18 @@ export function Hero() {
           className="flex flex-wrap items-center justify-center gap-x-8 gap-y-10 md:gap-x-16"
         >
           <div className="flex flex-col items-center">
-            <span className="text-3xl md:text-5xl font-black tracking-tighter text-[#1a1a1a]">92+</span>
-            <p className="text-[10px] uppercase tracking-widest font-bold text-muted-foreground mt-2">Projects <br /> completed</p>
+            <span className="text-3xl md:text-5xl font-black tracking-tighter text-white">92+</span>
+            <p className="text-[10px] uppercase tracking-widest font-bold text-white/70 mt-2">Projects <br /> completed</p>
           </div>
-          <div className="w-px h-12 bg-black/5 hidden md:block" />
+          <div className="w-px h-12 bg-white/25 hidden md:block" />
           <div className="flex flex-col items-center">
-            <span className="text-3xl md:text-5xl font-black tracking-tighter text-[#1a1a1a]">100</span>
-            <p className="text-[10px] uppercase tracking-widest font-bold text-muted-foreground mt-2">PageSpeed <br /> Score</p>
+            <span className="text-3xl md:text-5xl font-black tracking-tighter text-white">100</span>
+            <p className="text-[10px] uppercase tracking-widest font-bold text-white/70 mt-2">PageSpeed <br /> Score</p>
           </div>
-          <div className="w-px h-12 bg-black/5 hidden md:block" />
+          <div className="w-px h-12 bg-white/25 hidden md:block" />
           <div className="flex flex-col items-center">
-            <span className="text-3xl md:text-5xl font-black tracking-tighter text-[#1a1a1a]">4.9</span>
-            <p className="text-[10px] uppercase tracking-widest font-bold text-muted-foreground mt-2">Google <br /> Rating</p>
+            <span className="text-3xl md:text-5xl font-black tracking-tighter text-white">4.9</span>
+            <p className="text-[10px] uppercase tracking-widest font-bold text-white/70 mt-2">Google <br /> Rating</p>
           </div>
         </motion.div>
       </motion.div>
