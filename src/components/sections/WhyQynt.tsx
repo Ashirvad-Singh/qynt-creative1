@@ -34,7 +34,7 @@ function CountUpEnd({ value }: { value: number }) {
   const [count, setCount] = useState(0);
   
   useEffect(() => {
-    let start = 0;
+    const start = 0;
     const end = value;
     const duration = 2000;
     let startTime: number | null = null;
@@ -76,7 +76,7 @@ export function WhyQynt() {
           </h2>
           <div className="space-y-6 text-gray-400 font-light text-lg mb-12">
             <p>
-              We don't just design interfaces; we engineer digital experiences that captivate and convert. Our approach blends cinematic aesthetics with cutting-edge performance.
+              We don&apos;t just design interfaces; we engineer digital experiences that captivate and convert. Our approach blends cinematic aesthetics with cutting-edge performance.
             </p>
             <p>
               By pushing the boundaries of web technologies, we create platforms that feel alive, intuitive, and unmistakably premium.

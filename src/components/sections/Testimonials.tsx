@@ -54,7 +54,7 @@ export function Testimonials() {
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff8a50] to-[#e60023]">IN THEIR WORDS</span>
         </h2>
         <p className="text-gray-400 font-light text-sm max-w-sm mx-auto mt-6">
-          Stories from brands we've partnered with, captured through work that speaks for itself.
+          Stories from brands we&apos;ve partnered with, captured through work that speaks for itself.
         </p>
       </div>
 

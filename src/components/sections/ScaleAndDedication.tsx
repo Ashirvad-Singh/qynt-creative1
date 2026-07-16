@@ -89,7 +89,7 @@ export function ScaleAndDedication() {
           </div>
           <div className="flex flex-col gap-12 font-space text-lg md:text-xl text-gray-300 font-light leading-relaxed max-w-md order-1 lg:order-2 lg:ml-auto">
             <p>
-              We don't just follow trends—we set them. Our dedicated creative lab works around the clock to{" "}
+              We don&apos;t just follow trends—we set them. Our dedicated creative lab works around the clock to{" "}
               <motion.span 
                 initial={{ backgroundSize: "0% 100%", color: "#d1d5db" }}
                 whileInView={{ backgroundSize: "100% 100%", color: "#000000" }}
@@ -105,7 +105,7 @@ export function ScaleAndDedication() {
               >
                 conceptualize viral moments
               </motion.span>{" "}
-              that capture the internet's attention and dominate the cultural conversation.
+              that capture the internet&apos;s attention and dominate the cultural conversation.
             </p>
           </div>
         </div>

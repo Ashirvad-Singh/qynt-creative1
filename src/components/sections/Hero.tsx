@@ -22,11 +22,12 @@ export function Hero() {
       const timeout = setTimeout(() => setIsDeleting(true), 2500); // Pause when word is fully typed
       return () => clearTimeout(timeout);
     }
-
     if (isDeleting && currentText === "") {
-      setIsDeleting(false);
-      setCurrentWordIndex((prev) => (prev + 1) % WORDS.length);
-      return;
+      const timeout = setTimeout(() => {
+        setIsDeleting(false);
+        setCurrentWordIndex((prev) => (prev + 1) % WORDS.length);
+      }, 50);
+      return () => clearTimeout(timeout);
     }
 
     const timeout = setTimeout(() => {
@@ -101,7 +102,7 @@ export function Hero() {
               <strong className="font-bold">QYNT</strong> blends <strong className="font-bold">AI-powered strategy</strong>, human storytelling, and <strong className="font-bold">unmatched scale</strong> to create work that breaks through the noise - across marketing campaigns, films, social media marketing, influencer marketing and digital IPs.
             </p>
             <p className="text-white text-base md:text-xl font-light leading-snug">
-              If you want work that moves culture, not just metrics, you've come to the right place.
+              If you want work that moves culture, not just metrics, you&apos;ve come to the right place.
             </p>
           </div>
 
