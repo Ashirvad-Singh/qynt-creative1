@@ -31,7 +31,7 @@ export function Contact() {
             BRING YOUR <span className="text-primary block">IDEA.</span>
           </h2>
           <p className="text-3xl font-light text-gray-400 mb-16 max-w-md">
-            WE'LL BUILD THE EXPERIENCE.
+            WE&apos;LL BUILD THE EXPERIENCE.
           </p>
           
           <div className="space-y-8 text-gray-300 font-space tracking-wider">

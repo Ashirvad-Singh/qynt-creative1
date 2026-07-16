@@ -13,7 +13,7 @@ export function Footer() {
               IDEA <span className="text-primary">STARTS HERE</span>
             </h2>
             <p className="text-gray-500 text-xs mt-4 font-space uppercase tracking-widest">
-              Whether it's for 15s or 15 mins. Let's create.
+              Whether it&apos;s for 15s or 15 mins. Let&apos;s create.
             </p>
           </div>
           <div className="flex flex-col md:flex-row gap-16 md:justify-end text-xs font-space uppercase tracking-widest text-gray-500">
