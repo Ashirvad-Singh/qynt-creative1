@@ -61,7 +61,7 @@ export function Process() {
   return (
     <section id="process" className="py-32 px-6 max-w-7xl mx-auto relative" ref={containerRef}>
       <div className="flex flex-col items-center mb-24 text-center">
-        <span className="text-primary font-space tracking-widest uppercase text-sm mb-4">How we work</span>
+        <span className="text-primary font-mono tracking-widest uppercase text-sm mb-4">How we work</span>
         <h2 className="text-5xl md:text-7xl font-bebas tracking-wide text-white">THE PROCESS</h2>
       </div>
 

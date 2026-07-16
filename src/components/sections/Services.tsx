@@ -33,7 +33,7 @@ export function Services() {
       
       {/* Headings */}
       <div className="text-center mb-16 relative z-10 px-4">
-        <span className="text-[#d8973c] font-space tracking-[0.2em] uppercase text-[10px] font-bold mb-2 block">
+        <span className="text-[#d8973c] font-mono tracking-[0.2em] uppercase text-[10px] font-bold mb-2 block">
           ECOSYSTEM
         </span>
         <h2 className="text-5xl md:text-8xl font-bebas tracking-wide leading-[0.9]">

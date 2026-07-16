@@ -69,7 +69,7 @@ export function WhyQynt() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <span className="text-primary font-space tracking-widest uppercase text-sm mb-4 block">Why QYNT</span>
+          <span className="text-primary font-mono tracking-widest uppercase text-sm mb-4 block">Why QYNT</span>
           <h2 className="text-5xl md:text-7xl font-bebas tracking-wide text-white mb-8 leading-[0.9]">
             BUILT FOR <br />
             <span className="text-gray-500">MODERN BRANDS.</span>

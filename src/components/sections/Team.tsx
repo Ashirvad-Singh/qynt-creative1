@@ -25,7 +25,7 @@ export function Team() {
   return (
     <section className="py-32 px-6 max-w-7xl mx-auto">
       <div className="flex flex-col items-center mb-24 text-center">
-        <span className="text-primary font-space tracking-widest uppercase text-sm mb-4">The Minds Behind</span>
+        <span className="text-primary font-mono tracking-widest uppercase text-sm mb-4">The Minds Behind</span>
         <h2 className="text-5xl md:text-7xl font-bebas tracking-wide text-white">OUR TEAM</h2>
       </div>
 
