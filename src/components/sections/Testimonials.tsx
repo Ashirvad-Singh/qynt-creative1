@@ -2,29 +2,36 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, Quote, Star } from "lucide-react";
 
 const testimonials = [
   {
     id: 1,
     name: "Saqib Saleem",
     role: "Actor, Director, Producer - Bollywood",
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=800",
-    text: "We produced a travel show together and created social media content and every time the work was great. Talent at QYNT is super sharp. Good Luck!"
+    text: "“We produced a travel show together and created social media content and every time the work was great. Talent at QYNT is super sharp. Good Luck!”",
+    metric: "50M+ Organic Views"
   },
   {
     id: 2,
     name: "Priya Sharma",
     role: "CMO - TechVision",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800",
-    text: "QYNT transformed our brand narrative. Their team's ability to fuse storytelling with cutting-edge production is unparalleled."
+    text: "“QYNT transformed our brand narrative. Their team's ability to fuse storytelling with cutting-edge AI production is unparalleled across the digital landscape.”",
+    metric: "300% Engagement Boost"
   },
   {
     id: 3,
     name: "Rahul Verma",
     role: "Founder - Nexus Dynamics",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800",
-    text: "Working with QYNT was a game-changer. They delivered a campaign that didn't just meet our metrics—it completely shattered them."
+    text: "“Working with QYNT was a complete game-changer. They delivered a high-volume video campaign that didn't just meet our metrics—it completely shattered them.”",
+    metric: "12M+ Direct Reach"
+  },
+  {
+    id: 4,
+    name: "Aman Gupta",
+    role: "Head of Marketing - UrbanPulse",
+    text: "“The execution speed at QYNT is insane. From concept script to final color-graded reel in under 48 hours without compromising an ounce of cinematic quality.”",
+    metric: "48h Turnaround"
   }
 ];
 
@@ -42,100 +49,115 @@ export function Testimonials() {
   const current = testimonials[currentIndex];
 
   return (
-    <section id="testimonials" className="py-24 bg-black relative overflow-hidden flex flex-col items-center">
+    <section id="testimonials" className="py-28 bg-black relative overflow-hidden flex flex-col items-center">
       
       {/* Headings */}
       <div className="text-center mb-16 relative z-10 px-4">
-        <span className="text-gray-300 font-space tracking-[0.2em] uppercase text-[10px] font-bold mb-4 block">
-          TESTIMONIALS
+        <span className="text-[#ff8a50] font-space tracking-[0.2em] uppercase text-xs font-bold mb-4 block">
+          TESTIMONIALS & REVIEWS
         </span>
         <h2 className="text-5xl md:text-8xl font-bebas tracking-wide leading-[0.9]">
           <span className="text-white">THE IMPACT, </span>
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff8a50] to-[#e60023]">IN THEIR WORDS</span>
         </h2>
-        <p className="text-gray-400 font-light text-sm max-w-sm mx-auto mt-6">
-          Stories from brands we&apos;ve partnered with, captured through work that speaks for itself.
+        <p className="text-gray-400 font-light text-sm md:text-base max-w-lg mx-auto mt-6">
+          Real feedback from visionary founders, directors, and CMOs who trust QYNT to scale their narrative.
         </p>
       </div>
 
       {/* Main Container */}
-      <div className="w-full max-w-[1000px] mx-auto px-4 relative mt-12">
+      <div className="w-full max-w-[1100px] mx-auto px-4 relative mt-6">
         
         {/* The Grid / Border Frame System */}
-        <div className="relative w-full bg-[#111111] border border-white/10 p-8 md:p-16 overflow-visible">
+        <div className="relative w-full bg-zinc-950/90 border border-white/10 p-8 md:p-16 overflow-visible rounded-3xl shadow-2xl backdrop-blur-2xl">
           
-          {/* Extended subtle lines to mimic the grid spanning out */}
+          {/* Extended subtle lines */}
           <div className="absolute top-0 -left-[100vw] w-[200vw] h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
           <div className="absolute bottom-0 -left-[100vw] w-[200vw] h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
           <div className="absolute -top-[100vh] left-0 w-px h-[200vh] bg-gradient-to-b from-transparent via-white/10 to-transparent pointer-events-none" />
           <div className="absolute -top-[100vh] right-0 w-px h-[200vh] bg-gradient-to-b from-transparent via-white/10 to-transparent pointer-events-none" />
 
-          {/* 4 Corner Yellow Squares */}
-          <div className="absolute -top-[3px] -left-[3px] w-1.5 h-1.5 bg-[#d8973c] z-20 pointer-events-none" />
-          <div className="absolute -top-[3px] -right-[3px] w-1.5 h-1.5 bg-[#d8973c] z-20 pointer-events-none" />
-          <div className="absolute -bottom-[3px] -left-[3px] w-1.5 h-1.5 bg-[#d8973c] z-20 pointer-events-none" />
-          <div className="absolute -bottom-[3px] -right-[3px] w-1.5 h-1.5 bg-[#d8973c] z-20 pointer-events-none" />
+          {/* Corner Accent Squares */}
+          <div className="absolute -top-[3px] -left-[3px] w-2 h-2 bg-[#ff8a50] z-20 pointer-events-none" />
+          <div className="absolute -top-[3px] -right-[3px] w-2 h-2 bg-[#ff8a50] z-20 pointer-events-none" />
+          <div className="absolute -bottom-[3px] -left-[3px] w-2 h-2 bg-[#ff8a50] z-20 pointer-events-none" />
+          <div className="absolute -bottom-[3px] -right-[3px] w-2 h-2 bg-[#ff8a50] z-20 pointer-events-none" />
 
-          {/* Inner Content Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center relative z-10">
+          {/* Large Quote Icon Watermark */}
+          <div className="absolute top-8 left-8 text-white/[0.04] pointer-events-none z-0">
+            <Quote className="w-32 h-32 md:w-48 md:h-48" />
+          </div>
+
+          {/* Main Review Content */}
+          <div className="relative z-10 flex flex-col justify-between min-h-[300px]">
             
-            {/* Left: Image with stacked cards */}
-            <div className="relative w-full max-w-[320px] mx-auto aspect-square">
-              {/* Stacked background cards */}
-              <div className="absolute inset-0 bg-[#222222] transform -rotate-12 rounded-sm origin-bottom-left border border-white/5 opacity-80" />
-              <div className="absolute inset-0 bg-[#333333] transform -rotate-6 rounded-sm origin-bottom-left border border-white/5 opacity-90" />
-              
-              {/* Main Image */}
-              <AnimatePresence mode="wait">
-                <motion.img
-                  key={current.id}
-                  src={current.image}
-                  alt={current.name}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 1.05 }}
-                  transition={{ duration: 0.4 }}
-                  className="absolute inset-0 w-full h-full object-cover rounded-sm shadow-2xl"
-                />
-              </AnimatePresence>
-            </div>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={current.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.4 }}
+                className="flex flex-col gap-6"
+              >
+                {/* Rating & Metric Badge */}
+                <div className="flex flex-wrap items-center justify-between gap-4">
+                  <div className="flex items-center gap-1.5 text-amber-400">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-5 h-5 fill-amber-400 stroke-amber-400" />
+                    ))}
+                  </div>
+                  <span className="px-4 py-1.5 rounded-full bg-[#e60023]/10 border border-[#e60023]/30 text-[#ff8a50] font-space text-xs font-bold uppercase tracking-widest">
+                    {current.metric}
+                  </span>
+                </div>
 
-            {/* Right: Text and Navigation */}
-            <div className="flex flex-col justify-center h-full">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={current.id}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -20 }}
-                  transition={{ duration: 0.4 }}
-                  className="flex flex-col"
-                >
-                  <h3 className="text-2xl font-bold text-white mb-2 font-space">
+                {/* Big Bold Quote Text */}
+                <blockquote className="text-2xl md:text-4xl lg:text-5xl font-bebas tracking-wide text-white leading-[1.1] my-4">
+                  {current.text}
+                </blockquote>
+
+                {/* Author Info */}
+                <div className="flex flex-col border-t border-white/10 pt-6 mt-2">
+                  <h3 className="text-2xl md:text-3xl font-bebas tracking-wider text-white">
                     {current.name}
                   </h3>
-                  <p className="text-gray-400 text-[11px] font-space tracking-wide mb-8">
+                  <p className="text-gray-400 text-xs md:text-sm font-space tracking-wider uppercase">
                     {current.role}
                   </p>
-                  <p className="text-gray-300 text-sm leading-relaxed font-light font-space mb-12">
-                    {current.text}
-                  </p>
-                </motion.div>
-              </AnimatePresence>
+                </div>
+              </motion.div>
+            </AnimatePresence>
 
-              {/* Navigation Buttons */}
-              <div className="flex items-center gap-3 mt-auto">
+            {/* Navigation & Progress Bar */}
+            <div className="flex items-center justify-between mt-12 border-t border-white/5 pt-6">
+              {/* Pagination Dots */}
+              <div className="flex items-center gap-2">
+                {testimonials.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setCurrentIndex(idx)}
+                    className={`h-2 rounded-full transition-all duration-300 ${idx === currentIndex ? "w-8 bg-[#e60023]" : "w-2 bg-white/20 hover:bg-white/40"}`}
+                    aria-label={`Go to slide ${idx + 1}`}
+                  />
+                ))}
+              </div>
+
+              {/* Prev / Next Controls */}
+              <div className="flex items-center gap-3">
                 <button 
                   onClick={prevTestimonial}
-                  className="w-10 h-10 bg-[#e60023] flex items-center justify-center hover:bg-white hover:text-black text-white transition-colors duration-300 rounded-[2px]"
+                  className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center hover:bg-[#e60023] hover:border-[#e60023] text-white transition-all duration-300 shadow-lg active:scale-95"
+                  aria-label="Previous testimonial"
                 >
-                  <ArrowLeft className="w-4 h-4" />
+                  <ArrowLeft className="w-5 h-5" />
                 </button>
                 <button 
                   onClick={nextTestimonial}
-                  className="w-10 h-10 bg-[#e60023] flex items-center justify-center hover:bg-white hover:text-black text-white transition-colors duration-300 rounded-[2px]"
+                  className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center hover:bg-[#e60023] hover:border-[#e60023] text-white transition-all duration-300 shadow-lg active:scale-95"
+                  aria-label="Next testimonial"
                 >
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-5 h-5" />
                 </button>
               </div>
             </div>
