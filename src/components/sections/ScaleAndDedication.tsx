@@ -73,7 +73,7 @@ export function ScaleAndDedication() {
                 playsInline
                 controls
               >
-                <source src="/Video-31462.mp4" type="video/mp4" />
+                <source src="/Generated Video August 14, 2026 - 9_56PM.mp4" type="video/mp4" />
               </video>
             </div>
           </div>
