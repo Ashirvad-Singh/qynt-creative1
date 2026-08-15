@@ -63,9 +63,8 @@ export function Hero() {
         muted
         loop
         playsInline
-        poster="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-4.0.3&auto=format&fit=crop&w=2059&q=80"
       >
-        <source src="/Iycx9u2R769lOoLLgJ6dU9rG4.webm" type="video/webm" />
+        <source src="/Qynt_Creatives_promotional_sequence_202608131259.mp4" type="video/mp4" />
       </video>
       
       {/* Dark Overlay for readability */}

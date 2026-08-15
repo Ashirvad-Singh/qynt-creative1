@@ -64,13 +64,17 @@ export function ScaleAndDedication() {
           </div>
           <div className="relative flex justify-center mt-12 lg:mt-0">
             <div className="absolute inset-0 bg-gradient-to-tr from-[#ff3300]/40 via-[#ffaa00]/40 to-transparent blur-[80px] rounded-full scale-150 transform -translate-y-10 pointer-events-none" />
-            <div className="relative z-10 w-full max-w-lg aspect-square overflow-hidden rounded-2xl border border-white/10 group">
-              <img 
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1200"
-                alt="Team Scale and Dedication"
-                className="w-full h-full object-cover filter brightness-[0.7] contrast-125 group-hover:brightness-100 group-hover:scale-105 transition-all duration-700 ease-out mix-blend-luminosity group-hover:mix-blend-normal"
-              />
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-[#fffcdd] rounded-full blur-[40px] opacity-80 mix-blend-overlay pointer-events-none" />
+            <div className="relative z-10 w-full max-w-lg aspect-square overflow-hidden rounded-2xl border border-white/10 group shadow-2xl">
+              <video 
+                className="w-full h-full object-cover filter brightness-[0.95] group-hover:brightness-100 group-hover:scale-105 transition-all duration-700 ease-out"
+                autoPlay
+                muted
+                loop
+                playsInline
+                controls
+              >
+                <source src="/Video-31462.mp4" type="video/mp4" />
+              </video>
             </div>
           </div>
         </div>

@@ -15,7 +15,7 @@ const positions = [
   {
     id: 2,
     title: "Lead UI/UX Designer",
-    location: "New York, NY",
+    location: "Noida, UP",
     type: "Full-time",
     desc: "Shape the visual language of modern brands. You must have a strong portfolio demonstrating cinematic web design, typography mastery, and premium aesthetics."
   },

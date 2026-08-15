@@ -23,38 +23,50 @@ export function StatsVideoGrid() {
           </p>
         </div>
 
-        {/* Right Side: Video Grid */}
-        <div className="grid grid-cols-3 gap-2">
+        {/* Right Side: Animated Video Grid */}
+        <div className="grid grid-cols-3 gap-2.5">
+          
           {/* Row 1 */}
-          <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, delay: 0.1 }} className="col-span-1 aspect-video rounded-xl overflow-hidden glass-card">
-            <img src="https://images.unsplash.com/photo-1576400508535-64f3d1490226?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Video 1" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 cursor-pointer" />
+          <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, delay: 0.1 }} className="col-span-1 aspect-video rounded-xl overflow-hidden glass-card relative group border border-white/10">
+            <video autoPlay muted loop playsInline className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500 cursor-pointer">
+              <source src="/Qynt_Creatives_promotional_sequence_202608131259.mp4" type="video/mp4" />
+            </video>
           </motion.div>
-          <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, delay: 0.2 }} className="col-span-1 aspect-video rounded-xl overflow-hidden glass-card">
-            <img src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Video 2" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 cursor-pointer" />
+
+          <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, delay: 0.2 }} className="col-span-1 aspect-video rounded-xl overflow-hidden glass-card border border-white/10">
+            <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=600&q=80" alt="Film Reel Production" className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500 cursor-pointer" />
           </motion.div>
-          <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, delay: 0.3 }} className="col-span-1 aspect-video rounded-xl overflow-hidden glass-card">
-            <img src="https://images.unsplash.com/photo-1535016120720-40c746a51d47?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Video 3" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 cursor-pointer" />
+
+          <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, delay: 0.3 }} className="col-span-1 aspect-video rounded-xl overflow-hidden glass-card relative group border border-white/10">
+            <video autoPlay muted loop playsInline className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500 cursor-pointer">
+              <source src="/Video-28440.mp4" type="video/mp4" />
+            </video>
           </motion.div>
           
           {/* Row 2 */}
-          <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, delay: 0.4 }} className="col-span-1 aspect-video rounded-xl overflow-hidden glass-card">
-            <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Video 4" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 cursor-pointer" />
+          <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, delay: 0.4 }} className="col-span-1 aspect-video rounded-xl overflow-hidden glass-card border border-white/10">
+            <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=600&q=80" alt="Camera Operator" className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500 cursor-pointer" />
           </motion.div>
-          <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, delay: 0.5 }} className="col-span-2 aspect-video rounded-xl overflow-hidden glass-card relative group">
-            <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none"></div>
-            <img src="https://images.unsplash.com/photo-1518131672697-613becd4fab5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Video 5" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 cursor-pointer" />
+
+          <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, delay: 0.5 }} className="col-span-2 aspect-video rounded-xl overflow-hidden glass-card relative group border border-primary/30 shadow-[0_0_20px_rgba(255,20,147,0.2)]">
+            <video autoPlay muted loop playsInline className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 cursor-pointer">
+              <source src="/images/Video-31462.mp4" type="video/mp4" />
+            </video>
           </motion.div>
           
           {/* Row 3 */}
-          <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, delay: 0.6 }} className="col-span-1 aspect-video rounded-xl overflow-hidden glass-card">
-            <img src="https://images.unsplash.com/photo-1588534063991-8f5bc65163df?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Video 6" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 cursor-pointer" />
+          <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, delay: 0.6 }} className="col-span-1 aspect-video rounded-xl overflow-hidden glass-card border border-white/10">
+            <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=600&q=80" alt="Cinema Camera Gear" className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500 cursor-pointer" />
           </motion.div>
-          <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, delay: 0.7 }} className="col-span-1 aspect-video rounded-xl overflow-hidden glass-card">
-            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Video 7" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 cursor-pointer" />
+
+          <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, delay: 0.7 }} className="col-span-1 aspect-video rounded-xl overflow-hidden glass-card border border-white/10">
+            <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=600&q=80" alt="Projector Lighting" className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500 cursor-pointer" />
           </motion.div>
-          <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, delay: 0.8 }} className="col-span-1 aspect-video rounded-xl overflow-hidden glass-card">
-            <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Video 8" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 cursor-pointer" />
+
+          <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, delay: 0.8 }} className="col-span-1 aspect-video rounded-xl overflow-hidden glass-card border border-white/10">
+            <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=600&q=80" alt="Cinema Theater" className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500 cursor-pointer" />
           </motion.div>
+
         </div>
       </div>
     </section>

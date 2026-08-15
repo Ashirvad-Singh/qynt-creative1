@@ -21,17 +21,53 @@ export function Footer() {
               <p className="text-white mb-4">Pages</p>
               <ul className="space-y-2">
                 <li><Link href="/" className="hover:text-primary transition-colors">Home</Link></li>
-                <li><Link href="/services" className="hover:text-primary transition-colors">Services</Link></li>
                 <li><Link href="/films" className="hover:text-primary transition-colors">Films</Link></li>
-                <li><Link href="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
+                <li><Link href="/social" className="hover:text-primary transition-colors">Social</Link></li>
+                <li><Link href="/dev" className="hover:text-primary transition-colors">Dev</Link></li>
               </ul>
             </div>
             <div>
-              <p className="text-white mb-4">Information</p>
+              <p className="text-white mb-4 font-bold">Socials</p>
               <ul className="space-y-2">
-                <li><Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
-                <li><Link href="/terms" className="hover:text-primary transition-colors">Terms of Service</Link></li>
-                <li><a href="mailto:hello@qyntcreatives.com" className="hover:text-primary transition-colors">hello@qyntcreatives.com</a></li>
+                <li>
+                  <a 
+                    href="https://www.instagram.com/qyntcreatives/" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="hover:text-pink-500 transition-colors flex items-center gap-1.5 text-white font-medium"
+                  >
+                    <span>Instagram</span>
+                    <span className="text-pink-500">↗</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <p className="text-white mb-4 font-bold">Contact & Location</p>
+              <ul className="space-y-3">
+                <li>
+                  <a href="tel:+919560765957" className="hover:text-primary transition-colors text-white font-medium">
+                    +91 95607 65957
+                  </a>
+                </li>
+                <li>
+                  <a href="mailto:hello@qyntcreatives.com" className="hover:text-primary transition-colors">
+                    hello@qyntcreatives.com
+                  </a>
+                </li>
+                <li className="normal-case text-gray-400 leading-normal max-w-xs">
+                  C 902, Prateek Wisteria, Sector 77, Sector-45, Noida, UP 201301
+                </li>
+                <li>
+                  <a 
+                    href="https://www.google.com/maps/place/Qynt+Creatives+%7C+Digital+Marketing+Agency,+Events+%26+More/@28.5480783,77.3508585,17z/data=!3m1!4b1!4m6!3m5!1s0x2278a3e975972491:0xcb4bb81ff581458a!8m2!3d28.5480783!4d77.3508585!16s%2Fg%2F11w2_7z5x9"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:underline inline-flex items-center gap-1"
+                  >
+                    Open in Google Maps ↗
+                  </a>
+                </li>
               </ul>
             </div>
           </div>

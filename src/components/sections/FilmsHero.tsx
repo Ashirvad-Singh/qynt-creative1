@@ -83,9 +83,9 @@ export function FilmsHero() {
           muted
           loop
           playsInline
-          poster="https://images.unsplash.com/photo-1485846234645-a62644f84728?ixlib=rb-4.0.3&auto=format&fit=crop&w=2059&q=80"
+          controls
         >
-          <source src="https://cdn.pixabay.com/video/2021/08/19/85573-590924971_large.mp4" type="video/mp4" />
+          <source src="/Generated Video August 14, 2026 - 9_56PM.mp4" type="video/mp4" />
         </video>
         
         {/* Custom Overlay / UI mimicking standard player */}
