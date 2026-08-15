@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 
 const services = [
   {
@@ -10,6 +11,7 @@ const services = [
     gradient: "from-[#ff4d4d] to-[#990000]",
     logoTitle: "QYNT",
     logoSub: "Films",
+    href: "/films"
   },
   {
     title: "We Build\nCampaigns",
@@ -17,13 +19,15 @@ const services = [
     gradient: "from-[#8a2be2] to-[#00008b]",
     logoTitle: "QYNT",
     logoSub: "Social",
+    href: "/social"
   },
   {
     title: "We Build\nIPs & Distribution",
-    description: "We create digital IPs like Podcasts, YT channels, IG Creator / Community Pages",
+    description: "We create digital IPs like Podcasts, YT channels, IG Creator / Community Pages, and digital technology platforms.",
     gradient: "from-[#ff8c00] to-[#8b4500]",
     logoTitle: "NEXUS",
     logoSub: "",
+    href: "/dev"
   }
 ];
 
@@ -55,48 +59,50 @@ export function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="bg-[#141414] rounded-2xl p-4 flex flex-col h-full border border-white/5 hover:border-white/10 transition-colors group"
             >
-              
-              {/* Top Graphic Area */}
-              <div 
-                className={`w-full h-48 rounded-t-xl rounded-bl-xl rounded-br-[64px] bg-gradient-to-br ${service.gradient} relative overflow-hidden flex flex-col items-center justify-center mb-8`}
+              <Link
+                href={service.href}
+                className="bg-[#141414] rounded-2xl p-4 flex flex-col h-full border border-white/5 hover:border-white/20 transition-all duration-300 group cursor-pointer hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(255,138,80,0.15)]"
               >
-                {/* Glossy overlay */}
-                <div className="absolute inset-0 bg-white/20 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute top-0 inset-x-0 h-1/2 bg-gradient-to-b from-white/30 to-transparent" />
-                
-                {/* Logo Text */}
-                <div className="relative z-10 text-center flex flex-col items-center justify-center">
-                  <h3 className="text-4xl md:text-5xl font-bebas text-white tracking-widest drop-shadow-lg">
-                    {service.logoTitle}
-                  </h3>
-                  {service.logoSub && (
-                    <span className="font-['Brush_Script_MT',cursive] text-2xl text-[#f3d399] -mt-4 drop-shadow-md rotate-[-5deg]">
-                      {service.logoSub}
-                    </span>
-                  )}
+                {/* Top Graphic Area */}
+                <div 
+                  className={`w-full h-48 rounded-t-xl rounded-bl-xl rounded-br-[64px] bg-gradient-to-br ${service.gradient} relative overflow-hidden flex flex-col items-center justify-center mb-8`}
+                >
+                  {/* Glossy overlay */}
+                  <div className="absolute inset-0 bg-white/20 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute top-0 inset-x-0 h-1/2 bg-gradient-to-b from-white/30 to-transparent" />
+                  
+                  {/* Logo Text */}
+                  <div className="relative z-10 text-center flex flex-col items-center justify-center">
+                    <h3 className="text-4xl md:text-5xl font-bebas text-white tracking-widest drop-shadow-lg">
+                      {service.logoTitle}
+                    </h3>
+                    {service.logoSub && (
+                      <span className="font-['Brush_Script_MT',cursive] text-2xl text-[#f3d399] -mt-4 drop-shadow-md rotate-[-5deg]">
+                        {service.logoSub}
+                      </span>
+                    )}
+                  </div>
                 </div>
-              </div>
 
-              {/* Bottom Content Area */}
-              <div className="flex flex-col flex-1 px-2 pb-2">
-                <h4 className="text-2xl font-bold text-white mb-4 leading-tight whitespace-pre-line font-space tracking-tight">
-                  {service.title}
-                </h4>
-                <p className="text-gray-400 text-xs leading-relaxed font-light mb-8 flex-1">
-                  {service.description}
-                </p>
-                
-                {/* Learn More Button */}
-                <div className="flex justify-end mt-auto">
-                  <button className="flex items-center gap-2 text-xs font-space font-medium text-gray-400 hover:text-[#ff8a50] transition-colors py-2 px-4 rounded-full bg-white/5 hover:bg-white/10">
-                    Learn More
-                    <ArrowUpRight className="w-3 h-3" />
-                  </button>
+                {/* Bottom Content Area */}
+                <div className="flex flex-col flex-1 px-2 pb-2">
+                  <h4 className="text-2xl font-bold text-white mb-4 leading-tight whitespace-pre-line font-space tracking-tight group-hover:text-[#ff8a50] transition-colors">
+                    {service.title}
+                  </h4>
+                  <p className="text-gray-400 text-xs leading-relaxed font-light mb-8 flex-1">
+                    {service.description}
+                  </p>
+                  
+                  {/* Learn More Button */}
+                  <div className="flex justify-end mt-auto">
+                    <div className="flex items-center gap-2 text-xs font-space font-medium text-gray-300 group-hover:text-white transition-colors py-2 px-4 rounded-full bg-white/5 group-hover:bg-[#ff8a50] group-hover:text-white">
+                      <span>Learn More</span>
+                      <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    </div>
+                  </div>
                 </div>
-              </div>
-              
+              </Link>
             </motion.div>
           ))}
         </div>
